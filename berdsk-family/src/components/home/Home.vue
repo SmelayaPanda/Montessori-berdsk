@@ -1,6 +1,6 @@
 <template>
   <div>
-    <home-slide-show class="hidden-xs-only"></home-slide-show>
+    <app-home-slide-show class="hidden-xs-only"></app-home-slide-show>
     <div class="montessori_space_main_text"></div>
     <div class="signup_main_btn">
       <p class="signup_main_text">Записаться</p>
@@ -8,19 +8,19 @@
     <div class="choose_service_btn">
       <p class="signup_main_text">Выбрать занятие</p>
     </div>
-    <parallax></parallax>
+    <app-parallax></app-parallax>
   </div>
 </template>
 
 <script>
-  import HomeSlideShow from './HomeSlideShow'
-  import Parallax from './Parallax'
+  import AppHomeSlideShow from './HomeSlideShow'
+  import AppParallax from './Parallax'
 
   export default {
     name: 'home',
     components: {
-      Parallax,
-      HomeSlideShow
+      AppParallax,
+      AppHomeSlideShow
     }
   }
 </script>
