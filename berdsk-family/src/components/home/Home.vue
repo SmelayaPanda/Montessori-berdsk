@@ -8,15 +8,18 @@
     <div class="choose_service_btn">
       <p class="signup_main_text">Выбрать занятие</p>
     </div>
+    <parallax></parallax>
   </div>
 </template>
 
 <script>
   import HomeSlideShow from './HomeSlideShow'
+  import Parallax from './Parallax'
 
   export default {
     name: 'home',
     components: {
+      Parallax,
       HomeSlideShow
     }
   }
