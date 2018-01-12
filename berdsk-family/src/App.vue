@@ -44,5 +44,9 @@
     text-shadow: 3px 3px 8px rgba(255, 255, 255, 1);
   }
 
+  .carousel__controls__item {
+    width: 14px !important;
+    height: 14px !important;
+  }
 
 </style>

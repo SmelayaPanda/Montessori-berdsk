@@ -40,10 +40,6 @@
 
 <style scoped>
 
-  .toolbar__content {
-    height: 25px !important;
-  }
-
   .toolbar__background {
     background-image: url(../../static/img/toolbar.png);
     width: 2333px;
