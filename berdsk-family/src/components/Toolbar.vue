@@ -1,33 +1,21 @@
 <template>
   <div>
+    <v-tabs centered style="z-index: 10000" class="toolbar__background v-tab-text-capitalization">
+      <div class="app-logo"></div>
 
-  <div class="toolbar__background">
-    <div class="app-logo"></div>
-  </div>
+      <v-tabs-bar dark>
+        <v-tabs-slider color="white"></v-tabs-slider>
+        <v-tabs-item
+          class="tab__text"
+          v-for="i in items"
+          :key="i"
+          :href="'#tab-' + i"
+        >
+          {{ i }}
+        </v-tabs-item>
+      </v-tabs-bar>
+    </v-tabs>
 
-
-  <!--<v-container class="toolbar__background">-->
-    <!--<v-flex></v-flex>-->
-
-    <!--<v-layout row wrap class="mb-2">-->
-      <!--<v-flex xs12 sm10 md8 offset-sm1 offset-md2>-->
-        <!--<v-btn-->
-          <!--style="color: white"-->
-          <!--class="hidden-xs-only"-->
-          <!--flat-->
-          <!--v-for="i in menuItems"-->
-          <!--:key="i.title"-->
-        <!--&gt;-->
-          <!--{{ i.title }}-->
-        <!--</v-btn>-->
-        <!--<v-btn-->
-          <!--class="hidden-sm-and-up"-->
-        <!--&gt;-->
-          <!--<v-icon>dialpad</v-icon>-->
-        <!--</v-btn>-->
-      <!--</v-flex>-->
-    <!--</v-layout>-->
-  <!--</v-container>-->
   </div>
 
 </template>
@@ -43,13 +31,15 @@
             {title: 'Услуги', link: '/'},
             {title: 'Новости', link: '/'},
             {title: 'Контакты', link: '/'}
-          ]
+          ],
+          items: ['Главная', 'О нас', 'Услуги', 'Новости', 'Контакты']
         }
       }
   }
 </script>
 
 <style scoped>
+
   .toolbar__content {
     height: 25px !important;
   }
@@ -78,4 +68,17 @@
     margin-top: 10px;
     z-index: 1005 !important;
   }
+
+  .app-logo:hover {
+    cursor: pointer;
+  }
+
+  .tab__text {
+    font-size: 14px;
+    font-weight: normal;
+    color: white;
+    text-transform: capitalize !important;
+  }
+
+
 </style>

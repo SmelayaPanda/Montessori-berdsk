@@ -1,11 +1,6 @@
 <template>
   <div>
-    <app-background-slide-show></app-background-slide-show>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
+    <app-background-slide-show class="hidden-xs-only"></app-background-slide-show>
   </div>
 </template>
 
