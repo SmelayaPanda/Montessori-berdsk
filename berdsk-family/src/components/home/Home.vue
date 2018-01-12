@@ -8,6 +8,8 @@
     <div class="choose_service_btn">
       <p class="signup_main_text">Выбрать занятие</p>
     </div>
+
+    <img id="about_us" src="../../../static/img/home/about_us.jpg" alt="">
     <app-parallax></app-parallax>
   </div>
 </template>
@@ -90,5 +92,7 @@
     z-index: 19;
   }
 
-
+  #about_us {
+    width: 100vw;
+  }
 </style>

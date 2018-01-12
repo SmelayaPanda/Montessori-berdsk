@@ -14,12 +14,6 @@
         reverseTransition="fade"
       ></v-carousel-item>
     </v-carousel>
-
-    <v-container>
-      <v-layout>
-        <v-flex>Hello</v-flex>
-      </v-layout>
-    </v-container>
   </div>
 
 </template>
