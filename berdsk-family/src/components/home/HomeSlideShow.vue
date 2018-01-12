@@ -30,10 +30,10 @@
     data: function () {
       return {
         items: [
-          {src: '../../static/main_1.jpeg'},
-          {src: '../../static/main_2.jpeg'},
-          {src: '../../static/main_3.jpeg'},
-          {src: '../../static/main_4.jpeg'}
+          {src: '../../static/img/home/1.jpg'},
+          {src: '../../static/img/home/2.jpg'},
+          {src: '../../static/img/home/3.jpg'},
+          {src: '../../static/img/home/4.jpg'}
         ]
       }
     },

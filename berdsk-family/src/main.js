@@ -4,14 +4,9 @@ import Vue from 'vue'
 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
-import BackgroundSlideShow from './components/home/BackgroundSlideShow'
-import Toolbar from './components/Toolbar'
 
 import App from './App'
 import router from './router'
-
-Vue.component('app-background-slide-show', BackgroundSlideShow)
-Vue.component('app-toolbar', Toolbar)
 
 Vue.use(Vuetify, {
   theme: {

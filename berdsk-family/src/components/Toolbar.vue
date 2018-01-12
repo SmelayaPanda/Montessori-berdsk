@@ -1,17 +1,17 @@
 <template>
   <div>
-    <v-tabs centered style="z-index: 10000" class="toolbar__background v-tab-text-capitalization">
+    <v-tabs centered style="z-index: 10000" class="toolbar__background">
       <div class="app-logo"></div>
 
       <v-tabs-bar dark>
         <v-tabs-slider color="white"></v-tabs-slider>
         <v-tabs-item
           class="tab__text"
-          v-for="i in items"
-          :key="i"
-          :href="'#tab-' + i"
+          v-for="i in menuItems"
+          :key="i.title"
+          :href="'#tab-' + i.title"
         >
-          {{ i }}
+          {{ i.title }}
         </v-tabs-item>
       </v-tabs-bar>
     </v-tabs>
@@ -27,12 +27,12 @@
       function () {
         return {
           menuItems: [
+            {title: 'Главная', link: '/'},
             {title: 'О нас', link: '/'},
             {title: 'Услуги', link: '/'},
             {title: 'Новости', link: '/'},
             {title: 'Контакты', link: '/'}
-          ],
-          items: ['Главная', 'О нас', 'Услуги', 'Новости', 'Контакты']
+          ]
         }
       }
   }
@@ -45,7 +45,7 @@
   }
 
   .toolbar__background {
-    background-image: url(../../static/toolbar.png);
+    background-image: url(../../static/img/toolbar.png);
     width: 2333px;
     height: 79px;
     position: absolute;
@@ -57,7 +57,7 @@
   }
 
   .app-logo {
-    background-image: url(../../static/logo.png);
+    background-image: url(../../static/img/home/logo.png);
     width: 258px;
     height: 49px;
     position: absolute;
