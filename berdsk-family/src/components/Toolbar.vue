@@ -1,21 +1,35 @@
 <template>
-  <v-container>
-    <v-layout row wrap class="mb-2 toolbar__background">
-      <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
-        <v-btn
-          class="hidden-xs-only"
-          flat
-          v-for="i in menuItems"
-          :key="i.title"
-        >
-          {{ i.title }}
-        </v-btn>
-        <v-btn
-          class="hidden-sm-and-up">people
-        </v-btn>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <div>
+
+  <div class="toolbar__background">
+    <div class="app-logo"></div>
+  </div>
+
+
+  <!--<v-container class="toolbar__background">-->
+    <!--<v-flex></v-flex>-->
+
+    <!--<v-layout row wrap class="mb-2">-->
+      <!--<v-flex xs12 sm10 md8 offset-sm1 offset-md2>-->
+        <!--<v-btn-->
+          <!--style="color: white"-->
+          <!--class="hidden-xs-only"-->
+          <!--flat-->
+          <!--v-for="i in menuItems"-->
+          <!--:key="i.title"-->
+        <!--&gt;-->
+          <!--{{ i.title }}-->
+        <!--</v-btn>-->
+        <!--<v-btn-->
+          <!--class="hidden-sm-and-up"-->
+        <!--&gt;-->
+          <!--<v-icon>dialpad</v-icon>-->
+        <!--</v-btn>-->
+      <!--</v-flex>-->
+    <!--</v-layout>-->
+  <!--</v-container>-->
+  </div>
+
 </template>
 
 <script>
@@ -25,7 +39,7 @@
       function () {
         return {
           menuItems: [
-            {title: 'Запись', link: '/'},
+            {title: 'О нас', link: '/'},
             {title: 'Услуги', link: '/'},
             {title: 'Новости', link: '/'},
             {title: 'Контакты', link: '/'}
@@ -42,14 +56,26 @@
 
   .toolbar__background {
     background-image: url(../../static/toolbar.png);
-    background-size: 100% 100%;
-    display: block;
+    width: 2333px;
+    height: 79px;
     position: absolute;
-    width: 1600px;
-    /*1920 × 79*/
-    height: 54px;
+    background-size: 78%;
     top: 0;
-    left: 0;
-    z-index: 1000;
+    left: 50%;
+    margin-left: -980px;
+    z-index: 1003 !important;
+  }
+
+  .app-logo {
+    background-image: url(../../static/logo.png);
+    width: 258px;
+    height: 49px;
+    position: absolute;
+    background-size: 78%;
+    top: 0;
+    left: 50%;
+    margin-left: -650px;
+    margin-top: 10px;
+    z-index: 1005 !important;
   }
 </style>

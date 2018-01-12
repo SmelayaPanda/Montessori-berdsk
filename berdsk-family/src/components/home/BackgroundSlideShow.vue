@@ -1,6 +1,6 @@
 <template>
   <v-carousel id="carousel-view"
-              style="height: 96vh;"
+              style="height: 100vh;"
               hide-controls
               interval="5000"
               dark
