@@ -1,6 +1,5 @@
 <template>
   <v-container>
-
     <!--Loading circular-->
     <v-layout row wrap v-if="loading">
       <v-flex xs12 class="text-xs-center">
@@ -15,7 +14,7 @@
     </v-layout>
 
     <!--Meetup-->
-    <v-layout row wrap v-else="!loading">
+    <v-layout row wrap v-else="!loading" class="mt-5">
       <v-flex xs12>
         <v-card>
           <v-card-title>

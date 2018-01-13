@@ -46,7 +46,6 @@
     computed: {
       isAdminPanel:
         function () {
-          console.log(this.$router)
           return this.$router.currentRoute.path === '/admin'
         }
     }

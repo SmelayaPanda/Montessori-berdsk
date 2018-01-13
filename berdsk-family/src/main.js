@@ -25,8 +25,8 @@ Vue.component('app-meetup-register-dialog', RegistrationDialog)
 
 Vue.use(Vuetify, {
   theme: {
-    primary: '#34B334',
-    secondary: '#707b82',
+    primary: '#bced96',
+    secondary: '#faaf94',
     accept: '#19be6b',
     accent: '#8c9eff',
     error: '#b71c1c'

@@ -185,6 +185,7 @@ export default {
       ({commit}) => {
         firebase.auth().signOut()
         commit('setUser', null)
+        window.location.reload()
       }
   },
 // Getters  ---------------------------------------------------

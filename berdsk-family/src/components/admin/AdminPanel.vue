@@ -109,7 +109,6 @@
           return this.$store.getters.user !== null && this.$store.getters.user !== undefined
         },
       isAdmin: function () {
-        console.log('Is Administrator: ' + this.$store.getters.isAdmin)
         return this.$store.getters.isAdmin
       },
       menuItems:
