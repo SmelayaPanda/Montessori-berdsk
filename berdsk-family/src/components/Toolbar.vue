@@ -35,7 +35,7 @@
             {title: 'Главная', link: '/'},
             {title: 'О нас', link: '/about'},
             {title: 'Услуги', link: '/services'},
-            {title: 'Новости', link: '/news'},
+            {title: 'Новости', link: '/meetups'},
             {title: 'Контакты', link: '/contacts'}
           ]
         }

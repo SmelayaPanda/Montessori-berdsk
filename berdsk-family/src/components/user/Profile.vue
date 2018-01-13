@@ -1,10 +1,12 @@
 <template>
-  <h1>News</h1>
+  <div>
+    <p>The Profile Page</p>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'news'
+    name: 'profile'
   }
 </script>
 
