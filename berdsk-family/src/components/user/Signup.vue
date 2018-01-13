@@ -141,6 +141,7 @@
             this.$store.dispatch('clearError')
           }
           this.$store.dispatch('signUserUp', {email: this.email, password: this.password})
+          this.$router.push('/admin')
           // signUserUp - action who invokes mutation setUser
         },
       onDismissed:

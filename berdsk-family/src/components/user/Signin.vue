@@ -113,6 +113,7 @@
         function () {
           // Vuex
           this.$store.dispatch('signUserIn', {email: this.email, password: this.password})
+          this.$router.push('/admin')
           // signUserIn - action who invokes mutation setUser
         },
       onDismissed:

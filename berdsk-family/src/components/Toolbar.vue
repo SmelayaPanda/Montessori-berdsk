@@ -1,26 +1,28 @@
 <template>
   <div>
-    <!--Mock block-->
-    <div style="height: 40px"></div>
+    <div v-show="!isAdminPanel">
+      <!--Mock block-->
+      <div style="height: 40px"></div>
+      <!--Toolbar-->
+      <v-tabs centered style="z-index: 10000" class="toolbar__background">
 
-    <!--Toolbar-->
-    <v-tabs centered style="z-index: 10000" class="toolbar__background">
+        <router-link to="/">
+          <div class="app-logo"></div>
+        </router-link>
 
-      <div class="app-logo" v-on:click="goHome"></div>
-
-      <v-tabs-bar dark>
-        <v-tabs-slider color="white"></v-tabs-slider>
-        <v-tabs-item
-          class="tab__text"
-          v-for="i in menuItems"
-          :key="i.title"
-          :to="i.link"
-        >
-          {{ i.title }}
-        </v-tabs-item>
-      </v-tabs-bar>
-    </v-tabs>
-
+        <v-tabs-bar dark>
+          <v-tabs-slider color="white"></v-tabs-slider>
+          <v-tabs-item
+            class="tab__text"
+            v-for="i in menuItems"
+            :key="i.title"
+            :to="i.link"
+          >
+            {{ i.title }}
+          </v-tabs-item>
+        </v-tabs-bar>
+      </v-tabs>
+    </div>
   </div>
 
 </template>
@@ -40,10 +42,12 @@
           ]
         }
       },
-    methods: {
-      goHome:
+    methods: {},
+    computed: {
+      isAdminPanel:
         function () {
-          this.$router.push('/')
+          console.log(this.$router)
+          return this.$router.currentRoute.path === '/admin'
         }
     }
   }

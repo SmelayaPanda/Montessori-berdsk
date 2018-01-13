@@ -3,7 +3,8 @@ import * as firebase from 'firebase'
 export default {
   // State ---------------------------------------------------
   state: {
-    user: null // new user creates only with firebase auth()
+    user: null, // new user creates only with firebase auth()
+    isAdmin: false
   },
   // Mutations ---------------------------------------------------
   mutations: { // to change state
@@ -25,6 +26,10 @@ export default {
     setUser:
       (state, payload) => {
         state.user = payload
+      },
+    setAdmin:
+      (state, payload) => {
+        state.isAdmin = payload
       }
   },
   // Actions ---------------------------------------------------
@@ -118,6 +123,17 @@ export default {
               console.log(error)
             }
           )
+        // TODO: admin list to fetch from firebase
+        let user = firebase.auth().currentUser
+        if (user != null) {
+          user.providerData.forEach(function (profile) {
+            if (profile.email === 'smelayapandagm@gmail.com') {
+              commit('setAdmin', true)
+            } else {
+              commit('setAdmin', false)
+            }
+          })
+        }
       },
     autoSignIn:
       ({commit}, payload) => {
@@ -126,6 +142,17 @@ export default {
           registeredMeetups: [],
           fbKeys: {}
         })
+        // TODO: admin list to fetch from firebase
+        let user = firebase.auth().currentUser
+        if (user != null) {
+          user.providerData.forEach(function (profile) {
+            if (profile.email === 'smelayapandagm@gmail.com') {
+              commit('setAdmin', true)
+            } else {
+              commit('setAdmin', false)
+            }
+          })
+        }
       },
     fetchUserData:
       ({commit, getters}) => {
@@ -165,6 +192,10 @@ export default {
     user:
       state => {
         return state.user
+      },
+    isAdmin:
+      state => {
+        return state.isAdmin
       }
   }
 }
