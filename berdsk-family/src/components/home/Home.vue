@@ -5,8 +5,8 @@
     <div class="signup_main_btn">
       <p class="signup_main_text">Записаться</p>
     </div>
-    <div class="choose_service_btn">
-      <p class="signup_main_text">Выбрать занятие</p>
+    <div class="choose_service_btn" v-on:click="goServices">
+        <p class="signup_main_text">Выбрать занятие</p>
     </div>
 
     <img id="about_us" src="../../../static/img/home/about_us.jpg" alt="">
@@ -23,6 +23,12 @@
     components: {
       AppParallax,
       AppHomeSlideShow
+    },
+    methods: {
+      goServices:
+        function () {
+          this.$router.push('/services')
+        }
     }
   }
 </script>

@@ -1,7 +1,6 @@
 <template>
   <div>
     <v-carousel id="carousel-view"
-                style="height: 100vh; width: 100% !important;"
                 hide-controls
                 interval="5000"
                 dark
@@ -37,6 +36,8 @@
 
 <style lang="stylus">
   #carousel-view
+    height: 96vh !important
+    width: 100% !important
     .fade
       &-enter-active, &-leave-active, &-leave-to
         transition: 1.75s ease-in-out

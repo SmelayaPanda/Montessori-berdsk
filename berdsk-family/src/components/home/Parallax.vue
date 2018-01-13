@@ -1,25 +1,28 @@
 <template>
-  <div class="parallax">
-    <div id="group" class="parallax__group">
-      <div class="parallax__layer parallax__layer--base">
-        <div class="title">
+  <div>
+    <h1 id="some_text">Some Text</h1>
 
-          <img src="../../../static/img/parallax/parallax_3.png" alt="Base Layer">
+    <div class="parallax">
+      <div id="group" class="parallax__group">
+        <div class="parallax__layer parallax__layer--base">
+          <div class="title">
+            <img src="../../../static/img/parallax/parallax_3.png" alt="Base Layer">
+          </div>
         </div>
-      </div>
-      <div class="parallax__layer parallax__layer--back">
-        <div class="title">
-
-          <img src="../../../static/img/parallax/parallax_2.png" alt="Background Layer">
+        <div class="parallax__layer parallax__layer--back">
+          <div class="title">
+            <img src="../../../static/img/parallax/parallax_2.png" alt="Background Layer">
+          </div>
         </div>
-      </div>
-      <div class="parallax__layer parallax__layer--deep">
-        <div class="title">
-          <img src="../../../static/img/parallax/parallax_1.png" alt="Deep Background Layer">
+        <div class="parallax__layer parallax__layer--deep">
+          <div class="title">
+            <img src="../../../static/img/parallax/parallax_1.png" alt="Deep Background Layer">
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -31,7 +34,7 @@
 <style scoped>
 
   .parallax {
-    height: 500px;
+    height: 700px;
     /* fallback for older browsers */
     overflow-x: hidden;
     overflow-y: auto;
@@ -41,7 +44,7 @@
 
   .parallax__group {
     position: relative;
-    height: 500px;
+    height: 700px;
     /* fallback for older browsers */
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
@@ -83,4 +86,10 @@
     /* slide under group 3 and 5 */
   }
 
+  #some_text {
+    position: relative;
+    top: 150px;
+    left: 45%;
+    z-index: 100;
+  }
 </style>

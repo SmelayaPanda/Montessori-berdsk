@@ -1,7 +1,12 @@
 <template>
   <div>
+    <!--Mock block-->
+    <div style="height: 40px"></div>
+
+    <!--Toolbar-->
     <v-tabs centered style="z-index: 10000" class="toolbar__background">
-      <div class="app-logo"></div>
+
+      <div class="app-logo" v-on:click="goHome"></div>
 
       <v-tabs-bar dark>
         <v-tabs-slider color="white"></v-tabs-slider>
@@ -9,7 +14,7 @@
           class="tab__text"
           v-for="i in menuItems"
           :key="i.title"
-          :href="'#tab-' + i.title"
+          :to="i.link"
         >
           {{ i.title }}
         </v-tabs-item>
@@ -28,13 +33,19 @@
         return {
           menuItems: [
             {title: 'Главная', link: '/'},
-            {title: 'О нас', link: '/'},
-            {title: 'Услуги', link: '/'},
-            {title: 'Новости', link: '/'},
-            {title: 'Контакты', link: '/'}
+            {title: 'О нас', link: '/about'},
+            {title: 'Услуги', link: '/services'},
+            {title: 'Новости', link: '/news'},
+            {title: 'Контакты', link: '/contacts'}
           ]
         }
-      }
+      },
+    methods: {
+      goHome:
+        function () {
+          this.$router.push('/')
+        }
+    }
   }
 </script>
 
@@ -75,6 +86,5 @@
     color: white;
     text-transform: capitalize !important;
   }
-
 
 </style>
