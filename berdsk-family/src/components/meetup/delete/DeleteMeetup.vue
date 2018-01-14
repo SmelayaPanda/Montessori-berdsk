@@ -1,7 +1,7 @@
 <template>
-  <v-layout row justify-center>
+  <v-layout row>
     <v-dialog v-model="dialog" persistent max-width="290">
-      <v-btn fab color="primary--text" slot="activator">
+      <v-btn fab slot="activator">
         <v-icon>delete_forever</v-icon>
       </v-btn>
       <v-card>
