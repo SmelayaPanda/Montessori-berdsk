@@ -77,14 +77,18 @@
 
 
     <!--Admin panel content-->
+    <v-layout row wrap>
+      <v-flex class="ml-5">
+        <p>
+          Перейти на основной сайт:
+          <v-btn @click="goHome">Главная</v-btn>
+        </p>
+      </v-flex>
+    </v-layout>
+
     <v-container v-if="isAdmin">
       Hello, Administrator!
       <p>Для редактирования сайта у Вас появился дополнительный функционал (видный только Вам).</p>
-      <v-layout row wrap>
-        <v-flex><p>Перейти на основной сайт:</p>
-          <v-btn @click="goHome">Главная</v-btn>
-        </v-flex>
-      </v-layout>
     </v-container>
     <v-container v-else>
       <p>Hello, for administrator rights, please contact:</p>
@@ -129,10 +133,10 @@
           this.$store.dispatch('logout')
         },
       goHome:
-      function () {
-        this.$router.push('/')
-        window.location.reload()
-      }
+        function () {
+          this.$router.push('/')
+          window.location.reload()
+        }
     }
   }
 </script>

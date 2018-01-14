@@ -1,4 +1,5 @@
 import * as firebase from 'firebase'
+import router from '../../router'
 
 export default {
   // State ---------------------------------------------------
@@ -29,6 +30,18 @@ export default {
         if (payload.date) {
           meetup.date = payload.date
         }
+        if (payload.imageUrl) {
+          meetup.imageUrl = payload.imageUrl
+        }
+      },
+    deleteMeetup:
+      (state, payload) => {
+        let meetups = state.loadedMeetups
+        let removeMeetup = meetups
+          .map(function (meetup) {
+            return meetup.id
+          }).indexOf(payload)
+        meetups.splice(removeMeetup, 1)
       }
   },
   // Actions ---------------------------------------------------
@@ -124,6 +137,9 @@ export default {
         if (payload.date) {
           updateObj.date = payload.date
         }
+        if (payload.imageUrl) {
+          updateObj.imageUrl = payload.imageUrl
+        }
         firebase.database().ref('meetups').child(payload.id).update(updateObj)
           .then(() => {
             commit('setLoading', false)
@@ -147,13 +163,34 @@ export default {
               let imageUrl = fileData.metadata.downloadURLs[0]
               console.log('New Image uploaded to storage.')
               firebase.database().ref('meetups').child(payload.id).update({imageUrl: imageUrl})
-              window.location.reload()
+              commit('updateMeetupData', {
+                id: payload.id,
+                imageUrl: imageUrl
+              })
               commit('setLoading', false)
             })
           .catch((error) => {
             console.log(error)
             commit('setLoading', false)
           })
+      },
+    deleteMeetup:
+      ({commit}, payload) => {
+        commit('setLoading', true)
+        firebase.database().ref('meetups').child(payload)
+          .remove()
+          .then(
+            () => {
+              console.log('News successfully deleted!')
+              router.push('/meetups')
+              commit('deleteMeetup', payload)
+              commit('setLoading', false)
+            })
+          .catch(
+            error => {
+              console.log(error)
+              commit('setLoading', false)
+            })
       }
   },
 // Getters  ---------------------------------------------------

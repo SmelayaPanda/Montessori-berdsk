@@ -30,8 +30,8 @@
         <v-layout row wrap>
           <v-flex xs12>
             <v-card-actions>
-              <v-btn flat class="secondary--text" v-on:click="editDialog = false">Close</v-btn>
-              <v-btn flat class="primary--text" v-on:click="onSaveChanges">Save</v-btn>
+              <v-btn flat class="secondary--text" v-on:click="editDialog = false">Закрыть</v-btn>
+              <v-btn flat class="primary--text" v-on:click="onSaveChanges">Сохранить</v-btn>
             </v-card-actions>
           </v-flex>
         </v-layout>

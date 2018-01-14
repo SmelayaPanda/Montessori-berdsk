@@ -14,7 +14,7 @@
             <v-flex xs12 sm6 offset-sm3>
               <v-text-field
                 name="title"
-                label="Title"
+                label="Заголовок"
                 id="title"
                 v-model="title"
                 required
@@ -28,7 +28,7 @@
             <v-flex xs12 sm6 offset-sm3>
               <v-text-field
                 name="location"
-                label="Location"
+                label="Место"
                 id="location"
                 v-model="location"
                 required
@@ -50,7 +50,9 @@
                               required
                             >
                             </v-text-field>-->
-              <v-btn raised class="primary" v-on:click="onPickFile">Upload Image</v-btn>
+              <v-btn raised class="primary" v-on:click="onPickFile">
+                Загрузить изображение
+              </v-btn>
               <input
                 type="file"
                 style="display: none;"
@@ -73,30 +75,13 @@
             <v-flex xs12 sm6 offset-sm3>
               <v-text-field
                 name="description"
-                label="Description"
+                label="Описание"
                 id="description"
                 v-model="description"
                 required
                 multi-line
               >
               </v-text-field>
-            </v-flex>
-          </v-layout>
-
-          <!--Date/Time picker-->
-          <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
-              <h2>Choose Data & Time</h2>
-            </v-flex>
-          </v-layout>
-          <v-layout row class="mb-2">
-            <v-flex xs12 sm6 offset-sm3>
-              <v-date-picker v-model="date"></v-date-picker>
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
-              <v-time-picker format="24hr" v-model="time"></v-time-picker>
             </v-flex>
           </v-layout>
 
@@ -108,7 +93,7 @@
                 :disabled="!formIsValid"
                 type="submit"
               >
-                Create Meetup
+                Создать новость
               </v-btn>
             </v-flex>
           </v-layout>
@@ -129,9 +114,7 @@
           imageUrl: '',
           image: null, // it will be raw image file uploaded by user,
           description: '',
-          creationDate: new Date(),
-          date: new Date().toISOString().slice(0, 10), // default values
-          time: new Date().toString().slice(16, 21)
+          date: new Date() // default values
         }
       },
     computed: {
@@ -156,13 +139,6 @@
             case 'xl':
               return '400px'
           }
-        },
-      submittableDateTime:
-        function () {
-          const date = new Date(this.date)
-          date.setHours(this.time.match(/^(\d+)/)[1])
-          date.setMinutes(this.time.match(/:(\d+)/)[1])
-          return date
         }
     },
     methods: {
@@ -179,7 +155,7 @@
             location: this.location,
             image: this.image,
             description: this.description,
-            date: this.submittableDateTime
+            date: this.date
           }
           this.$store.dispatch('createMeetup', meetUpData)
           this.$router.push('/meetups')

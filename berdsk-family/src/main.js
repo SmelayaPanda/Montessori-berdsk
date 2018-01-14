@@ -4,20 +4,25 @@ import Vue from 'vue'
 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
-
 import App from './App'
 import router from './router'
 import {store} from './store'
+import {sync} from 'vuex-router-sync'
 import DateFilter from './filters/data'
 import * as firebase from 'firebase'
 import AlertComp from './components/shared/Alert'
 import EditMeetupDetailsDialog from './components/meetup/edit/EditMeetupDetailsDialog'
 import EditMeetupImageDialog from './components/meetup/edit/EditMeetupImageDialog'
+import {VueEditor} from 'vue2-editor'
 // register global filter
 Vue.filter('date', DateFilter)
 Vue.component('app-alert', AlertComp)
 Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)
 Vue.component('app-edit-meetup-image-dialog', EditMeetupImageDialog)
+Vue.component('vue-html-editor', VueEditor)
+
+const unsync = sync(store, router) // Sync vue-router's current $route as part of vuex store's state.
+unsync()
 
 Vue.use(Vuetify, {
   theme: {

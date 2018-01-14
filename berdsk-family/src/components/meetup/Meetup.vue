@@ -26,6 +26,7 @@
               <!--:meetup - props from EditMeetupDetailsDialog.vue-->
               <app-edit-meetup-details-dialog :meetup="meetup"></app-edit-meetup-details-dialog>
               <app-edit-meetup-image-dialog :meetup="meetup"></app-edit-meetup-image-dialog>
+              <app-delete-meetup :meetup="meetup"></app-delete-meetup>
             </template>
           </v-card-title>
 
@@ -45,7 +46,11 @@
                   {{ meetup.date | date }}
                 </p>
               </b>
-              <p>{{ meetup.description }}</p>
+              <v-container row wrap>
+                <v-flex xs12 sm6 class="ml-2">
+                  <p v-html="meetup.description"></p>
+                </v-flex>
+              </v-container>
             </div>
           </v-card-text>
 
@@ -57,9 +62,14 @@
 </template>
 
 <script>
+  import AppDeleteMeetup from './delete/DeleteMeetup'
+
   export default {
     name: 'meetup',
     props: ['id'], // dynamic parameters from router/index.js meetups/:id
+    components: {
+      AppDeleteMeetup
+    },
     computed: {
       meetup:
         function () {
