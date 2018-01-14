@@ -32,7 +32,6 @@ export default {
         }
         if (payload.imageUrl) {
           meetup.imageUrl = payload.imageUrl
-          meetup.imageExt = payload.imageExt
         }
       },
     deleteMeetup:
@@ -62,7 +61,6 @@ export default {
                   title: obj[key].title,
                   location: obj[key].location,
                   imageUrl: obj[key].imageUrl,
-                  imageExt: obj[key].imageExt,
                   description: obj[key].description,
                   date: obj[key].date,
                   creatorId: obj[key].creatorId
@@ -90,7 +88,6 @@ export default {
         // ref('meetup' will create if not exists JSON with name 'meetup'
         // push - for writing new data
         let imageUrl
-        let imageExt
         let key
         firebase.database().ref('meetups').push(meetup)
         // chain of promises --> then, then, then, catch
@@ -105,25 +102,18 @@ export default {
             })
           .then(
             key => {
-              const filename = payload.image.name
-              imageExt = filename.slice(filename.lastIndexOf('.'))
-              return firebase.storage().ref('meetups/' + key + imageExt).put(payload.image)
+              return firebase.storage().ref('meetups/' + key).put(payload.image)
             })
           .then(
             fileData => {
               imageUrl = fileData.metadata.downloadURLs[0]
-              return firebase.database().ref('meetups').child(key)
-                .update({
-                  imageUrl: imageUrl,
-                  imageExt: imageExt
-                })
+              return firebase.database().ref('meetups').child(key).update({imageUrl: imageUrl})
             })
           .then(
             () => {
               commit('createMeetup', {
                 ...meetup,
                 imageUrl: imageUrl,
-                imageExt: imageExt,
                 id: key
               })
             })
@@ -147,7 +137,6 @@ export default {
         }
         if (payload.imageUrl) {
           updateObj.imageUrl = payload.imageUrl
-          updateObj.imageExt = payload.imageExt
         }
         firebase.database().ref('meetups').child(payload.id).update(updateObj)
           .then(() => {
@@ -163,24 +152,13 @@ export default {
     updateMeetupImage:
       ({commit}, payload) => {
         commit('setLoading', true)
-        const filename = payload.image.name
-        const imageExt = filename.slice(filename.lastIndexOf('.'))
-        // Putting new image with the same key will update image
-        firebase.storage().ref('meetups/' + payload.id + imageExt).put(payload.image)
+        firebase.storage().ref('meetups/' + payload.id).put(payload.image)
           .then(
             fileData => {
               let imageUrl = fileData.metadata.downloadURLs[0]
               console.log('New Image uploaded to storage.')
-              firebase.database().ref('meetups').child(payload.id)
-                .update({
-                  imageUrl: imageUrl,
-                  imageExt: imageExt
-                })
-              commit('updateMeetupData', {
-                id: payload.id,
-                imageUrl: imageUrl,
-                imageExt: imageExt
-              })
+              firebase.database().ref('meetups').child(payload.id).update({imageUrl: imageUrl})
+              commit('updateMeetupData', {id: payload.id, imageUrl: imageUrl})
               commit('setLoading', false)
             })
           .catch((error) => {
@@ -191,11 +169,17 @@ export default {
     deleteMeetup:
       ({commit}, payload) => {
         commit('setLoading', true)
+        // remove meetup image
+        firebase.storage().ref('meetups/' + payload)
+          .delete()
+          .then(() => console.log('Image was deleted!'))
+          .catch((error) => console.log(error))
+        // remove meetup description
         firebase.database().ref('meetups').child(payload)
           .remove()
           .then(
             () => {
-              console.log('News successfully deleted!')
+              console.log('News description successfully deleted!')
               router.push('/meetups')
               commit('deleteMeetup', payload)
               commit('setLoading', false)
