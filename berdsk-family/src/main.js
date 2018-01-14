@@ -9,6 +9,7 @@ import router from './router'
 import {store} from './store'
 import {sync} from 'vuex-router-sync'
 import DateFilter from './filters/data'
+import Snippet from './filters/snippet'
 import * as firebase from 'firebase'
 import AlertComp from './components/shared/Alert'
 import EditMeetupDetailsDialog from './components/meetup/edit/EditMeetupDetailsDialog'
@@ -16,6 +17,7 @@ import EditMeetupImageDialog from './components/meetup/edit/EditMeetupImageDialo
 import {VueEditor} from 'vue2-editor'
 // register global filter
 Vue.filter('date', DateFilter)
+Vue.filter('snippet', Snippet)
 Vue.component('app-alert', AlertComp)
 Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)
 Vue.component('app-edit-meetup-image-dialog', EditMeetupImageDialog)

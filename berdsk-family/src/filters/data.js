@@ -2,13 +2,13 @@
 export default (value) => {
   const date = new Date(value)
   let options = {
-    // year: 'numeric',
+    year: 'numeric',
     month: 'long',
     day: 'numeric',
-    weekday: 'long',
-    timezone: 'UTC',
-    hour: 'numeric',
-    minute: 'numeric'
+    // weekday: 'long',
+    timezone: 'UTC'
+    // hour: 'numeric',
+    // minute: 'numeric'
   }
   return date.toLocaleString('ru', options) // 'en-US'
 }

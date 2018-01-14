@@ -59,7 +59,6 @@ export default {
                 meetups.push({
                   id: key,
                   title: obj[key].title,
-                  location: obj[key].location,
                   imageUrl: obj[key].imageUrl,
                   description: obj[key].description,
                   date: obj[key].date,
@@ -79,7 +78,6 @@ export default {
       ({commit, getters}, payload) => {
         const meetup = {
           title: payload.title,
-          location: payload.location,
           description: payload.description,
           date: payload.date.toISOString(), // because date object cant be stored into firebase
           creatorId: getters.user.id
@@ -194,9 +192,11 @@ export default {
 // Getters  ---------------------------------------------------
   getters: {
     loadedMeetups:
-      state => state.loadedMeetups.sort((a, b) => {
-        return a.date > b.date
-      }),
+      state => {
+        return state.loadedMeetups.sort((a, b) => {
+          return new Date(b.date) - new Date(a.date)
+        })
+      },
     loadedMeetup:
       state => (meetupId) => {
         return state.loadedMeetups.find((meetup) => {

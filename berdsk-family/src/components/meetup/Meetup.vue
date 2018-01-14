@@ -40,9 +40,9 @@
           <v-card-text>
             <div>
               <b class="secondary--text">
-                <p>{{ meetup.location }}</p>
+                <p class="mb-1" style="font-size: 10px;">Добавлено</p>
                 <p>
-                  <v-icon>alarm_on</v-icon>
+                  <v-icon>access_time</v-icon>
                   {{ meetup.date | date }}
                 </p>
               </b>

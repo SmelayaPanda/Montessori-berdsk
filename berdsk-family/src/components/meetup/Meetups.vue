@@ -8,7 +8,7 @@
       <v-btn to="meetup/new">Создать новость</v-btn>
     </v-container>
 
-    <v-layout row wrap v-for="meetup in meetups" :key="meetup.id" class="mb-2">
+    <v-layout row wrap v-for="meetup in pageMeetups" :key="meetup.id" class="mb-2">
       <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
         <v-card class="primary">
           <v-container fluid>
@@ -26,12 +26,14 @@
 
               <v-flex xs7 sm8 md9>
                 <v-card-title primary-title>
-                  <div>
+                  <div class="secondary--text">
                     <!-- "--text" works for all colors
                   without "--text" will changed background color-->
-                    <h2 class="white--text">{{ meetup.title }}</h2>
+                    <h2 class="white--text">{{ meetup.title | snippet }}</h2>
                     <!-- | date means add filter registered as DateFilter -->
-                    <div>{{ meetup.date | date }}</div>
+                    <p class="mb-1" style="font-size: 10px;">
+                      Добавлено {{ meetup.date | date }}
+                    </p>
                   </div>
                 </v-card-title>
                 <v-card-actions>
@@ -46,16 +48,37 @@
         </v-card>
       </v-flex>
     </v-layout>
+
+    <!--Pagination-->
+    <template>
+      <div class="text-xs-center">
+        <v-pagination
+          total-visible="5"
+          :length="pageCount"
+          v-model="page"
+        ></v-pagination>
+      </div>
+    </template>
   </v-container>
+
 </template>
 
 <script>
   export default {
     name: 'meetups',
+    data: function () {
+      return {
+        page: 1
+      }
+    },
     computed: {
-      meetups:
+      pageMeetups:
         function () {
-          return this.$store.getters.loadedMeetups
+          return this.$store.getters.loadedMeetups.slice((this.page - 1) * 5, this.page * 5)
+        },
+      pageCount:
+        function () {
+          return 1 + parseInt(this.$store.getters.loadedMeetups.length) / 5
         }
     }
   }

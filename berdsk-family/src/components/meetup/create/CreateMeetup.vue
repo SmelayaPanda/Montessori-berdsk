@@ -2,7 +2,7 @@
   <v-container class="mt-0">
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
-        <h2 class="secondary--text">Create a new meetup</h2>
+        <h2 class="secondary--text">Создать новость</h2>
       </v-flex>
     </v-layout>
     <v-layout row>
@@ -23,53 +23,6 @@
             </v-flex>
           </v-layout>
 
-          <!--Location-->
-          <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
-              <v-text-field
-                name="location"
-                label="Место"
-                id="location"
-                v-model="location"
-                required
-              >
-              </v-text-field>
-            </v-flex>
-          </v-layout>
-
-          <!--Image-->
-          <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
-              <!--Just link variant-->
-              <!--
-                            <v-text-field
-                              name="imageUrl"
-                              label="Image URL"
-                              id="image-url"
-                              v-model="imageUrl"
-                              required
-                            >
-                            </v-text-field>-->
-              <v-btn raised class="primary" v-on:click="onPickFile">
-                Загрузить изображение
-              </v-btn>
-              <input
-                type="file"
-                style="display: none;"
-                ref="fileInput"
-                accept="image/*"
-                v-on:change="onFilePicked"
-              >
-            </v-flex>
-          </v-layout>
-
-          <!--Image preview-->
-          <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
-              <img :src="imageUrl" :height="imageHeight">
-            </v-flex>
-          </v-layout>
-
           <!--Description-->
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
@@ -82,6 +35,32 @@
                 multi-line
               >
               </v-text-field>
+            </v-flex>
+          </v-layout>
+
+
+          <!--Image-->
+          <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
+              <v-btn raised class="primary" v-on:click="onPickFile">
+                Изображение
+                <v-icon class="pl-2">image</v-icon>
+              </v-btn>
+              <input
+                type="file"
+                style="display: none;"
+                ref="fileInput"
+                accept="image/*"
+                v-on:change="onFilePicked"
+              >
+            </v-flex>
+          </v-layout>
+
+
+          <!--Image preview-->
+          <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
+              <img :src="imageUrl" :height="imageHeight">
             </v-flex>
           </v-layout>
 
@@ -110,7 +89,6 @@
       function () {
         return {
           title: '',
-          location: '',
           imageUrl: '',
           image: null, // it will be raw image file uploaded by user,
           description: '',
@@ -121,7 +99,6 @@
       formIsValid:
         function () {
           return this.title !== '' &&
-            this.location !== '' &&
             this.imageUrl !== '' &&
             this.description !== ''
         },
@@ -152,7 +129,6 @@
           }
           const meetUpData = {
             title: this.title,
-            location: this.location,
             image: this.image,
             description: this.description,
             date: this.date
