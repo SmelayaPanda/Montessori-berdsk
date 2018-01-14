@@ -74,7 +74,7 @@
     background-size: 78%;
     top: 0;
     left: 50%;
-    margin-left: -650px;
+    margin-left: -625px;
     margin-top: 10px;
     z-index: 1005 !important;
   }

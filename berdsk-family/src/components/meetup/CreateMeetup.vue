@@ -37,7 +37,7 @@
             </v-flex>
           </v-layout>
 
-          <!--Image Url-->
+          <!--Image-->
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <!--Just link variant-->

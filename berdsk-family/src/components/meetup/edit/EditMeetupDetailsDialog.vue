@@ -1,6 +1,6 @@
 <template>
   <!--persistent means on the top of the screen-->
-  <v-dialog width="350px" persistent v-model="editDialog">
+  <v-dialog width="1000px" persistent v-model="editDialog">
     <v-btn fab accent slot="activator">
       <v-icon>edit</v-icon>
     </v-btn>
@@ -33,9 +33,11 @@
                 label="Description"
                 id="description"
                 multi-line
+                rows="8"
                 v-model="editedDescription"
                 required></v-text-field>
             </v-card-text>
+
           </v-flex>
         </v-layout>
 

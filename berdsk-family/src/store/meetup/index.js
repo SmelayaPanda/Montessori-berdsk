@@ -134,6 +134,26 @@ export default {
               console.log(error)
               commit('setLoading', false)
             })
+      },
+    updateMeetupImage:
+      ({commit}, payload) => {
+        commit('setLoading', true)
+        const filename = payload.image.name
+        const ext = filename.slice(filename.lastIndexOf('.'))
+        // Putting new image with the same key will update image
+        firebase.storage().ref('meetups/' + payload.id + '.' + ext).put(payload.image)
+          .then(
+            fileData => {
+              let imageUrl = fileData.metadata.downloadURLs[0]
+              console.log('New Image uploaded to storage.')
+              firebase.database().ref('meetups').child(payload.id).update({imageUrl: imageUrl})
+              window.location.reload()
+              commit('setLoading', false)
+            })
+          .catch((error) => {
+            console.log(error)
+            commit('setLoading', false)
+          })
       }
   },
 // Getters  ---------------------------------------------------

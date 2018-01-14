@@ -25,6 +25,7 @@
               <v-spacer></v-spacer>
               <!--:meetup - props from EditMeetupDetailsDialog.vue-->
               <app-edit-meetup-details-dialog :meetup="meetup"></app-edit-meetup-details-dialog>
+              <app-edit-meetup-image-dialog :meetup="meetup"></app-edit-meetup-image-dialog>
             </template>
           </v-card-title>
 
@@ -35,7 +36,7 @@
           </v-card-media>
 
           <!--Full description-->
-          <v-card-text class="pb-0">
+          <v-card-text>
             <div>
               <b class="secondary--text">
                 <p>{{ meetup.location }}</p>
@@ -43,28 +44,11 @@
                   <v-icon>alarm_on</v-icon>
                   {{ meetup.date | date }}
                 </p>
-
-                <!--Edit Date Button-->
-                <template v-if="userIsCreator">
-                  <!--:meetup - props from EditMeetupDateDialog.vue-->
-                  <app-edit-meetup-date-dialog :meetup="meetup"></app-edit-meetup-date-dialog>
-                  <app-edit-meetup-time-dialog :meetup="meetup"></app-edit-meetup-time-dialog>
-                </template>
-
               </b>
               <p>{{ meetup.description }}</p>
             </div>
           </v-card-text>
 
-          <!--Register-->
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <app-meetup-register-dialog
-              :meetup-id="meetup.id"
-              v-if="userIsAuthenticated && !userIsCreator"
-            >
-            </app-meetup-register-dialog>
-          </v-card-actions>
 
         </v-card>
       </v-flex>

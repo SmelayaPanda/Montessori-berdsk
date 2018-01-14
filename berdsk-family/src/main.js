@@ -12,16 +12,12 @@ import DateFilter from './filters/data'
 import * as firebase from 'firebase'
 import AlertComp from './components/shared/Alert'
 import EditMeetupDetailsDialog from './components/meetup/edit/EditMeetupDetailsDialog'
-import EditMeetupDateDialog from './components/meetup/edit/EditMeetupDateDialog'
-import EditMeetupTimeDialog from './components/meetup/edit/EditMeetupTimeDialog'
-import RegistrationDialog from './components/meetup/registration/RegistrationDialog'
+import EditMeetupImageDialog from './components/meetup/edit/EditMeetupImageDialog'
 // register global filter
 Vue.filter('date', DateFilter)
 Vue.component('app-alert', AlertComp)
 Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)
-Vue.component('app-edit-meetup-date-dialog', EditMeetupDateDialog)
-Vue.component('app-edit-meetup-time-dialog', EditMeetupTimeDialog)
-Vue.component('app-meetup-register-dialog', RegistrationDialog)
+Vue.component('app-edit-meetup-image-dialog', EditMeetupImageDialog)
 
 Vue.use(Vuetify, {
   theme: {
