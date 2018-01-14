@@ -1,6 +1,6 @@
 <template>
   <v-layout row>
-    <v-dialog v-model="dialog" persistent max-width="290">
+    <v-dialog v-model="dialog" persistent max-width="400">
       <v-btn fab slot="activator">
         <v-icon>delete_forever</v-icon>
       </v-btn>
@@ -14,8 +14,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" flat @click.native="dialog = false">Отмена</v-btn>
-          <v-btn color="green darken-1" flat @click.native="onDeleteMeetup">Удалить</v-btn>
+          <v-btn color="secondary darken-1" flat @click.native="dialog = false">Отмена</v-btn>
+          <v-btn color="primary darken-1" flat @click.native="onDeleteMeetup">Удалить</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
