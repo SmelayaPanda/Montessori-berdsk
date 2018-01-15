@@ -9,8 +9,10 @@
         <p class="signup_main_text">Выбрать занятие</p>
     </div>
 
-    <img id="about_us" src="../../../static/img/home/about_us.jpg" alt="">
+    <img class="about_us" src="../../../static/img/home/about_us.jpg" alt="">
     <app-parallax></app-parallax>
+    <img class="about_us" src="../../../static/img/home/about_us.jpg" alt="">
+
   </div>
 </template>
 
@@ -98,7 +100,7 @@
     z-index: 19;
   }
 
-  #about_us {
+  .about_us {
     width: 100vw;
   }
 </style>

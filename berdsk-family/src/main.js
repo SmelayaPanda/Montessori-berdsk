@@ -12,6 +12,7 @@ import DateFilter from './filters/data'
 import Snippet from './filters/snippet'
 import * as firebase from 'firebase'
 import AlertComp from './components/shared/Alert'
+import Loader from './components/shared/Loader'
 import EditMeetupDetailsDialog from './components/meetup/edit/EditMeetupDetailsDialog'
 import EditMeetupImageDialog from './components/meetup/edit/EditMeetupImageDialog'
 import {VueEditor} from 'vue2-editor'
@@ -19,6 +20,7 @@ import {VueEditor} from 'vue2-editor'
 Vue.filter('date', DateFilter)
 Vue.filter('snippet', Snippet)
 Vue.component('app-alert', AlertComp)
+Vue.component('app-loader', Loader)
 Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)
 Vue.component('app-edit-meetup-image-dialog', EditMeetupImageDialog)
 Vue.component('vue-html-editor', VueEditor)

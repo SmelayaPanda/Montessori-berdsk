@@ -15,7 +15,9 @@
 
     <!--Meetup-->
     <v-layout row wrap v-else="!loading" class="mt-5">
-      <v-btn to="/meetups">Назад</v-btn>
+      <v-btn fab flat class="primary" to="/meetups">
+        <v-icon>arrow_back</v-icon>
+      </v-btn>
       <v-flex xs12>
         <v-card>
           <v-card-title>

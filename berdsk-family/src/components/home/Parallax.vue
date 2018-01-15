@@ -2,7 +2,7 @@
   <div>
     <h1 id="some_text">Some Text</h1>
 
-    <div class="parallax">
+    <div class="parallax primary">
       <div id="group" class="parallax__group">
         <div class="parallax__layer parallax__layer--base">
           <div class="title">
@@ -32,9 +32,8 @@
 </script>
 
 <style scoped>
-
   .parallax {
-    height: 700px;
+    height: 500px;
     /* fallback for older browsers */
     overflow-x: hidden;
     overflow-y: auto;
@@ -87,6 +86,7 @@
   }
 
   #some_text {
+    height: 0;
     position: relative;
     top: 150px;
     left: 45%;
