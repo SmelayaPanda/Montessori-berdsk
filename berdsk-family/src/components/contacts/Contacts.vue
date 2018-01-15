@@ -3,21 +3,22 @@
     <v-container class="mt-3 ml-0">
       <h1 class="primary--text">Контакты</h1>
 
-      <v-layout>
-        <v-flex xs12 sm6 offset-sm3>
+      <v-layout row wrap>
+        <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
           <v-card>
             <v-card-media
               class="primary--text"
-              height="600px"
+              height="650px"
               src="/static/doc-images/cards/docks.jpg"
             >
-              <v-container fill-height fluid>
-                <v-layout fill-height>
-                  <v-flex xs12 align-end flexbox>
+              <v-container>
+                <v-layout>
+                  <v-flex xs12>
                     <span class="headline" align="center">
                       <p>«Монтессори-пространство» </p>
                          <p>в Бердске.</p>
                       <p>Детский развивающий центр.</p>
+                      <!--2Gis map-->
                       <double-gis-map></double-gis-map>
                     </span>
                   </v-flex>
@@ -26,7 +27,7 @@
             </v-card-media>
             <v-card-title>
               <div>
-                <span class="grey--text">Мы рядом</span><br>
+                <span class="grey--text">Мы рядом!</span><br>
                 <span>Искитим, Посёлок Новый, Посёлок Геологов, Академгородок</span><br>
                 <address>Адрес: ул. Красная Сибирь, 124</address>
                 <span>

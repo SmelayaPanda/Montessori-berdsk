@@ -1,16 +1,22 @@
 <template>
   <div>
     <app-home-slide-show class="hidden-xs-only"></app-home-slide-show>
+    <a href="#"
+       v-scroll="onScroll"
+       v-scroll-to="scrollToParallaxOptions"
+       ref="emitScroll"></a>
+
     <div class="montessori_space_main_text"></div>
     <div class="signup_main_btn">
       <p class="signup_main_text">Записаться</p>
     </div>
     <div class="choose_service_btn" v-on:click="goServices">
-        <p class="signup_main_text">Выбрать занятие</p>
+      <p class="signup_main_text">Выбрать занятие</p>
     </div>
 
     <img class="about_us" src="../../../static/img/home/about_us.jpg" alt="">
-    <app-parallax></app-parallax>
+
+    <app-parallax id="app-parallax"></app-parallax>
     <img class="about_us" src="../../../static/img/home/about_us.jpg" alt="">
 
   </div>
@@ -22,6 +28,19 @@
 
   export default {
     name: 'home',
+    data: function () {
+      return {
+        offsetTop: 0,
+        scrolled: false,
+        scrollToParallaxOptions: {
+          el: '#app-parallax',
+          duration: 1000,
+          easing: 'ease-out',
+          offset: -200,
+          cancelable: false
+        }
+      }
+    },
     components: {
       AppParallax,
       AppHomeSlideShow
@@ -30,8 +49,19 @@
       goServices:
         function () {
           this.$router.push('/services')
+        },
+      onScroll: function () {
+        this.offsetTop = window.pageYOffset
+        let scrolled = this.scrolled
+        console.log(this.offsetTop)
+        if ((scrolled === false && this.offsetTop === 820) || this.offsetTop === 1400) {
+          this.$refs.emitScroll.click()
+        } else {
+          this.scrolled = false
         }
-    }
+      }
+    },
+    computed: {}
   }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
-  <v-container>
-    <v-layout>
+  <v-container fluid>
+    <v-layout row wrap>
       <v-flex>
-        <div id="map" style="width:500px; height:400px"></div>
+        <v-container id="map" style="height: 450px"></v-container>
       </v-flex>
     </v-layout>
   </v-container>
@@ -15,7 +15,6 @@
     name: 'double-gis-map',
     data: function () {
       return {
-        map: false,
         y: 83.060181,
         x: 54.749928
       }
@@ -29,7 +28,7 @@
         'center': [this.x, this.y],
         'zoom': 15
       })
-      DG.marker([this.x, this.y]).addTo(this.map).bindPopup('Монтессори здесь!')
+      DG.marker([this.x, this.y]).addTo(this.map).bindPopup('Детский центр Монтессори здесь!')
     }
   }
 </script>

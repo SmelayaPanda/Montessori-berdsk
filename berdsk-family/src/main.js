@@ -16,7 +16,9 @@ import Loader from './components/shared/Loader'
 import EditMeetupDetailsDialog from './components/meetup/edit/EditMeetupDetailsDialog'
 import EditMeetupImageDialog from './components/meetup/edit/EditMeetupImageDialog'
 import {VueEditor} from 'vue2-editor'
+import VueScrollTo from 'vue-scrollto'
 // register global filter
+Vue.use(VueScrollTo)
 Vue.filter('date', DateFilter)
 Vue.filter('snippet', Snippet)
 Vue.component('app-alert', AlertComp)
