@@ -1,5 +1,5 @@
 <template>
-  <v-dialog width="250px" persistent v-model="editDialog">
+  <v-dialog width="400px" persistent v-model="editDialog" v-show="this.$store.getters.isAdmin">
     <v-btn fab accent slot="activator">
       <v-icon>edit</v-icon>
     </v-btn>
@@ -8,19 +8,44 @@
         <!--Title-->
         <v-layout row wrap>
           <v-flex xs12>
-            <v-card-title><h3 class="secondary--text">Редактировать телефон</h3></v-card-title>
+            <v-card-title><h3 class="secondary--text">Редактировать контакты</h3></v-card-title>
           </v-flex>
         </v-layout>
         <v-divider></v-divider>
         <v-layout row wrap>
           <v-flex xs12>
-            <!--Edit title-->
+
+            <!--Address-->
+            <v-card-text>
+              <v-text-field
+                name="address"
+                label="Адрес"
+                id="address"
+                v-model="editAddress"
+                required
+              >
+              </v-text-field>
+            </v-card-text>
+
+            <!--Phone-->
             <v-card-text>
               <v-text-field
                 name="phone"
                 label="Телефон"
                 id="phone"
                 v-model="editPhone"
+                required
+              >
+              </v-text-field>
+            </v-card-text>
+
+            <!--Mail-->
+            <v-card-text>
+              <v-text-field
+                name="email"
+                label="Почта"
+                id="email"
+                v-model="editEmail"
                 required
               >
               </v-text-field>
@@ -47,22 +72,30 @@
 <script>
   export default {
     name: 'edit-phone',
-    props: ['phone'],
+    props: ['contacts'],
     data: function () {
       return {
         editDialog: false,
-        editPhone: ''
+        editAddress: '',
+        editPhone: '',
+        editEmail: ''
       }
     },
     methods: {
       onSaveChanges:
         function () {
+          let newAddress = this.editAddress.trim()
           let newPhone = this.editPhone.trim()
-          if (newPhone === '') {
+          let newEmail = this.editEmail.trim()
+          if (newAddress === '' || newPhone === '' || newEmail === '') {
             return
           }
           this.editDialog = false
-          this.$store.dispatch('editPhone', newPhone)
+          this.$store.dispatch('editContacts', {
+            address: newAddress,
+            phone: newPhone,
+            email: newEmail
+          })
         }
     }
   }

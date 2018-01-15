@@ -33,18 +33,20 @@
               <div>
                 <span class="grey--text">Мы рядом!</span><br>
                 <span>Искитим, Посёлок Новый, Посёлок Геологов, Академгородок</span><br>
-                <address>Адрес: ул. Красная Сибирь, 124</address>
+                <address>{{ this.$store.getters.contacts.address }}</address>
                 <span>
                     <p>  Телефон:
-                      <a :href="'tel://' + this.$store.getters.phone">{{ this.$store.getters.phone }}</a>
-                      <edit-phone></edit-phone>
+                      <a :href="'tel://' + this.$store.getters.contacts.phone">
+                        {{ this.$store.getters.contacts.phone }}
+                      </a>
                     </p>
-                  <br>
                   <p>Электронная почта:
-                    <a href="mailto:detiM2017@gmail.com?Subject=Hello%20again" target="_blank">
-                      detiM2017@gmail.com
+                    <a :href="this.$store.getters.contacts.email + '?Subject=Hello%20again'" target="_blank">
+                      {{ this.$store.getters.contacts.email }}
                     </a>
                   </p>
+
+                  <edit-contacts :contacts.created="this.$store.getters.contacts"></edit-contacts>
 
                 </span>
               </div>
@@ -76,23 +78,21 @@
 
 
 <script>
-  import EditPhone from './edit/EditPhone'
+  import EditContacts from './edit/EditContacts'
   import DoubleGisMap from './DoubleGisMap'
 
   export default {
     name: 'contacts',
     data: function () {
-      return {
-        phone: ''
-      }
+      return {}
     },
     components: {
       DoubleGisMap,
-      EditPhone
+      EditContacts
     },
     methods: {},
     created: function () {
-      this.$store.dispatch('loadPhone')
+      this.$store.dispatch('loadContacts')
     }
   }
 </script>

@@ -3,22 +3,28 @@ import * as firebase from 'firebase'
 export default {
   // State ---------------------------------------------------
   state: {
-    phone: ''
+    contacts: {
+      phone: '',
+      address: '',
+      email: ''
+    }
   },
   // Mutations ---------------------------------------------------
   mutations: {
-    setPhone:
+    setContacts:
       (state, payload) => {
-        state.phone = payload
+        state.contacts.phone = payload.phone
+        state.contacts.address = payload.address
+        state.contacts.email = payload.email
       }
   },
   // Actions ---------------------------------------------------
   actions: {
-    editPhone:
+    editContacts:
       ({commit}, payload) => {
         commit('setLoading', true)
-        commit('setPhone', payload)
-        firebase.database().ref('contacts').update({phone: payload})
+        commit('setContacts', payload)
+        firebase.database().ref('contacts').update(payload)
           .then(
             () => {
               commit('setLoading', false)
@@ -29,15 +35,13 @@ export default {
               console.log(error)
             })
       },
-    loadPhone:
+    loadContacts:
       ({commit}) => {
-        console.log('loading')
         commit('setLoading', true)
-        firebase.database().ref('contacts/phone').once('value')
+        firebase.database().ref('contacts').once('value')
           .then((data) => {
             commit('setLoading', false)
-            console.log(data.val())
-            commit('setPhone', data.val())
+            commit('setContacts', data.val())
           })
           .catch(
             error => {
@@ -48,9 +52,9 @@ export default {
   },
 // Getters  ---------------------------------------------------
   getters: {
-    phone:
+    contacts:
       state => {
-        return state.phone
+        return state.contacts
       }
   }
 }
