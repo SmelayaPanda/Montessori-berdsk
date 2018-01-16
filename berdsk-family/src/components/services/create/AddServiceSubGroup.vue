@@ -70,7 +70,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" flat @click.native="dialog = false">Закрыть</v-btn>
-          <v-btn color="blue darken-1" flat @click.native="onSaveGroup">Сохранить</v-btn>
+          <v-btn color="blue darken-1" flat @click.native="onSaveGroup" :disabled="!validCheck">Сохранить</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -103,6 +103,12 @@
           coast: this.coast,
           schedule: this.schedule
         })
+      }
+    },
+    computed: {
+      validCheck: function () {
+        return this.title.trim() !== '' && this.description.trim() !== '' &&
+          this.coast.trim() !== '' && this.schedule.trim() !== ''
       }
     }
   }

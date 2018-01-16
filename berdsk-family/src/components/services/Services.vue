@@ -9,6 +9,7 @@
         <h1>
           {{ serviceGroup }}
           <edit-service-group :group="{id: id, name: serviceGroup }"></edit-service-group>
+          <delete-service-group :group="{id: id, name: serviceGroup }"></delete-service-group>
         </h1>
         <add-service-sub-group :parentId="id"></add-service-sub-group>
 
@@ -17,18 +18,10 @@
           <div hidden>
             {{ sg.id = subId }}
           </div>
-          <edit-servuce-sub-group :subGroup="sg"></edit-servuce-sub-group>
+          <edit-service-sub-group :subGroup="sg"></edit-service-sub-group>
+          <delete-service-sub-group :subGroup="sg"></delete-service-sub-group>
         </div>
       </div>
-
-
-
-
-      <!--&lt;!&ndash;Expansion panel&ndash;&gt;-->
-      <!--<div v-for="group in ageGroups">-->
-      <!--<h1 class="secondary&#45;&#45;text" v-if="group === ageGroups.firstGroup">Дети до 3-х лет</h1>-->
-      <!--<h1 class="secondary&#45;&#45;text" v-if="group === ageGroups.secondGroup">Дети от 3-6 лет</h1>-->
-      <!--<h1 class="secondary&#45;&#45;text" v-if="group === ageGroups.thirdGroup">Дети 6-12 лет</h1>-->
 
 
     </v-container>
@@ -39,7 +32,9 @@
   import AddServiceGroup from './create/AddServiceGroup'
   import AddServiceSubGroup from './create/AddServiceSubGroup'
   import EditServiceGroup from './edit/EditServiceGroup'
-  import EditServuceSubGroup from './edit/EditServuceSubGroup'
+  import EditServiceSubGroup from './edit/EditServuceSubGroup'
+  import DeleteServiceGroup from './delete/DeleteServiceGroup'
+  import DeleteServiceSubGroup from './delete/DeleteServiceSubGroup'
 
   export default {
     name: 'services',
@@ -47,7 +42,9 @@
       AddServiceGroup,
       AddServiceSubGroup,
       EditServiceGroup,
-      EditServuceSubGroup
+      EditServiceSubGroup,
+      DeleteServiceGroup,
+      DeleteServiceSubGroup
     },
     data: function () {
       return {
@@ -69,6 +66,35 @@
 
 <style scoped>
 </style>
+
+
+<!--&lt;!&ndash;Expansion panel&ndash;&gt;-->
+<!--<div v-for="group in ageGroups">-->
+<!--<h1 class="secondary&#45;&#45;text" v-if="group === ageGroups.firstGroup">Дети до 3-х лет</h1>-->
+<!--<h1 class="secondary&#45;&#45;text" v-if="group === ageGroups.secondGroup">Дети от 3-6 лет</h1>-->
+<!--<h1 class="secondary&#45;&#45;text" v-if="group === ageGroups.thirdGroup">Дети 6-12 лет</h1>-->
+<!--<v-expansion-panel popout focusable class="mt-2">-->
+<!--<v-expansion-panel-content class="primary mb-2" v-for="i in group" :key="i.header">-->
+<!--<div slot="header">{{ i.header }}</div>-->
+<!--<v-card>-->
+<!--<v-card-text class="grey lighten-3">-->
+<!--{{ i.description }}-->
+<!--<p class="mt-3">-->
+<!--<v-icon>bookmark</v-icon>-->
+<!--899 руб/ч, 4 занятия – 3999 рублей-->
+<!--<v-spacer></v-spacer>-->
+<!--<v-icon>access_time</v-icon>-->
+<!--Пн, Вт, Ср, Чт, Пт, Сб-->
+<!--</p>-->
+<!--<v-btn class="primary&#45;&#45;text">-->
+<!--Записаться-->
+<!--<v-icon class="ml-2">done</v-icon>-->
+<!--</v-btn>-->
+<!--</v-card-text>-->
+<!--</v-card>-->
+<!--</v-expansion-panel-content>-->
+<!--</v-expansion-panel>-->
+<!--</div>-->
 
 
 <!--

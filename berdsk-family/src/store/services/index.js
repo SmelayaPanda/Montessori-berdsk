@@ -79,6 +79,22 @@ export default {
             commit('setLoading', false)
           })
       },
+    deleteServiceGroup:
+      ({commit}, payload) => {
+        commit('setLoading', true)
+        firebase.database().ref('services/serviceGroups').child(payload).remove()
+          .then(() => {
+            console.log('Group deleted!')
+          })
+          .catch(error => {
+            console.log(error)
+          })
+        firebase.database().ref('services/serviceSubGroups').orderByChild('parentId').equalTo(payload)
+          .on('child_added', (snapshot) => {
+            console.log('Child deleted: ' + snapshot.ref)
+            snapshot.ref.remove()
+          })
+      },
     addServiceSubGroup:
       ({commit, getters}, payload) => {
         commit('setLoading', true)
@@ -106,6 +122,19 @@ export default {
         }
         firebase.database().ref('services/serviceSubGroups').child(payload.id).update(updateObj)
           .then(() => {
+            commit('setLoading', false)
+          })
+          .catch(error => {
+            console.log(error)
+            commit('setLoading', false)
+          })
+      },
+    deleteServiceSubGroup:
+      ({commit}, payload) => {
+        commit('setLoading', true)
+        firebase.database().ref('services/serviceSubGroups').child(payload).remove()
+          .then(() => {
+            console.log('Service deleted')
             commit('setLoading', false)
           })
           .catch(error => {
