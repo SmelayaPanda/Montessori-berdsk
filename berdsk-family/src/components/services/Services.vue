@@ -3,45 +3,76 @@
     <v-container class="mt-3 ml-3">
       <h1 class="primary--text">Услуги</h1>
 
-      <!--Expansion panel-->
-      <div v-for="group in ageGroups">
-        <h1 class="secondary--text" v-if="group === ageGroups.firstGroup">Дети до 3-х лет</h1>
-        <h1 class="secondary--text" v-if="group === ageGroups.secondGroup">Дети от 3-6 лет</h1>
-        <h1 class="secondary--text" v-if="group === ageGroups.thirdGroup">Дети 6-12 лет</h1>
-        <v-expansion-panel popout focusable class="mt-2">
-          <v-expansion-panel-content class="primary mb-2" v-for="i in group" :key="i.header">
-            <div slot="header">{{ i.header }}</div>
-            <v-card>
-              <v-card-text class="grey lighten-3">
-                {{ i.description }}
-                <p class="mt-3">
-                  <v-icon>bookmark</v-icon>
-                  899 руб/ч, 4 занятия – 3999 рублей
-                  <v-spacer></v-spacer>
-                  <v-icon>access_time</v-icon>
-                  Пн, Вт, Ср, Чт, Пт, Сб
-                </p>
-                <v-btn class="primary--text">
-                  Записаться
-                  <v-icon class="ml-2">done</v-icon>
-                </v-btn>
-              </v-card-text>
-            </v-card>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
+      <add-service-group></add-service-group>
+
+      <div v-for="(serviceGroup,id) in loadServiceGroups">
+        <h1>
+          {{ serviceGroup }}
+          <edit-service-group :group="{id: id, name: serviceGroup }"></edit-service-group>
+        </h1>
+        <add-service-sub-group :parentId="id"></add-service-sub-group>
+
+        <div v-for="(sg, subId) in loadServiceSubGroups" v-show="sg.parentId === id">
+          {{ sg }}
+          <div hidden>
+            {{ sg.id = subId }}
+          </div>
+          <edit-servuce-sub-group :subGroup="sg"></edit-servuce-sub-group>
+        </div>
       </div>
+
+
+
+
+      <!--&lt;!&ndash;Expansion panel&ndash;&gt;-->
+      <!--<div v-for="group in ageGroups">-->
+      <!--<h1 class="secondary&#45;&#45;text" v-if="group === ageGroups.firstGroup">Дети до 3-х лет</h1>-->
+      <!--<h1 class="secondary&#45;&#45;text" v-if="group === ageGroups.secondGroup">Дети от 3-6 лет</h1>-->
+      <!--<h1 class="secondary&#45;&#45;text" v-if="group === ageGroups.thirdGroup">Дети 6-12 лет</h1>-->
+
 
     </v-container>
   </v-container>
 </template>
 
 <script>
+  import AddServiceGroup from './create/AddServiceGroup'
+  import AddServiceSubGroup from './create/AddServiceSubGroup'
+  import EditServiceGroup from './edit/EditServiceGroup'
+  import EditServuceSubGroup from './edit/EditServuceSubGroup'
+
   export default {
     name: 'services',
+    components: {
+      AddServiceGroup,
+      AddServiceSubGroup,
+      EditServiceGroup,
+      EditServuceSubGroup
+    },
     data: function () {
       return {
-        ageGroups: {
-          firstGroup: [
+        services: {}
+      }
+    },
+    computed: {
+      loadServiceGroups:
+        function () {
+          return this.$store.getters.serviceGroups
+        },
+      loadServiceSubGroups:
+        function () {
+          return this.$store.getters.serviceSubGroups
+        }
+    }
+  }
+</script>
+
+<style scoped>
+</style>
+
+
+<!--
+     firstGroup: [
             {
               header: 'Монтессори колокольчики (Развитие музыкального слуха у ребенка)',
               description: 'Уникальная технология развития музыкального слуха у детей. Подбирая пары одинаково звучащих колокольчиков (13 пар), ребенок развивает способность слышать не только ноты до, ре, ми, фа, соль, ля, си, до, но и полутона «до-диез», «ре-диез», «фа-диез», «соль-диез», «ля-диез». При этом время занятия он выбирает сам, а значит, эффективность такой работы очень велика. Монтессори колокольчики (производство Голландия)'
@@ -141,11 +172,5 @@
               'Дети « все время «совершают открытия» в окружающем их мире. И в этом они находят самое лучшее развлечение. Они черпают из внешнего мира знания, которые выстроены в определенном порядке, и вдохновляют их на еще большие победы. В их сознании появляется Созидание вместо Хаоса» М.Монтессори.'
             }
           ]
-        }
-      }
-    }
-  }
-</script>
 
-<style scoped>
-</style>
+-->

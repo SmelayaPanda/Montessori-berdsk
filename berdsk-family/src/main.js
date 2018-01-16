@@ -68,5 +68,7 @@ new Vue({
         }
       })
     this.$store.dispatch('loadMeetups')
+    this.$store.dispatch('loadServiceGroups')
+    this.$store.dispatch('loadServiceSubGroups')
   }
 })
