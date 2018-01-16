@@ -87,7 +87,7 @@
     </v-layout>
 
     <v-container v-if="isAdmin">
-      Hello, Administrator!
+      <h2>Hello, Administrator!</h2>
       <p>Для редактирования сайта у Вас появился дополнительный функционал (видный только Вам).</p>
     </v-container>
     <v-container v-else>

@@ -34,7 +34,7 @@
         scrolled: false,
         scrollToParallaxOptions: {
           el: '#app-parallax',
-          duration: 1000,
+          duration: 1200,
           easing: 'ease-out',
           offset: -200,
           cancelable: false
@@ -53,10 +53,13 @@
       onScroll: function () {
         this.offsetTop = window.pageYOffset
         let scrolled = this.scrolled
-        console.log(this.offsetTop)
-        if ((scrolled === false && this.offsetTop === 820) || this.offsetTop === 1400) {
+        if (scrolled === false &&
+          ((this.offsetTop > 900 && this.offsetTop < 950) ||
+            (this.offsetTop > 1400 && this.offsetTop < 1450))) {
           this.$refs.emitScroll.click()
-        } else {
+          this.scrolled = true
+        }
+        if ((this.offsetTop > 0 && this.offsetTop < 500) || (this.offsetTop > 1600)) {
           this.scrolled = false
         }
       }
