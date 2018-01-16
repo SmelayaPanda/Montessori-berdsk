@@ -1,11 +1,11 @@
 <template>
-  <v-dialog v-model="dialog" persistent max-width="500px">
+  <v-dialog v-model="dialog" persistent max-width="700px" v-show="this.$store.getters.isAdmin">
     <v-btn fab color="primary" dark slot="activator">
       <v-icon>edit</v-icon>
     </v-btn>
     <v-card>
       <v-card-title>
-        <span class="headline">Редактировать подгруппу для {{ this.subGroup.id }}</span>
+        <span class="headline">Редактировать подгруппу для {{ this.subGroup.title }}</span>
       </v-card-title>
       <v-card-text>
         <v-container grid-list-md>

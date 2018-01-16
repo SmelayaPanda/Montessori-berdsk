@@ -11,7 +11,7 @@ export default {
   },
   // Mutations ---------------------------------------------------
   mutations: {
-    setContacts:
+    updateContacts:
       (state, payload) => {
         state.contacts.phone = payload.phone
         state.contacts.address = payload.address
@@ -23,7 +23,7 @@ export default {
     editContacts:
       ({commit}, payload) => {
         commit('setLoading', true)
-        commit('setContacts', payload)
+        commit('updateContacts', payload)
         firebase.database().ref('contacts').update(payload)
           .then(
             () => {
@@ -41,7 +41,7 @@ export default {
         firebase.database().ref('contacts').once('value')
           .then((data) => {
             commit('setLoading', false)
-            commit('setContacts', data.val())
+            commit('updateContacts', data.val())
           })
           .catch(
             error => {

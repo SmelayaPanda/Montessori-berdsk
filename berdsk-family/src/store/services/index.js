@@ -8,17 +8,13 @@ export default {
   },
   // Mutations ---------------------------------------------------
   mutations: { // to change state
-    setServiceGroups:
+    updateServiceGroups:
       (state, payload) => {
         state.serviceGroups = payload
       },
-    setServiceSubGroups:
+    updateServiceSubGroups:
       (state, payload) => {
         state.serviceSubGroups = payload
-      },
-    updateServiceGroup:
-      (state, payload) => {
-        state.serviceSubGroups[payload.id] = payload.name
       }
   },
   // Actions ---------------------------------------------------
@@ -29,21 +25,7 @@ export default {
         firebase.database().ref('services/serviceGroups').once('value')
           .then((data) => {
             commit('setLoading', false)
-            commit('setServiceGroups', data.val())
-          })
-          .catch(
-            error => {
-              commit('setLoading', false)
-              console.log(error)
-            })
-      },
-    loadServiceSubGroups:
-      ({commit}) => {
-        commit('setLoading', true)
-        firebase.database().ref('services/serviceSubGroups').once('value')
-          .then((data) => {
-            commit('setLoading', false)
-            commit('setServiceSubGroups', data.val())
+            commit('updateServiceGroups', data.val())
           })
           .catch(
             error => {
@@ -58,7 +40,7 @@ export default {
         firebase.database().ref('services/serviceGroups').push(payload)
           .then((data) => {
             serviceGroups[data.key] = payload
-            commit('setServiceGroups', serviceGroups)
+            commit('updateServiceGroups', serviceGroups)
             commit('setLoading', false)
           })
           .catch(error => {
@@ -67,11 +49,13 @@ export default {
           })
       },
     editServiceGroup:
-      ({commit}, payload) => {
+      ({commit, getters}, payload) => {
         commit('setLoading', true)
+        let serviceGroups = getters.serviceGroups
         firebase.database().ref('services/serviceGroups').child(payload.id).set(payload.name)
           .then(() => {
-            commit('updateServiceGroup', payload)
+            serviceGroups[payload.id] = payload.name
+            commit('updateServiceGroups', serviceGroups)
             commit('setLoading', false)
           })
           .catch(error => {
@@ -80,20 +64,39 @@ export default {
           })
       },
     deleteServiceGroup:
-      ({commit}, payload) => {
+      ({commit, getters}, payload) => {
         commit('setLoading', true)
+        let serviceGroups = getters.serviceGroups
         firebase.database().ref('services/serviceGroups').child(payload).remove()
           .then(() => {
-            console.log('Group deleted!')
+            delete serviceGroups[payload]
+            commit('updateServiceGroups', serviceGroups)
+            commit('setLoading', false)
           })
           .catch(error => {
             console.log(error)
+            commit('setLoading', false)
           })
         firebase.database().ref('services/serviceSubGroups').orderByChild('parentId').equalTo(payload)
           .on('child_added', (snapshot) => {
             console.log('Child deleted: ' + snapshot.ref)
             snapshot.ref.remove()
           })
+      },
+    // Sub Group action
+    loadServiceSubGroups:
+      ({commit}) => {
+        commit('setLoading', true)
+        firebase.database().ref('services/serviceSubGroups').once('value')
+          .then((data) => {
+            commit('setLoading', false)
+            commit('updateServiceSubGroups', data.val())
+          })
+          .catch(
+            error => {
+              commit('setLoading', false)
+              console.log(error)
+            })
       },
     addServiceSubGroup:
       ({commit, getters}, payload) => {
@@ -102,7 +105,7 @@ export default {
         firebase.database().ref('services/serviceSubGroups').push(payload)
           .then((data) => {
             serviceSubGroups[data.key] = payload
-            commit('setServiceSubGroups', serviceSubGroups)
+            commit('updateServiceSubGroups', serviceSubGroups)
             commit('setLoading', false)
           })
           .catch(error => {
@@ -113,6 +116,7 @@ export default {
     editServiceSubGroup:
       ({commit, getters}, payload) => {
         commit('setLoading', true)
+        let serviceSubGroups = getters.serviceSubGroups
         let updateObj = {
           parentId: payload.parentId,
           title: payload.title,
@@ -122,6 +126,8 @@ export default {
         }
         firebase.database().ref('services/serviceSubGroups').child(payload.id).update(updateObj)
           .then(() => {
+            serviceSubGroups[payload.id] = updateObj
+            commit('updateServiceSubGroups', serviceSubGroups)
             commit('setLoading', false)
           })
           .catch(error => {
@@ -130,11 +136,13 @@ export default {
           })
       },
     deleteServiceSubGroup:
-      ({commit}, payload) => {
+      ({commit, getters}, payload) => {
         commit('setLoading', true)
+        let serviceSubGroups = getters.serviceSubGroups
         firebase.database().ref('services/serviceSubGroups').child(payload).remove()
           .then(() => {
-            console.log('Service deleted')
+            delete serviceSubGroups[payload]
+            commit('updateServiceSubGroups', serviceSubGroups)
             commit('setLoading', false)
           })
           .catch(error => {

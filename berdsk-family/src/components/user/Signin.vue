@@ -1,9 +1,9 @@
 <template>
-  <v-container class="mt-0">
+  <v-container class="mt-5">
 
     <!--Alert message-->
     <v-layout row v-if="error">
-      <v-flex xs12 sm6 offset-sm3>
+      <v-flex xs12 offset-sm3>
         <!--My component from shared/Alert registered in main.js
         :text it is a property of Alert.vue-->
         <app-alert
