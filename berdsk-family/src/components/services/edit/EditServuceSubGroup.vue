@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" persistent max-width="700px" v-show="this.$store.getters.isAdmin">
+  <v-dialog v-model="dialog" persistent max-width="1200px" v-show="this.$store.getters.isAdmin">
     <v-btn fab color="primary" dark slot="activator">
       <v-icon>edit</v-icon>
     </v-btn>
@@ -24,6 +24,9 @@
           </v-layout>
 
           <!--Description-->
+          <!--TODO: hueta ne rabotaet. Serach new html editor-->
+          <!--<vue-html-editor v-model="descriptionT"></vue-html-editor>-->
+
           <v-layout row>
             <v-flex xs12>
               <v-text-field

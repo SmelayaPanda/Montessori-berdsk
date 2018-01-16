@@ -29,8 +29,7 @@
               <delete-service-sub-group :subGroup="subG"></delete-service-sub-group>
             </div>
             <v-card>
-              <v-card-text class="grey lighten-3">
-                {{ subG.description }}
+              <v-card-text v-html="subG.description" class="grey lighten-3">
                 <p class="mt-3">
                   <v-icon>bookmark</v-icon>
                   {{ subG.coast }}

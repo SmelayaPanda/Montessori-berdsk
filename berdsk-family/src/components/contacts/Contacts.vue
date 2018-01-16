@@ -33,20 +33,20 @@
               <div>
                 <span class="grey--text">Мы рядом!</span><br>
                 <span>Искитим, Посёлок Новый, Посёлок Геологов, Академгородок</span><br>
-                <address>{{ this.$store.getters.contacts.address }}</address>
+                <address style="font-style: normal; font-weight: bold">Адрес: {{ loadContacts.address }}</address>
                 <span>
                     <p>  Телефон:
-                      <a :href="'tel://' + this.$store.getters.contacts.phone">
-                        {{ this.$store.getters.contacts.phone }}
+                      <a :href="'tel://' + loadContacts.phone">
+                        {{ loadContacts.phone }}
                       </a>
                     </p>
                   <p>Электронная почта:
-                    <a :href="this.$store.getters.contacts.email + '?Subject=Hello%20again'" target="_blank">
-                      {{ this.$store.getters.contacts.email }}
+                    <a :href="loadContacts.email + '?Subject=Hello%20again'" target="_blank">
+                      {{ loadContacts.email }}
                     </a>
                   </p>
 
-                  <edit-contacts :contacts.created="this.$store.getters.contacts"></edit-contacts>
+                  <edit-contacts :contacts="loadContacts"></edit-contacts>
 
                 </span>
               </div>
@@ -93,6 +93,12 @@
     methods: {},
     created: function () {
       this.$store.dispatch('loadContacts')
+    },
+    computed: {
+      loadContacts:
+        function () {
+          return this.$store.getters.contacts
+        }
     }
   }
 </script>

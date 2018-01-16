@@ -59,7 +59,7 @@
           <v-flex xs12>
             <v-card-actions>
               <v-btn flat class="secondary--text" v-on:click="editDialog = false">Закрыть</v-btn>
-              <v-btn flat class="primary--text" v-on:click="onSaveChanges">Сохранить</v-btn>
+              <v-btn flat class="primary--text" v-on:click="onSaveChanges" :disabled="checkValid">Сохранить</v-btn>
             </v-card-actions>
           </v-flex>
         </v-layout>
@@ -76,27 +76,26 @@
     data: function () {
       return {
         editDialog: false,
-        editAddress: '',
-        editPhone: '',
-        editEmail: ''
+        editAddress: this.contacts.address,
+        editPhone: this.contacts.phone,
+        editEmail: this.contacts.email
       }
     },
     methods: {
       onSaveChanges:
         function () {
-          let newAddress = this.editAddress.trim()
-          let newPhone = this.editPhone.trim()
-          let newEmail = this.editEmail.trim()
-          if (newAddress === '' || newPhone === '' || newEmail === '') {
-            return
-          }
           this.editDialog = false
           this.$store.dispatch('editContacts', {
-            address: newAddress,
-            phone: newPhone,
-            email: newEmail
+            address: this.editAddress,
+            phone: this.editPhone,
+            email: this.editEmail
           })
         }
+    },
+    computed: {
+      checkValid: function () {
+        return this.editAddress === '' || this.editPhone === '' || this.newEmail === ''
+      }
     }
   }
 </script>
