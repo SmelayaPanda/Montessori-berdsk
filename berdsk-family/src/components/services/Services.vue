@@ -10,7 +10,7 @@
       <add-service-group></add-service-group>
 
       <!--Expansion panel-->
-      <div v-for="(serviceGroup,id) in loadServiceGroups">
+      <div v-for="(serviceGroup,id) in loadServiceGroups" :key="id">
         <h1 class="secondary--text">{{ serviceGroup }}
           <edit-service-group :group="{id: id, name: serviceGroup }"></edit-service-group>
           <add-service-sub-group :group="{id: id, name: serviceGroup }"></add-service-sub-group>
@@ -21,7 +21,7 @@
           <v-expansion-panel-content
             class="primary mb-2"
             :key="subG.title"
-            v-for="(subG, subId) in loadServiceSubGroups" v-show="subG.parentId === id"
+            v-for="(subG, subId) in loadServiceSubGroups" v-if="subG.parentId === id"
           >
             <div hidden>{{ subG.id = subId }}</div>
             <div slot="header">{{ subG.title }}
@@ -29,14 +29,15 @@
               <delete-service-sub-group :subGroup="subG"></delete-service-sub-group>
             </div>
             <v-card>
-              <v-card-text v-html="subG.description" class="grey lighten-3">
-                <p class="mt-3">
+              <v-card-text class="grey lighten-3">
+                <v-container>
+                  <p v-html="subG.description"></p>
                   <v-icon>bookmark</v-icon>
                   {{ subG.coast }}
                   <v-spacer></v-spacer>
                   <v-icon>access_time</v-icon>
                   {{ subG.schedule }}
-                </p>
+                </v-container>
                 <v-btn class="primary--text">
                   Записаться
                   <v-icon class="ml-2">done</v-icon>
@@ -56,7 +57,7 @@
   import AddServiceGroup from './create/AddServiceGroup'
   import AddServiceSubGroup from './create/AddServiceSubGroup'
   import EditServiceGroup from './edit/EditServiceGroup'
-  import EditServiceSubGroup from './edit/EditServuceSubGroup'
+  import EditServiceSubGroup from './edit/EditServiceSubGroup'
   import DeleteServiceGroup from './delete/DeleteServiceGroup'
   import DeleteServiceSubGroup from './delete/DeleteServiceSubGroup'
 

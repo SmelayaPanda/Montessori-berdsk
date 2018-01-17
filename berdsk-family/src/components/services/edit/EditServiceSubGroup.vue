@@ -24,9 +24,6 @@
           </v-layout>
 
           <!--Description-->
-          <!--TODO: hueta ne rabotaet. Serach new html editor-->
-          <!--<vue-html-editor v-model="descriptionT"></vue-html-editor>-->
-
           <v-layout row>
             <v-flex xs12>
               <v-text-field
@@ -41,6 +38,10 @@
             </v-flex>
           </v-layout>
 
+          <!--не работает впринципе в этой конструкции-->
+          <!--поищи другой эдитор мб-->
+          <!--<vue-html-editor v-model="description"></vue-html-editor>-->
+          <!--{{ description }}-->
           <!--Coast-->
           <v-layout wrap>
             <v-flex xs12>

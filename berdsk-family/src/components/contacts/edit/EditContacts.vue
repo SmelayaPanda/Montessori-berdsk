@@ -71,7 +71,7 @@
 
 <script>
   export default {
-    name: 'edit-phone',
+    name: 'edit-contacts',
     props: ['contacts'],
     data: function () {
       return {

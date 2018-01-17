@@ -40,7 +40,7 @@
           <v-flex xs12>
             <v-card-actions>
               <v-btn flat class="secondary--text" v-on:click="editDialog = false">Закрыть</v-btn>
-              <v-btn flat class="primary--text" v-on:click="onSaveChanges">Сохранить</v-btn>
+              <v-btn flat class="primary--text" v-on:click="onSaveChanges" :disabled="!validCheck">Сохранить</v-btn>
             </v-card-actions>
           </v-flex>
         </v-layout>
@@ -65,9 +65,6 @@
     methods: {
       onSaveChanges:
         function () {
-          if (this.editedTitle.trim() === '' || this.editedDescription.trim() === '') {
-            return
-          }
           this.editDialog = false
           this.$store.dispatch('updateMeetupData', {
             id: this.meetup.id,
@@ -75,6 +72,11 @@
             description: this.editedDescription
           })
         }
+    },
+    computed: {
+      validCheck: function () {
+        return this.editedTitle.trim() !== '' || this.editedDescription.trim() !== ''
+      }
     }
   }
 </script>

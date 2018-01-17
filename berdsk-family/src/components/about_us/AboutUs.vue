@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-container class="mt-3 ml-4">
+    <v-container class="mt-3">
       <h1 class="primary--text">О нас</h1>
       <v-card>
         <v-card-title><h1>Важность движения</h1></v-card-title>
@@ -28,12 +28,20 @@
         </v-card-text>
       </v-card>
     </v-container>
+
+    <!--Gallery-->
+    <gallery-slick></gallery-slick>
   </v-container>
 </template>
 
 <script>
+  import GallerySlick from './GallerySlick'
+
   export default {
-    name: 'about-us'
+    name: 'about-us',
+    components: {
+      GallerySlick
+    }
   }
 </script>
 

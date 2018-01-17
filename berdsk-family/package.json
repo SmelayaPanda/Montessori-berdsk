@@ -13,6 +13,7 @@
   "dependencies": {
     "2gis-maps": "^3.3.5",
     "firebase": "^4.8.2",
+    "vue-carousel-3d": "^0.1.19",
     "vue": "^2.5.3",
     "vue-html-editor": "^0.2.1",
     "vue-router": "^3.0.1",
