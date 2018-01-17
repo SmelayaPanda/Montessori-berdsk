@@ -17,8 +17,10 @@ import EditMeetupDetailsDialog from './components/meetup/edit/EditMeetupDetailsD
 import EditMeetupImageDialog from './components/meetup/edit/EditMeetupImageDialog'
 import {VueEditor} from 'vue2-editor'
 import VueScrollTo from 'vue-scrollto'
+import BootstrapVue from 'bootstrap-vue'
 // register global filter
 Vue.use(VueScrollTo)
+Vue.use(BootstrapVue)
 Vue.filter('date', DateFilter)
 Vue.filter('snippet', Snippet)
 Vue.component('app-alert', AlertComp)

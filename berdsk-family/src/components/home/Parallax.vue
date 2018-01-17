@@ -1,39 +1,56 @@
 <template>
   <div>
-    <h1 id="some_text">Some Text</h1>
+    <div id="cards_wrapper">
+      <div class="hovered_cards">
+        <hovered-cards></hovered-cards>
+        <hovered-cards></hovered-cards>
+        <hovered-cards></hovered-cards>
+      </div>
+    </div>
+
 
     <div class="parallax primary">
+
       <div id="group" class="parallax__group">
         <div class="parallax__layer parallax__layer--base">
+
           <div class="title">
             <img src="../../../static/img/parallax/parallax_3.png" alt="Base Layer">
           </div>
         </div>
         <div class="parallax__layer parallax__layer--back">
+
           <div class="title">
             <img src="../../../static/img/parallax/parallax_2.png" alt="Background Layer">
           </div>
         </div>
+
         <div class="parallax__layer parallax__layer--deep">
           <div class="title">
             <img src="../../../static/img/parallax/parallax_1.png" alt="Deep Background Layer">
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
 </template>
 
 <script>
+  import HoveredCards from './cards/HoveredCards'
+
   export default {
-    name: 'parallax'
+    name: 'parallax',
+    components: {
+      HoveredCards
+    }
   }
 </script>
 
 <style scoped>
   .parallax {
-    height: 500px;
+    height: 600px;
     /* fallback for older browsers */
     overflow-x: hidden;
     overflow-y: auto;
@@ -85,11 +102,20 @@
     /* slide under group 3 and 5 */
   }
 
-  #some_text {
-    height: 0;
-    position: relative;
-    top: 150px;
-    left: 45%;
-    z-index: 100;
+  .hovered_cards {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-content: center;
+  }
+
+  #cards_wrapper {
+    position: absolute;
+    top: 180px;
+    width: 100vw;
+    height: 300px;
+    z-index: 10000;
+    margin-left: auto;
+    margin-right: auto;
   }
 </style>

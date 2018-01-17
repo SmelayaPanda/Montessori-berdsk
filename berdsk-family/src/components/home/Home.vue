@@ -17,6 +17,7 @@
     <img class="about_us" src="../../../static/img/home/about_us.jpg" alt="">
 
     <app-parallax id="app-parallax"></app-parallax>
+
     <img class="about_us" src="../../../static/img/home/about_us.jpg" alt="">
 
   </div>
@@ -25,6 +26,7 @@
 <script>
   import AppHomeSlideShow from './HomeSlideShow'
   import AppParallax from './Parallax'
+  import HoveredCards from './cards/HoveredCards'
 
   export default {
     name: 'home',
@@ -36,14 +38,15 @@
           el: '#app-parallax',
           duration: 1200,
           easing: 'ease-out',
-          offset: -200,
+          offset: -100,
           cancelable: false
         }
       }
     },
     components: {
       AppParallax,
-      AppHomeSlideShow
+      AppHomeSlideShow,
+      HoveredCards
     },
     methods: {
       goServices:
@@ -59,7 +62,7 @@
           this.$refs.emitScroll.click()
           this.scrolled = true
         }
-        if ((this.offsetTop > 0 && this.offsetTop < 500) || (this.offsetTop > 1600)) {
+        if ((this.offsetTop > 0 && this.offsetTop < 500) || (this.offsetTop > 1700)) {
           this.scrolled = false
         }
       }
@@ -135,5 +138,9 @@
 
   .about_us {
     width: 100vw;
+  }
+
+  #app-parallax {
+    position: relative;
   }
 </style>

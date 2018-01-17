@@ -5,7 +5,7 @@
     </v-btn>
     <v-card>
       <v-card-title>
-        <span class="headline">Редактировать подгруппу для {{ this.subGroup.title }}</span>
+        <span class="headline">Редактировать услугу {{ this.subGroup.title }}</span>
       </v-card-title>
       <v-card-text>
         <v-container grid-list-md>
@@ -15,7 +15,7 @@
             <v-flex xs12>
               <v-text-field
                 name="title"
-                label="Группа"
+                label="Заголовок"
                 id="title"
                 v-model="title"
                 required>

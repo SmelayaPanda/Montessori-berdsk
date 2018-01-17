@@ -36,12 +36,12 @@
                 <address style="font-style: normal; font-weight: bold">Адрес: {{ loadContacts.address }}</address>
                 <span>
                     <p>  Телефон:
-                      <a :href="'tel://' + loadContacts.phone">
+                      <a :href="'tel://' + loadContacts.phone.replace(/[ -]/g,'')">
                         {{ loadContacts.phone }}
                       </a>
                     </p>
                   <p>Электронная почта:
-                    <a :href="loadContacts.email + '?Subject=Hello%20again'" target="_blank">
+                    <a :href="'mailto:' + loadContacts.email + '?Subject=Привет монтессори!&body=Спасибо за работу!'" target="_blank">
                       {{ loadContacts.email }}
                     </a>
                   </p>

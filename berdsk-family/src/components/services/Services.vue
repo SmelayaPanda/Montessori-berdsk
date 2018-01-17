@@ -20,7 +20,11 @@
         <v-expansion-panel popout focusable class="mt-2">
           <v-expansion-panel-content
             class="primary mb-2"
-            :key="subG.title"
+            :title="subG.title"
+            :coast="subG.coast"
+            :schedule="subG.schedule"
+            :description="subG.description"
+            :key="subId"
             v-for="(subG, subId) in loadServiceSubGroups" v-if="subG.parentId === id"
           >
             <div hidden>{{ subG.id = subId }}</div>
@@ -38,10 +42,11 @@
                   <v-icon>access_time</v-icon>
                   {{ subG.schedule }}
                 </v-container>
-                <v-btn class="primary--text">
-                  Записаться
-                  <v-icon class="ml-2">done</v-icon>
-                </v-btn>
+                <service-sign-up :sign-group="{ group: serviceGroup, service: subG.title }"></service-sign-up>
+                <!--<v-btn class="primary&#45;&#45;text">-->
+                <!--Записаться-->
+                <!--<v-icon class="ml-2">done</v-icon>-->
+                <!--</v-btn>-->
               </v-card-text>
             </v-card>
           </v-expansion-panel-content>
@@ -60,6 +65,7 @@
   import EditServiceSubGroup from './edit/EditServiceSubGroup'
   import DeleteServiceGroup from './delete/DeleteServiceGroup'
   import DeleteServiceSubGroup from './delete/DeleteServiceSubGroup'
+  import ServiceSignUp from './ServiceSignUp'
 
   export default {
     name: 'services',
@@ -69,7 +75,8 @@
       EditServiceGroup,
       EditServiceSubGroup,
       DeleteServiceGroup,
-      DeleteServiceSubGroup
+      DeleteServiceSubGroup,
+      ServiceSignUp
     },
     data: function () {
       return {
