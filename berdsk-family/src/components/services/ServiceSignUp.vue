@@ -1,17 +1,11 @@
 <template>
   <v-layout row justify-end>
-    <v-dialog v-model="dialog" persistent max-width="500px">
-      <v-btn color="white" dark slot="activator" class="primary--text">Записаться</v-btn>
+    <v-dialog v-model="dialog" persistent max-width="700px">
+      <v-btn color="white" dark slot="activator" class="primary--text">
+        Записаться
+        <v-icon class="ml-3">done</v-icon>
+      </v-btn>
       <v-card>
-
-        <!--<form action="https://formspree.io/smelayapandagm@gmail.com"-->
-        <!--method="POST">-->
-        <!--<input type="text" name="name">-->
-        <!--<input type="email" name="_replyto">-->
-        <!--<input type="text" name="message">-->
-        <!--<input type="submit" value="Send">-->
-        <!--</form>-->
-
 
         <v-card-title>
           <span class="headline">Мы с Вами свяжемся в ближайшее время!</span>
@@ -42,6 +36,7 @@
                 <v-text-field
                   prepend-icon="email"
                   label="Email"
+                  v-model="email"
                 >
                 </v-text-field>
               </v-flex>
@@ -50,6 +45,7 @@
                   prepend-icon="message"
                   v-model="message"
                   multi-line
+                  required
                   label="Сообщение"
                 >
                 </v-text-field>
@@ -91,8 +87,9 @@
     methods: {
       submit: function () {
         this.dialog = false
+        console.log('Current Email ' + this.$store.getters.contacts.email)
         $.ajax({
-          url: 'https://formspree.io/vika.erika@gmail.com',
+          url: 'https://formspree.io/' + this.$store.getters.contacts.email,
           method: 'POST',
           data: {message: this.message, name: this.name, email: this.email, phone: this.phone},
           dataType: 'json'

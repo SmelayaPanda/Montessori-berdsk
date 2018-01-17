@@ -5,7 +5,7 @@
     </v-btn>
     <v-card>
       <v-card-title>
-        <span class="headline">Добавить услугу для {{ this.group.name }}</span>
+        <span class="headline">Добавить услугу для: {{ this.group.name }}</span>
       </v-card-title>
       <v-card-text>
         <v-container grid-list-md>

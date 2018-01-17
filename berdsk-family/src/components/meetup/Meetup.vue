@@ -14,7 +14,7 @@
     </v-layout>
 
     <!--Meetup-->
-    <v-layout row wrap v-else="!loading" class="mt-5">
+    <v-layout row wrap v-else="!loading" class="mt-3">
       <v-btn fab flat class="primary" to="/meetups">
         <v-icon>arrow_back</v-icon>
       </v-btn>
@@ -50,7 +50,7 @@
                 </p>
               </b>
               <v-container row wrap>
-                <v-flex xs12 sm6 class="ml-2">
+                <v-flex xs12 class="ml-2">
                   <p v-html="meetup.description"></p>
                 </v-flex>
               </v-container>
