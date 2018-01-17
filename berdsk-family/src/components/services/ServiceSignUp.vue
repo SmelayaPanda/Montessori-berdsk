@@ -8,7 +8,7 @@
       <v-card>
 
         <v-card-title>
-          <span class="headline">Мы с Вами свяжемся в ближайшее время!</span>
+          <span class="headline">Мы свяжемся с Вами в ближайшее время!</span>
         </v-card-title>
         <v-card-text>
 
