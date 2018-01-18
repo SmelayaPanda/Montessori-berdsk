@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height: 100% !important;">
     <v-carousel id="carousel-view"
                 hide-controls
                 interval="5000"

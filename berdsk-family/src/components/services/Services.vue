@@ -4,8 +4,41 @@
     <app-loader v-if="this.$store.getters.loading"></app-loader>
 
     <!--All Services-->
-    <v-container class="mt-3 ml-3" v-if="!this.$store.getters.loading">
+    <v-container class="mt-1 ml-3" v-if="!this.$store.getters.loading">
       <h1 class="primary--text">Услуги</h1>
+      <v-divider></v-divider>
+
+      <h1 class="primary--text mt-2">Основные</h1>
+      <p class="secondary--text">
+        Занятия для всех детей от 0 до 12 лет в Монтессори пространстве
+        с уникальными материалами:
+      </p>
+
+      <v-container>
+        <v-layout row wrap>
+          <v-flex xs12>
+            <ul class="secondary--text ml-3">
+              <li>
+                1 занятие (час):
+                <v-chip color="primary" text-color="white">
+                  350 р
+                </v-chip>
+              </li>
+              <li>
+                4 занятия (час):
+                <v-chip color="primary" text-color="white">1200 р</v-chip>
+              </li>
+              <li>
+                8 занятий (час):
+                <v-chip color="primary" text-color="white">2100 р</v-chip>
+              </li>
+            </ul>
+          </v-flex>
+        </v-layout>
+      </v-container>
+
+
+      <h1 class="primary--text mt-2">Специальные</h1>
       <add-service-group></add-service-group>
 
       <!--Expansion panel-->

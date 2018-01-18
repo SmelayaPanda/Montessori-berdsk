@@ -114,7 +114,7 @@
     top: 180px;
     width: 100vw;
     height: 300px;
-    z-index: 10000;
+    z-index: 7;
     margin-left: auto;
     margin-right: auto;
   }

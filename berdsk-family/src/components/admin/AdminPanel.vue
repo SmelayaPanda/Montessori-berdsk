@@ -110,7 +110,7 @@
           <td class="text-xs-right">{{ props.item.email }}</td>
           <td class="text-xs-right">{{ props.item.phone }}</td>
           <td class="text-xs-right">{{ props.item.message }}</td>
-          <td class="text-xs-right">{{ props.item.data }}</td>
+          <td class="text-xs-right">{{ props.item.date }}</td>
         </template>
         <template slot="no-data">
           <v-alert :value="true" color="error" icon="warning">

@@ -173,7 +173,6 @@ export default {
         firebase.database().ref('signUpMessages').once('value')
           .then((data) => {
             let dataObj = data.val()
-            console.log(dataObj)
             let messages = []
             for (let msg in dataObj) {
               messages.push(dataObj[msg])
