@@ -50,7 +50,7 @@
 
 <style scoped>
   .parallax {
-    height: 600px;
+    height: 1000px;
     /* fallback for older browsers */
     overflow-x: hidden;
     overflow-y: auto;

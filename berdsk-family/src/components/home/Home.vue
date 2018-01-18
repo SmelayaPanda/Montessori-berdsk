@@ -20,11 +20,16 @@
     <!--About our center-->
     <div class="about_us_title"></div>
     <div class="about_us_center"></div>
-    <div class="bg_about_us"></div>
-
+    <div class="about_us_bg"></div>
 
     <!--Parallax-->
     <app-parallax id="app-parallax"></app-parallax>
+
+
+    <!--Unicallity-->
+    <div class="unicallity_title"></div>
+    <div class="unicallity_center"></div>
+    <div class="unicallity_bg"></div>
 
   </div>
 </template>
@@ -127,14 +132,14 @@
 
   /* About us block */
 
-  .bg_about_us {
-    background-image: url("../../../static/img/home/about_us/bg.png");
+  .about_us_bg {
+    background-image: url("../../../static/img/home/about_us/about_bg.png");
     background-size: 100%;
     position: relative;
     width: 1937px;
     height: 723px;
     z-index: 5;
-    opacity: 0.3;
+    opacity: 0.2;
   }
 
   .about_us_title {
@@ -159,6 +164,42 @@
     left: -585px;
     margin-left: 50%;
     margin-top: 160px;
+  }
+
+  /* About us block */
+
+  .unicallity_bg {
+    background-image: url("../../../static/img/home/unicallity/unicallity_bg.png");
+    background-size: 110%;
+    position: relative;
+    width: 1920px;
+    /*height: 437px;*/
+    height: 480px;
+    z-index: 15;
+  }
+
+  .unicallity_title {
+    background-image: url("../../../static/img/home/unicallity/unicallity_title.png");
+    background-size: 80%;
+    width: 905px;
+    height: 127px;
+    position: absolute;
+    z-index: 21;
+    left: -360px;
+    margin-left: 50%;
+    margin-top: 5px;
+  }
+
+  .unicallity_center {
+    background-image: url("../../../static/img/home/unicallity/unicallity_center.png");
+    background-size: 92%;
+    width: 1397px;
+    height: 376px;
+    position: absolute;
+    z-index: 21;
+    left: -610px;
+    margin-left: 50%;
+    margin-top: 85px;
   }
 
   #app-parallax {
