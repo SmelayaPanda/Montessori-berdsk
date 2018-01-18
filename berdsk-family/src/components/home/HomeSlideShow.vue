@@ -36,7 +36,7 @@
 
 <style lang="stylus">
   #carousel-view
-    height: 96vh !important
+    height: 95vh !important
     width: 100% !important
     .fade
       &-enter-active, &-leave-active, &-leave-to

@@ -5,10 +5,9 @@
 
     <!--All Services-->
     <v-container class="mt-1 ml-3" v-if="!this.$store.getters.loading">
-      <h1 class="primary--text">Услуги</h1>
-      <v-divider></v-divider>
+      <h1 class="primary--text mb-2">Услуги</h1>
 
-      <h1 class="primary--text mt-2">Основные</h1>
+      <h1 class="primary--text mt1">Основные</h1>
       <p class="secondary--text">
         Занятия для всех детей от 0 до 12 лет в Монтессори пространстве
         с уникальными материалами:

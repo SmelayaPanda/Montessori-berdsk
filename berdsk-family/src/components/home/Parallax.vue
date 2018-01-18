@@ -1,10 +1,72 @@
 <template>
   <div>
+
     <div id="cards_wrapper">
+
+      <div class="hovered_cards_title"></div>
+
       <div class="hovered_cards">
-        <hovered-cards></hovered-cards>
-        <hovered-cards></hovered-cards>
-        <hovered-cards></hovered-cards>
+        <hovered-cards
+          :bg-style="`
+          background-image: url(&quot;../../../../static/img/home/cards/0-3_3part.png&quot;);
+          background-size: 61%;
+          height: 262px;
+          width: 360px;
+          margin-left: -8px;
+          margin-top: -5px;
+          `"
+        ></hovered-cards>
+        <hovered-cards
+          :bg-style="`
+          background-image: url(&quot;../../../../static/img/home/cards/3-6_3part.png&quot;);
+          background-size: 61%;
+          height: 244px;
+          width: 345px;
+          margin-left: -5px;
+          `"
+        ></hovered-cards>
+        <hovered-cards
+          :bg-style="`
+          background-image: url(&quot;../../../../static/img/home/cards/6-12_3part.png&quot;);
+          background-size: 61%;
+          height: 220px;
+          width: 384px;
+          margin-left: -14px;
+          margin-top: 5px;
+          `"
+        ></hovered-cards>
+      </div>
+      <div class="hovered_cards mt-5">
+        <hovered-cards
+          :bg-style="`
+          background-image: url(&quot;../../../../static/img/home/cards/specialChild3part.png&quot;);
+          background-size: 61%;
+          height: 285px;
+          width: 425px;
+          margin-left: -19px;
+          margin-top: -11px;
+          `"
+        ></hovered-cards>
+        <hovered-cards
+          :bg-style="`
+          background-image: url(&quot;../../../../static/img/home/cards/preschool3part.png&quot;);
+          background-size: 61%;
+          height: 261px;
+          width: 362px;
+          margin-left: -10px;
+          margin-top: 0px;
+          `"
+        ></hovered-cards>
+        <hovered-cards
+          :bg-style="`
+          background-image: url(&quot;../../../../static/img/home/cards/english3part.png&quot;);
+          background-size: 61%;
+          height: 216px;
+          width: 357px;
+          margin-left: -5px;
+          margin-top: 5px;
+          `"
+        ></hovered-cards>
       </div>
     </div>
 
@@ -50,7 +112,7 @@
 
 <style scoped>
   .parallax {
-    height: 1000px;
+    height: 850px;
     /* fallback for older browsers */
     overflow-x: hidden;
     overflow-y: auto;
@@ -111,11 +173,23 @@
 
   #cards_wrapper {
     position: absolute;
-    top: 180px;
+    top: 160px;
     width: 100vw;
     height: 300px;
     z-index: 7;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .hovered_cards_title {
+    background-image: url("../../../static/img/home/cards/titlepart3.png");
+    background-size: 80%;
+    width: 540px;
+    height: 113px;
+    position: absolute;
+    z-index: 22;
+    left: -225px;
+    margin-left: 50%;
+    margin-top: -125px;
   }
 </style>

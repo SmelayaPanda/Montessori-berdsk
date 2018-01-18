@@ -37,6 +37,10 @@
     <div class="material_icons"></div>
     <div class="material_bg"></div>
 
+    <!--Contacts-->
+    <div class="contacts_title"></div>
+
+    <app-footer class="app_footer"></app-footer>
   </div>
 </template>
 
@@ -45,6 +49,7 @@
   import AppParallax from './Parallax'
   import HoveredCards from './cards/HoveredCards'
   import CallUs from './CallUs'
+  import AppFooter from './footer/AppFooter'
 
   export default {
     name: 'home',
@@ -55,8 +60,8 @@
         scrollToParallaxOptions: {
           el: '#app-parallax',
           duration: 1200,
-          easing: 'ease-out',
-          offset: -100,
+          easing: 'linear',
+          offset: 20,
           cancelable: false
         }
       }
@@ -65,7 +70,8 @@
       AppParallax,
       AppHomeSlideShow,
       HoveredCards,
-      CallUs
+      CallUs,
+      AppFooter
     },
     methods: {
       callUs: function () {
@@ -75,17 +81,17 @@
           this.$router.push('/services')
         },
       onScroll: function () {
-        // this.offsetTop = window.pageYOffset
-        // let scrolled = this.scrolled
-        // if (scrolled === false &&
-        //   ((this.offsetTop > 949 && this.offsetTop < 950) ||
-        //     (this.offsetTop > 1400 && this.offsetTop < 1450))) {
-        //   this.$refs.emitScroll.click()
-        //   this.scrolled = true
-        // }
-        // if ((this.offsetTop > 0 && this.offsetTop < 500) || (this.offsetTop > 1700)) {
-        //   this.scrolled = false
-        // }
+        this.offsetTop = window.pageYOffset
+        let scrolled = this.scrolled
+        if (scrolled === false &&
+          ((this.offsetTop > 950 && this.offsetTop < 1000) ||
+            (this.offsetTop > 1800 && this.offsetTop < 1900))) {
+          this.$refs.emitScroll.click()
+          this.scrolled = true
+        }
+        if ((this.offsetTop > 0 && this.offsetTop < 500) || (this.offsetTop > 1900)) {
+          this.scrolled = false
+        }
       }
     },
     computed: {}
@@ -193,7 +199,7 @@
     z-index: 21;
     left: -360px;
     margin-left: 50%;
-    margin-top: 5px;
+    margin-top: 15px;
   }
 
   .unicallity_center {
@@ -205,7 +211,7 @@
     z-index: 21;
     left: -630px;
     margin-left: 50%;
-    margin-top: 85px;
+    margin-top: 135px;
   }
 
   #app-parallax {
@@ -221,7 +227,7 @@
     z-index: 22;
     left: -225px;
     margin-left: 50%;
-    margin-top: 5px;
+    margin-top: 25px;
   }
 
   .material_icons {
@@ -236,7 +242,7 @@
     /*margin-top: 85px;*/
   }
 
-  .material_bg{
+  .material_bg {
     background-size: 100%;
     background-color: #faaf94;
     position: relative;
@@ -244,5 +250,21 @@
     /*height: 437px;*/
     height: 680px;
     z-index: 15;
+  }
+
+  .contacts_title {
+    background-image: url("../../../static/img/home/contacts/contacts_please.png");
+    background-size: 80%;
+    width: 657px;
+    height: 168px;
+    position: relative;
+    z-index: 21;
+    left: -260px;
+    margin-left: 50%;
+    margin-top: 15px;
+  }
+
+  .app_footer {
+    position: relative;
   }
 </style>

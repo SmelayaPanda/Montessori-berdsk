@@ -1,31 +1,31 @@
 <template>
-    <div style="margin-left: 50px; margin-right: 50px">
-      <div class="hovereffect">
-        <p class="card_bg"></p>
+  <div style="margin-left: 50px; margin-right: 50px">
+    <div class="hovereffect">
+      <p class="card_bg"></p>
 
-        <div class="overlay">
-          <h2>От 0 до 3 лет</h2>
-          <a class="lenta" href="#">
+      <div class="overlay">
+        <h2>От 0 до 3 лет</h2>
+        <a class="lenta" href="#">
 
-            <v-container>
-              <v-layout row wrap>
-                <v-flex xs10>
-                  <img class="card_img" src="../../../../static/img/home/cards/bottle.png" height="80px" width="40px"/>
-                  <p>Младенцы и дети до трех лет требуют максимального внимание к с</p>
-                </v-flex>
-              </v-layout>
-            </v-container>
+          <v-container>
+            <v-layout row wrap>
+              <v-flex xs10>
+                <div class="card_img" :style="this.bgStyle"></div>
+              </v-flex>
+            </v-layout>
+          </v-container>
 
-          </a>
-        </div>
+        </a>
       </div>
     </div>
+  </div>
 
 </template>
 
 <script>
   export default {
-    name: 'hovered-cards'
+    name: 'hovered-cards',
+    props: ['bgStyle']
   }
 </script>
 
@@ -63,7 +63,6 @@
     transition: all 0.4s ease-in-out;
   }
 
-
   .hovereffect img {
     display: block;
     position: relative;
@@ -76,18 +75,18 @@
     font-size: 17px;
     padding: 10px;
     background: rgba(250, 175, 148, 1);
-    -webkit-transform: translateY(75px);
-    -ms-transform: translateY(75px);
-    transform: translateY(100px);
+    -webkit-transform: translateY(120px);
+    -ms-transform: translateY(120px);
+    transform: translateY(120px);
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
     z-index: 10;
   }
 
   .hovereffect:hover h2 {
-    -webkit-transform: translateY(15px);
-    -ms-transform: translateY(15px);
-    transform: translateY(25px);
+    -webkit-transform: translateY(35px);
+    -ms-transform: translateY(35px);
+    transform: translateY(35px);
   }
 
   .hovereffect a.lenta {
@@ -104,7 +103,7 @@
 
   .hovereffect:hover a.lenta {
     opacity: 1;
-    transform: translateY(30px);
+    transform: translateY(10px);
   }
 
   .hovereffect a.lenta:hover {
