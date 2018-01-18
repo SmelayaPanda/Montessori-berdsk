@@ -31,6 +31,12 @@
     <div class="unicallity_center"></div>
     <div class="unicallity_bg"></div>
 
+
+    <!--Unicallity-->
+    <div class="material_title"></div>
+    <div class="material_icons"></div>
+    <div class="material_bg"></div>
+
   </div>
 </template>
 
@@ -137,7 +143,7 @@
     background-size: 100%;
     position: relative;
     width: 1937px;
-    height: 723px;
+    height: 700px;
     z-index: 5;
     opacity: 0.2;
   }
@@ -197,12 +203,46 @@
     height: 376px;
     position: absolute;
     z-index: 21;
-    left: -610px;
+    left: -630px;
     margin-left: 50%;
     margin-top: 85px;
   }
 
   #app-parallax {
     position: relative;
+  }
+
+  .material_title {
+    background-image: url("../../../static/img/home/material/material_title.png");
+    background-size: 75%;
+    width: 647px;
+    height: 109px;
+    position: absolute;
+    z-index: 22;
+    left: -225px;
+    margin-left: 50%;
+    margin-top: 5px;
+  }
+
+  .material_icons {
+    background-image: url("../../../static/img/home/material/material_icons.png");
+    background-size: 73%;
+    width: 1713px;
+    height: 680px;
+    position: absolute;
+    z-index: 21;
+    left: -630px;
+    margin-left: 50%;
+    /*margin-top: 85px;*/
+  }
+
+  .material_bg{
+    background-size: 100%;
+    background-color: #faaf94;
+    position: relative;
+    width: 1920px;
+    /*height: 437px;*/
+    height: 680px;
+    z-index: 15;
   }
 </style>
