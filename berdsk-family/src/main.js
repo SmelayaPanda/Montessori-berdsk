@@ -18,8 +18,11 @@ import EditMeetupImageDialog from './components/meetup/edit/EditMeetupImageDialo
 import {VueEditor} from 'vue2-editor'
 import VueScrollTo from 'vue-scrollto'
 import BootstrapVue from 'bootstrap-vue'
+import Notifications from 'vue-notification'
+
 // register global filter
 Vue.use(VueScrollTo)
+Vue.use(Notifications)
 Vue.use(BootstrapVue)
 Vue.filter('date', DateFilter)
 Vue.filter('snippet', Snippet)
@@ -71,6 +74,8 @@ new Vue({
       })
     this.$store.dispatch('loadMeetups')
     this.$store.dispatch('loadServiceGroups')
+    this.$store.dispatch('loadSignUpMessages')
     this.$store.dispatch('loadServiceSubGroups')
+    this.$store.dispatch('loadContacts')
   }
 })

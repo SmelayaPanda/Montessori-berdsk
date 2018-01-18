@@ -7,8 +7,8 @@
       </v-btn>
       <v-card>
 
-        <v-card-title>
-          <span class="headline">Мы свяжемся с Вами в ближайшее время!</span>
+        <v-card-title class="ml-2">
+          <span class="headline primary--text">Мы свяжемся с Вами в ближайшее время!</span>
         </v-card-title>
         <v-card-text>
 
@@ -37,6 +37,7 @@
                   prepend-icon="email"
                   label="Email"
                   v-model="email"
+                  required
                 >
                 </v-text-field>
               </v-flex>
@@ -60,6 +61,23 @@
           <v-btn color="blue darken-1" flat @click="submit" :disabled="!validCheck">Отправить</v-btn>
         </v-card-actions>
 
+
+        <v-layout row justify-center>
+          <v-dialog v-model="infoDialog" max-width="290">
+            <v-card>
+              <v-card-title class="headline">
+                <v-icon class="ml-5 mr-2">{{ infoIcon }}</v-icon>
+                {{ infoTitle }}
+              </v-card-title>
+              <v-card-text>{{ infoMessage }}</v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="green darken-1" flat="flat" @click.native="infoDialog = false">Ок</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </v-layout>
+
       </v-card>
     </v-dialog>
   </v-layout>
@@ -74,6 +92,10 @@
     data: function () {
       return {
         dialog: false,
+        infoDialog: false,
+        infoTitle: '',
+        infoMessage: '',
+        infoIcon: '',
         name: '',
         email: '',
         phone: '',
@@ -87,18 +109,44 @@
     methods: {
       submit: function () {
         this.dialog = false
+        let data = new Date()
         console.log('Current Email ' + this.$store.getters.contacts.email)
+
+        let fullMessage = {
+          message: this.message,
+          name: this.name,
+          email: this.email,
+          phone: this.phone,
+          data: data.toISOString()
+        }
         $.ajax({
           url: 'https://formspree.io/' + this.$store.getters.contacts.email,
           method: 'POST',
-          data: {message: this.message, name: this.name, email: this.email, phone: this.phone},
+          data: fullMessage,
           dataType: 'json'
         })
+          .then((data) => {
+            console.log(data)
+            this.infoTitle = 'Спасибо'
+            this.infoIcon = 'done_all'
+            this.infoMessage = 'Ваша заявка доставлена'
+            this.infoDialog = true
+            this.$store.dispatch('addSignUpMessages', fullMessage)
+          })
+          .catch(error => {
+            console.log(error)
+            this.infoTitle = 'Упс...'
+            this.infoIcon = 'warning'
+            this.infoMessage = 'Что то пошло не так. ' +
+              'Сервер не отвечает. Убедитесь в корректности введеного email'
+            this.infoDialog = true
+          })
       }
     },
     computed: {
       validCheck: function () {
-        return this.message.trim() !== '' && this.name.trim() !== '' && this.phone.trim() !== ''
+        return this.message.trim() !== '' && this.name.trim() !== '' &&
+          this.phone.trim() !== '' && this.email.trim() !== ''
       }
     }
   }

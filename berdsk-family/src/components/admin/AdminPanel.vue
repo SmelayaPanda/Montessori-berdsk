@@ -96,6 +96,31 @@
       <p>8 (999) 467 78 57</p>
       <p>smelayapandagm@gmail.com</p>
     </v-container>
+
+    <v-container>
+
+      <v-data-table
+        v-bind:headers="headers"
+        :items="loadSignUpMessages"
+        hide-actions
+        class="elevation-5"
+      >
+        <template slot="items" slot-scope="props">
+          <td>{{ props.item.name }}</td>
+          <td class="text-xs-right">{{ props.item.email }}</td>
+          <td class="text-xs-right">{{ props.item.phone }}</td>
+          <td class="text-xs-right">{{ props.item.message }}</td>
+          <td class="text-xs-right">{{ props.item.data }}</td>
+        </template>
+        <template slot="no-data">
+          <v-alert :value="true" color="error" icon="warning">
+            Sorry, nothing to display here :(
+          </v-alert>
+        </template>
+      </v-data-table>
+    </v-container>
+
+
   </v-app>
 </template>
 
@@ -104,7 +129,19 @@
     data: function () {
       return {
         sideNav: false,
-        mainTitle: 'Admin Panel'
+        mainTitle: 'Admin Panel',
+        headers: [
+          {
+            text: 'Имя',
+            align: 'left',
+            sortable: false,
+            value: 'name'
+          },
+          {text: 'Почта', value: 'Почта'},
+          {text: 'Телефон', value: 'Телефон'},
+          {text: 'Сообщение', value: 'Сообщение'},
+          {text: 'Дата', value: 'Дата'}
+        ]
       }
     },
     computed: {
@@ -125,7 +162,10 @@
             ]
           }
           return menuItems
-        }
+        },
+      loadSignUpMessages: function () {
+        return this.$store.getters.serviceSignUpMessages
+      }
     },
     methods: {
       onLogout:
