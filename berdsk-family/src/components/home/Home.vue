@@ -96,7 +96,7 @@
     left: 50%;
     margin-left: -210px;
     top: 35px;
-    z-index: 1023;
+    z-index: 4;
   }
 
   .signup_main_text {
