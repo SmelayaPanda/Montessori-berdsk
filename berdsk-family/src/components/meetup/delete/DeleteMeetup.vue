@@ -1,16 +1,13 @@
 <template>
   <v-layout row>
     <v-dialog v-model="dialog" persistent max-width="400">
-      <v-btn fab slot="activator">
+      <v-btn fab slot="activator" class="secondary">
         <v-icon>delete_forever</v-icon>
       </v-btn>
       <v-card>
         <v-card-title class="headline">Вы действительно хотите удалить новость?</v-card-title>
         <v-card-text>
-          После удаление восстановить новость можно будет лишь обратившись к администратору
-          (резервные копии данных снимаются раз в сутки.
-          Если новости менее суток, то вероятно она не попала в последнее резервирование
-          и восстановлению не подлежит)
+          После удаление восстановить новость будет невозможно
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>

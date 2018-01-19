@@ -39,6 +39,7 @@
 
     <!--Contacts-->
     <div class="contacts_title"></div>
+    <live-contacts></live-contacts>
 
     <app-footer class="app_footer"></app-footer>
   </div>
@@ -50,6 +51,7 @@
   import HoveredCards from './cards/HoveredCards'
   import CallUs from './CallUs'
   import AppFooter from './footer/AppFooter'
+  import LiveContacts from './live_contacts/LiveContacts'
 
   export default {
     name: 'home',
@@ -71,7 +73,8 @@
       AppHomeSlideShow,
       HoveredCards,
       CallUs,
-      AppFooter
+      AppFooter,
+      LiveContacts
     },
     methods: {
       callUs: function () {

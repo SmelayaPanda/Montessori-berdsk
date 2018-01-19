@@ -1,7 +1,7 @@
 <template>
   <!--Edit Image-->
   <v-dialog width="1000px" persistent v-model="editDialog">
-    <v-btn fab accent slot="activator">
+    <v-btn fab accent slot="activator" class="primary">
       <v-icon>image</v-icon>
     </v-btn>
     <v-card>

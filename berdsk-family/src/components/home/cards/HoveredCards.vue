@@ -4,9 +4,8 @@
       <p class="card_bg"></p>
 
       <div class="overlay">
-        <h2>От 0 до 3 лет</h2>
+        <h2>{{ this.tapeText }}</h2>
         <a class="lenta" href="#">
-
           <v-container>
             <v-layout row wrap>
               <v-flex xs10>
@@ -14,9 +13,17 @@
               </v-flex>
             </v-layout>
           </v-container>
-
         </a>
       </div>
+      <div>
+
+        <router-link to="/services">
+          <div class="more_btn white--text">
+            Подробнее
+          </div>
+        </router-link>
+      </div>
+
     </div>
   </div>
 
@@ -25,14 +32,14 @@
 <script>
   export default {
     name: 'hovered-cards',
-    props: ['bgStyle']
+    props: ['bgStyle', 'tapeText']
   }
 </script>
 
 <style scoped>
 
   .card_bg {
-    border-radius: 30px;
+    border-radius: 40px;
     background-color: rgb(224, 255, 207);
     width: 240px;
     height: 300px;
@@ -111,5 +118,30 @@
   }
 
   .card_img {
+  }
+
+  .more_btn {
+    z-index: 50;
+    margin: 0;
+    padding: 0;
+    top: 260px;
+    left: 65px;
+    width: 120px;
+    height: 28px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background-image: linear-gradient(90deg, rgb(255, 171, 148) 23%, rgb(166, 238, 153) 100%);
+    box-shadow: 0px 0px 38.8px 1.2px rgba(255, 255, 255, 0.5);
+    transition: box-shadow 0.8s;
+  }
+
+  .more_btn:hover {
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+    transition: box-shadow 0.6s;
+    box-shadow: 0 0 60px 2px rgba(255, 255, 255, .7), 0 0 30px rgba(255, 255, 255, .7);
   }
 </style>

@@ -47,7 +47,7 @@
           flat
           v-for="item in menuItems"
           :key="item.title"
-          :to="item.link"
+          @click="goHome"
         >
           <!--
           Icon: just give name of icon from https://material.io/icons/
@@ -64,62 +64,114 @@
           v-on:click="onLogout"
         >
           <v-icon left dark>exit_to_app</v-icon>
-          Logout
+          Выйти
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
+
+
+    <!--Admin panel content-->
+    <div v-if="isAdmin">
+      <v-container class="mt-0">
+        <v-layout row wrap>
+          <v-flex xs12>
+            <v-card>
+              <v-card-title>Привет, Администартор!</v-card-title>
+              <v-card-text>Для редактирования сайта у Вас появился дополнительный функционал (видный только Вам).
+              </v-card-text>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
+
+
+      <!--Message table-->
+      <v-container v-model="loadSignUpMessages">
+        <v-layout row wrap>
+          <template>
+            <v-data-table
+              :rows-per-page-items="[10, 20, 50, { text: 'Все', value: -1 }]"
+              :headers="headers"
+              :items="items"
+              class="elevation-1"
+            >
+              <template slot="items" slot-scope="props">
+                <v-tooltip bottom>
+                  <span slot="activator">
+                    {{ props.header.text }}
+                  </span>
+                  <span>
+                    {{ props.header.text }}
+                  </span>
+                </v-tooltip>
+              </template>
+
+              <template slot="items" slot-scope="props">
+                <td>{{ props.item.name }}</td>
+
+                <td class="text-xs-center primary pt-2"
+                    v-if="props.item.email.trim() === 'montessori_berdsk@gmail.com'">
+                  Home
+                  <v-icon>lightbulb_outline</v-icon>
+                  <p>{{ props.item.date }}</p>
+                </td>
+                <td v-else class="text-xs-right">{{ props.item.email }}</td>
+
+                <td class="text-xs-right">{{ props.item.phone }}</td>
+                <td class="text-xs-right">{{ props.item.message }}</td>
+                <td class="text-xs-right">{{ props.item.date }}</td>
+              </template>
+            </v-data-table>
+
+            <small class="mt-2 ml-2">
+              Home
+              <v-icon>lightbulb_outline</v-icon>
+              - поступила просьба связаться с человеком по номеру телефона!
+            </small>
+          </template>
+          <template slot="no-data">
+            <v-alert :value="true" color="error" icon="warning">
+              Не удалось загрузить данные :(
+            </v-alert>
+          </template>
+
+        </v-layout>
+      </v-container>
+    </div>
+
+
+    <!--No admin case-->
+    <v-container v-else>
+      <v-card>
+
+        <!--Alert message-->
+        <v-layout row v-if="error">
+          <v-flex xs12>
+            <!--My component from shared/Alert registered in main.js
+            :text it is a property of Alert.vue-->
+            <app-alert
+              v-on:dismissed="onDismissed"
+              :text="error.message"
+            ></app-alert>
+          </v-flex>
+        </v-layout>
+
+        <v-card-title>Для получения прав администратора обратитесь к:</v-card-title>
+        <v-card-text>
+          <p>Алексей Азаров</p>
+          <p>8 (999) 467 78 57</p>
+          <p>smelayapandagm@gmail.com</p>
+        </v-card-text>
+
+      </v-card>
+
+    </v-container>
 
 
     <!--Main-->
     <main>
       <router-view></router-view>
     </main>
-
-
-    <!--Admin panel content-->
-    <v-layout row wrap>
-      <v-flex class="ml-5">
-        <p>
-          Перейти на основной сайт:
-          <v-btn @click="goHome">Главная</v-btn>
-        </p>
-      </v-flex>
-    </v-layout>
-
-    <v-container v-if="isAdmin">
-      <h2>Hello, Administrator!</h2>
-      <p>Для редактирования сайта у Вас появился дополнительный функционал (видный только Вам).</p>
-    </v-container>
-    <v-container v-else>
-      <p>Hello, for administrator rights, please contact:</p>
-      <p>Alexey Azarov</p>
-      <p>8 (999) 467 78 57</p>
-      <p>smelayapandagm@gmail.com</p>
-    </v-container>
-
-    <v-container>
-
-      <v-data-table
-        v-bind:headers="headers"
-        :items="loadSignUpMessages"
-        hide-actions
-        class="elevation-5"
-      >
-        <template slot="items" slot-scope="props">
-          <td>{{ props.item.name }}</td>
-          <td class="text-xs-right">{{ props.item.email }}</td>
-          <td class="text-xs-right">{{ props.item.phone }}</td>
-          <td class="text-xs-right">{{ props.item.message }}</td>
-          <td class="text-xs-right">{{ props.item.date }}</td>
-        </template>
-        <template slot="no-data">
-          <v-alert :value="true" color="error" icon="warning">
-            Sorry, nothing to display here :(
-          </v-alert>
-        </template>
-      </v-data-table>
-    </v-container>
-
 
   </v-app>
 </template>
@@ -130,18 +182,22 @@
       return {
         sideNav: false,
         mainTitle: 'Admin Panel',
+        pagination: {
+          sortBy: 'Имя'
+        },
         headers: [
           {
             text: 'Имя',
             align: 'left',
-            sortable: false,
+            sortable: true,
             value: 'name'
           },
-          {text: 'Почта', value: 'Почта'},
-          {text: 'Телефон', value: 'Телефон'},
-          {text: 'Сообщение', value: 'Сообщение'},
-          {text: 'Дата', value: 'Дата'}
-        ]
+          {text: 'Почта', value: 'email'},
+          {text: 'Телефон', value: 'phone'},
+          {text: 'Сообщение', value: 'maessage'},
+          {text: 'Дата', value: 'date'}
+        ],
+        items: []
       }
     },
     computed: {
@@ -154,18 +210,23 @@
       },
       menuItems:
         function () {
-          let menuItems = []
+          let menuItems = [{icon: 'home', title: 'Главная', link: '/'}]
           if (!this.isAuthenticatedUser) {
             menuItems = [
-              {icon: 'account_circle', title: 'Sign up', link: '/signup'},
-              {icon: 'lock_open', title: 'Sign in', link: '/signin'}
+              {icon: 'home', title: 'Главная', link: '/'},
+              {icon: 'account_circle', title: 'Регистрация', link: '/signup'},
+              {icon: 'lock_open', title: 'Войти', link: '/signin'}
             ]
           }
           return menuItems
         },
       loadSignUpMessages: function () {
-        return this.$store.getters.serviceSignUpMessages
-      }
+        this.items = this.$store.getters.serviceSignUpMessages
+      },
+      error:
+        function () {
+          return this.$store.getters.error
+        }
     },
     methods: {
       onLogout:
@@ -176,6 +237,10 @@
         function () {
           this.$router.push('/')
           window.location.reload()
+        },
+      onDismissed:
+        function () {
+          this.$store.dispatch('clearError') // action
         }
     }
   }

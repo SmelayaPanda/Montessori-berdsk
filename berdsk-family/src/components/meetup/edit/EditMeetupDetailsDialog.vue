@@ -1,7 +1,7 @@
 <template>
   <!--persistent means on the top of the screen-->
   <v-dialog width="1000px" persistent v-model="editDialog">
-    <v-btn fab accent slot="activator">
+    <v-btn fab accent slot="activator" class="primary">
       <v-icon>edit</v-icon>
     </v-btn>
     <v-card>

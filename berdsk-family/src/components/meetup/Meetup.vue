@@ -24,7 +24,7 @@
             <!--Title-->
             <h3 class="primary--text">{{ meetup.title }}</h3>
             <!--Edit meetup details dialog-->
-            <template v-if="userIsCreator">
+            <template v-if="this.$store.getters.isAdmin">
               <v-spacer></v-spacer>
               <!--:meetup - props from EditMeetupDetailsDialog.vue-->
               <app-edit-meetup-details-dialog :meetup="meetup"></app-edit-meetup-details-dialog>

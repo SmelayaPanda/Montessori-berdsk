@@ -12,7 +12,9 @@
       </v-container>
 
       <v-container v-show="this.$store.getters.isAdmin">
-        <v-btn to="meetup/new">Создать новость</v-btn>
+        <v-btn fab to="meetup/new">
+          <v-icon>add</v-icon>
+        </v-btn>
       </v-container>
 
       <v-layout row wrap

@@ -1,18 +1,6 @@
 <template>
   <v-container class="mt-5">
 
-    <!--Alert message-->
-    <v-layout row v-if="error">
-      <v-flex xs12 offset-sm3>
-        <!--My component from shared/Alert registered in main.js
-        :text it is a property of Alert.vue-->
-        <app-alert
-          v-on:dismissed="onDismissed"
-          :text="error.message"
-        ></app-alert>
-      </v-flex>
-    </v-layout>
-
     <!--Authentication form-->
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>

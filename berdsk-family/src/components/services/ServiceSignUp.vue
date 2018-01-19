@@ -109,7 +109,7 @@
     methods: {
       submit: function () {
         this.dialog = false
-        let data = new Date()
+        let date = new Date()
         console.log('Current Email ' + this.$store.getters.contacts.email)
 
         let fullMessage = {
@@ -117,7 +117,7 @@
           name: this.name,
           email: this.email,
           phone: this.phone,
-          data: data.toISOString()
+          date: date.toISOString()
         }
         $.ajax({
           url: 'https://formspree.io/' + this.$store.getters.contacts.email,
