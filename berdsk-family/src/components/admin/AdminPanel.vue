@@ -111,21 +111,21 @@
 
                 <td class="text-xs-center primary pt-2"
                     v-if="props.item.email.trim() === 'montessori_berdsk@gmail.com'">
-                  Home
-                  <v-icon>lightbulb_outline</v-icon>
-                  <p>{{ props.item.date }}</p>
+                  Call
+                  <v-icon>call</v-icon>
+                  <p>{{ props.item.date | admin_date }}</p>
                 </td>
                 <td v-else class="text-xs-right">{{ props.item.email }}</td>
 
                 <td class="text-xs-right">{{ props.item.phone }}</td>
                 <td class="text-xs-right">{{ props.item.message }}</td>
-                <td class="text-xs-right">{{ props.item.date }}</td>
+                <td class="text-xs-right">{{ props.item.date | admin_date }}</td>
               </template>
             </v-data-table>
 
             <small class="mt-2 ml-2">
-              Home
-              <v-icon>lightbulb_outline</v-icon>
+              Call
+              <v-icon>call</v-icon>
               - поступила просьба связаться с человеком по номеру телефона!
             </small>
           </template>

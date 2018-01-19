@@ -109,9 +109,14 @@
     methods: {
       submit: function () {
         this.dialog = false
+        if (!this.validPhone) {
+          this.infoTitle = 'Упс...'
+          this.infoIcon = 'warning'
+          this.infoMessage = 'Введите пожалуйста корректный номер телефона'
+          this.infoDialog = true
+          return
+        }
         let date = new Date()
-        console.log('Current Email ' + this.$store.getters.contacts.email)
-
         let fullMessage = {
           message: this.message,
           name: this.name,
@@ -147,6 +152,10 @@
       validCheck: function () {
         return this.message.trim() !== '' && this.name.trim() !== '' &&
           this.phone.trim() !== '' && this.email.trim() !== ''
+      },
+      validPhone: function () {
+        let regex = new RegExp('^(1[ \\-\\+]{0,3}|\\+1[ -\\+]{0,3}|\\+1|\\+)?((\\(\\+?1-[2-9][0-9]{1,2}\\))|(\\(\\+?[2-8][0-9][0-9]\\))|(\\(\\+?[1-9][0-9]\\))|(\\(\\+?[17]\\))|(\\([2-9][2-9]\\))|([ \\-\\.]{0,3}[0-9]{2,4}))?([ \\-\\.][0-9])?([ \\-\\.]{0,3}[0-9]{2,4}){2,3}$')
+        return regex.test(this.phone)
       }
     }
   }

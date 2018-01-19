@@ -81,7 +81,7 @@
         let date = new Date()
         console.log('Current Email ' + this.$store.getters.contacts.email)
         let fullMessage = {
-          message: 'Поступила просьба связаться с человеком по номеру телефона!',
+          message: '',
           name: this.name,
           email: 'montessoriberdsk@gmail.com',
           phone: this.phone,
