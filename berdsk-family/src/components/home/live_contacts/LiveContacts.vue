@@ -141,7 +141,7 @@
     justify-content: center;
     left: 4%;
     z-index: 10;
-    width: 190px;
+    width: 180px;
     height: 48px;
     transition: box-shadow 0.8s;
   }
@@ -160,7 +160,7 @@
 
   .col-3-wrapper {
     background-color: rgb(255, 171, 148);
-    width: 220px;
+    width: 320px;
     height: 48px;
     border-radius: 48px;
   }
@@ -174,7 +174,7 @@
   /* necessary to give position: relative to parent. */
   input[type="text"] {
     color: white;
-    width: 100%;
+    width: 120%;
     box-sizing: border-box;
     letter-spacing: 1px;
   }
@@ -188,13 +188,13 @@
   .effect-2 {
     border: 0;
     padding: 7px 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid white;
   }
 
   .effect-2 ~ .focus-border {
     position: absolute;
     bottom: 0;
-    left: 50%;
+    /*left: 60%;*/
     width: 0;
     height: 2px;
     background-color: #bced96;
@@ -202,7 +202,7 @@
   }
 
   .effect-2:focus ~ .focus-border {
-    width: 100%;
+    width: 130%;
     transition: 0.4s;
     left: 0;
   }
