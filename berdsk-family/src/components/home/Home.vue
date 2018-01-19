@@ -39,7 +39,9 @@
 
     <!--Contacts-->
     <div class="contacts_title"></div>
-    <live-contacts></live-contacts>
+    <live-contacts class="contacts_center"></live-contacts>
+    <div class="contacts_bg"></div>
+
 
     <app-footer class="app_footer"></app-footer>
   </div>
@@ -267,7 +269,24 @@
     margin-top: 15px;
   }
 
+  .contacts_bg {
+    background-image: url("../../../static/img/home/about_us/about_bg.png");
+    background-size: 100%;
+    position: relative;
+    margin-top: -290px;
+    margin-bottom: -32px;
+    width: 1937px;
+    height: 370px;
+    z-index: 1;
+    opacity: 0.2;
+  }
+
   .app_footer {
     position: relative;
+  }
+
+  .contacts_center {
+    position: relative;
+    z-index: 21;
   }
 </style>
