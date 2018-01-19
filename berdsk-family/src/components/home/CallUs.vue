@@ -115,7 +115,7 @@
         let fullMessage = {
           message: this.message,
           name: this.name,
-          email: 'montessori_berdsk@gmail.com',
+          email: 'montessoriberdsk@gmail.com',
           phone: this.phone,
           date: date.toISOString()
         }

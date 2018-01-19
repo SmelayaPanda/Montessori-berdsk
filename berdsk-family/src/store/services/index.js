@@ -157,7 +157,8 @@ export default {
       },
     addSignUpMessages:
       ({commit, getters}, payload) => {
-        let messages = getters.serviceSignUpMessages
+        let messages = []
+        messages = getters.serviceSignUpMessages
         firebase.database().ref('signUpMessages').push(payload)
           .then(() => {
             messages.push(payload)

@@ -43,16 +43,20 @@
       ></v-toolbar-side-icon>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
+
+        <!--Go Home-->
+        <v-btn flat v-on:click="goHome">
+          <v-icon left dark>home</v-icon>
+          Главная
+        </v-btn>
+
+
         <v-btn
           flat
           v-for="item in menuItems"
           :key="item.title"
-          @click="goHome"
+          :to="item.link"
         >
-          <!--
-          Icon: just give name of icon from https://material.io/icons/
-          and replace space with underscore!
-          -->
           <v-icon left>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-btn>
@@ -76,7 +80,7 @@
         <v-layout row wrap>
           <v-flex xs12>
             <v-card>
-              <v-card-title>Привет, Администартор!</v-card-title>
+              <v-card-title>Привет, Администратор!</v-card-title>
               <v-card-text>Для редактирования сайта у Вас появился дополнительный функционал (видный только Вам).
               </v-card-text>
             </v-card>
@@ -94,6 +98,7 @@
               :headers="headers"
               :items="items"
               class="elevation-1"
+              :pagination.sync="pagination"
             >
               <template slot="items" slot-scope="props">
                 <v-tooltip bottom>
@@ -110,7 +115,7 @@
                 <td>{{ props.item.name }}</td>
 
                 <td class="text-xs-center primary pt-2"
-                    v-if="props.item.email.trim() === 'montessori_berdsk@gmail.com'">
+                    v-if="props.item.email.trim() === 'montessoriberdsk@gmail.com'">
                   Call
                   <v-icon>call</v-icon>
                   <p>{{ props.item.date | admin_date }}</p>
@@ -183,7 +188,7 @@
         sideNav: false,
         mainTitle: 'Admin Panel',
         pagination: {
-          sortBy: 'Имя'
+          sortBy: 'Дата'
         },
         headers: [
           {
@@ -210,10 +215,9 @@
       },
       menuItems:
         function () {
-          let menuItems = [{icon: 'home', title: 'Главная', link: '/'}]
+          let menuItems = []
           if (!this.isAuthenticatedUser) {
             menuItems = [
-              {icon: 'home', title: 'Главная', link: '/'},
               {icon: 'account_circle', title: 'Регистрация', link: '/signup'},
               {icon: 'lock_open', title: 'Войти', link: '/signin'}
             ]
