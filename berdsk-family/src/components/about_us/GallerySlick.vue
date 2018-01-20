@@ -73,8 +73,9 @@
     -ms-flex-pack: center;
     justify-content: center;
     text-align: center;
-    background-color: #fff;
-    padding: 10px;
+    background-color: #faaf94;
+    padding-left: 30px;
+    padding-right: 30px;
     -webkit-transition: all .7s;
     transition: all .7s;
     border-radius: 30px;
