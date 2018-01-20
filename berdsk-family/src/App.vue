@@ -65,7 +65,7 @@
   }
 
   .main_bg {
-    background: url("../static/img/common_background.png") repeat;
+    background: url("../static/img/common/common_background.png") repeat;
     background-size: 100%;
     position: relative;
     z-index: 1;

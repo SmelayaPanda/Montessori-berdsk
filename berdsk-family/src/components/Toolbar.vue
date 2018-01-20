@@ -55,7 +55,7 @@
 <style scoped>
 
   .toolbar__background {
-    background-image: url(../../static/img/toolbar.png);
+    background-image: url(../../static/img/common/toolbar.png);
     width: 2333px;
     height: 79px;
     position: absolute;

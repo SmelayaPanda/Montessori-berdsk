@@ -43,7 +43,8 @@ Vue.use(Vuetify, {
     secondary: '#faaf94',
     accept: '#19be6b',
     accent: '#8c9eff',
-    error: '#b71c1c'
+    error: '#b71c1c',
+    readable: '#333'
   }
 })
 

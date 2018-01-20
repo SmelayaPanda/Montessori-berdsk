@@ -56,13 +56,12 @@
                 <add-service-sub-group :group="{id: id, name: serviceGroup }"></add-service-sub-group>
                 <delete-service-group :group="{id: id, name: serviceGroup }"></delete-service-group>
               </h3>
-
               <v-layout row justify-center>
                 <v-flex xs10>
                   <v-expansion-panel popout focusable class="mt-2">
                     <v-expansion-panel-content
-                      style="border-radius: 30px"
-                      class="primary white--text mb-2"
+                      style="border-radius: 30px; background-color: #bced96"
+                      class=" white--text mb-2"
                       :title="subG.title"
                       :coast="subG.coast"
                       :schedule="subG.schedule"

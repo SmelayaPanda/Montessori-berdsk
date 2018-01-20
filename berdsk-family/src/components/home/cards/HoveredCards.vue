@@ -1,7 +1,9 @@
 <template>
   <div style="margin-left: 50px; margin-right: 50px" @mouseover="upHere = true" @mouseleave="upHere = false">
     <div class="hovereffect">
-      <p class="card_bg"></p>
+      <p class="card_bg"
+         v-model="changeBg"
+         :style="'background-color:' + cardBackground"></p>
 
       <div class="overlay">
         <h2 :style="tapePadding">{{ this.tapeText }}</h2>
@@ -37,7 +39,13 @@
     props: ['bgStyle', 'tapeText', 'tapePadding'],
     data: function () {
       return {
-        upHere: false
+        upHere: false,
+        cardBackground: '#E0FFCF'
+      }
+    },
+    computed: {
+      changeBg: function () {
+        this.cardBackground = this.upHere === true ? 'white' : '#E0FFCF'
       }
     }
   }
@@ -47,7 +55,7 @@
 
   .card_bg {
     border-radius: 40px;
-    background-color: rgb(224, 255, 207);
+    /*background-color: #E0FFCF;*/
     width: 240px;
     height: 300px;
     z-index: 1;
@@ -55,7 +63,7 @@
   }
 
   .card_bg:hover {
-    background-color: white;
+    /*background-color: white;*/
   }
 
   .hovereffect {
