@@ -41,7 +41,7 @@
                       </a>
                     </p>
                   <p>Электронная почта:
-                    <a :href="'mailto:' + loadContacts.email + '?Subject=Привет монтессори!&body=Спасибо за работу!'" target="_blank">
+                    <a :href="'mailto:' + loadContacts.email + '?Subject=Привет монтессори!&body=Спасибо!'" target="_blank">
                       {{ loadContacts.email }}
                     </a>
                   </p>

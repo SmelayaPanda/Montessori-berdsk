@@ -1,43 +1,76 @@
 <template>
   <div class="footer_wrapper">
     <v-layout row wrap>
+
+      <!--Block 1-->
       <v-flex xs2 sm2 class="footer_block">
         <div class="block_wrapper">
-
-          <div>О нас</div>
-          <div class="pg_text">О центре</div>
-          <div class="pg_text">Расположение</div>
+          <router-link to="/about">
+            <div>О нас</div>
+          </router-link>
+          <router-link to="/about">
+            <div class="pg_text">О центре</div>
+          </router-link>
+          <router-link to="/contacts">
+            <div class="pg_text">Расположение</div>
+          </router-link>
           <div class="pg_text">Материалы</div>
         </div>
+      </v-flex>
 
-      </v-flex>
+      <!--Block 2-->
       <v-flex xs2 sm2>
-        <div>Услуги</div>
-        <div class="pg_text">Возрастные группы</div>
-        <div class="pg_text">Стоимость</div>
+        <router-link to="/services">
+          <div>Услуги</div>
+        </router-link>
+        <router-link to="/services">
+          <div class="pg_text">Возрастные группы</div>
+        </router-link>
+        <router-link to="/services">
+          <div class="pg_text">Стоимость</div>
+        </router-link>
       </v-flex>
+
+      <!--Block 3-->
       <v-flex xs2 sm2 class="footer_contacts">
-        <div>Контакты</div>
-        <div class="pg_text">8 923 1111 6666</div>
-        <div class="pg_text">detiM2017@gmail.com</div>
+        <router-link to="/contacts">
+          <div>Контакты</div>
+        </router-link>
+        <a style="font-size: 12px; font-weight: normal"
+           :href="'tel://' + loadContacts.phone.replace(/[ -]/g,'')">
+          {{ loadContacts.phone }}
+        </a>
+        <a style="font-size: 12px; font-weight: normal"
+           :href="'mailto:' + loadContacts.email + '?Subject=Привет монтессори!&body=Спасибо!'"
+           target="_blank">
+          {{ loadContacts.email }}
+        </a>
       </v-flex>
+
+      <!--Block 4-->
       <v-flex xs2 sm2>
-        <div>Адрес: <p class="pg_text">ул. Красная Сибирь, 124</p></div>
-        <div class="pg_text">8 923 1111 6666</div>
+        <div>Адрес:
+          <router-link to="/contacts">
+            <p class="pg_text">{{ loadContacts.address }}</p>
+          </router-link>
+        </div>
       </v-flex>
+
+      <!--Block 5-->
       <v-flex xs2 sm2>
         <div class="soc_news">
-          <!--Scale it-->
-          Следите за новостями
-          <div class="rectangle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="3.958in" height="2.042in">
-              <path fill-rule="evenodd"  stroke="rgb(255, 255, 255)" stroke-width="2px" stroke-linecap="butt" stroke-linejoin="miter" fill="none"
-                    d="M26.000,1.000 L258.000,1.000 C271.807,1.000 283.000,12.193 283.000,26.000 L283.000,120.000 C283.000,133.807 271.807,145.000 258.000,145.000 L26.000,145.000 C12.193,145.000 1.000,133.807 1.000,120.000 L1.000,26.000 C1.000,12.193 12.193,1.000 26.000,1.000 Z"/>
-            </svg>
-          </div>
+          <div class="soc_news_text">
+            <router-link to="/meetups">
+              <p class="mt-2"><b>Следите за</b></p>
+              <p><b>новостями</b></p>
+            </router-link>
 
+            <img class="vk_icon"
+                 onclick="window.open('https://vk.com/club153200073', '_blank')"
+                 src="../../../../static/img/home/footer/vk.png" height="22%" width="22%"/>
+            <img class="instagram_icon"
+                 onclick="window.open('https://www.instagram.com/montessori_prostranstvo/', '_blank')"
+                 src="../../../../static/img/home/footer/instagram.png" height="17%" width="17%"/></div>
         </div>
       </v-flex>
     </v-layout>
@@ -58,9 +91,9 @@
     </div>
 
     <div class="panda_oliviacolin">
-      <p class="ml-2 pl-1 mb-3">panda</p>
-      <p class="ml-3 pl-2">&</p>
-      <p class="ml-1">oliviacolin</p>
+      <p class="panda">panda</p>
+      <p class="and_logo">&</p>
+      <p class="oliviacolin">oliviacolin</p>
     </div>
   </div>
 
@@ -68,7 +101,13 @@
 
 <script>
   export default {
-    name: 'app-footer'
+    name: 'app-footer',
+    computed: {
+      loadContacts:
+        function () {
+          return this.$store.getters.contacts
+        }
+    }
   }
 </script>
 
@@ -93,21 +132,25 @@
   .footer_wrapper {
     margin-top: 30px;
     padding-top: 20px;
-    height: 180px;
+    height: 200px;
+    color: white !important;
+  }
+
+  .application a {
+    color: white !important;
+    text-decoration: none;
+    transition: all 0.5s;
+  }
+
+  .application a:hover {
+    color: white !important;
+    text-decoration: underline;
   }
 
   .footer_line {
     position: absolute;
-    top: 130px;
+    top: 140px;
     margin-left: 130px;
-  }
-
-  .panda_oliviacolin {
-    position: absolute;
-    top: 120px;
-    line-height: 0;
-    font-size: 10px;
-    font-weight: bold;
   }
 
   .footer_contacts {
@@ -115,10 +158,63 @@
     margin-right: 50px;
   }
 
-  .rectangle {
+  .soc_news {
+    position: relative;
+    border: 1px solid white;
+    border-radius: 20px;
+    height: 100px;
+    width: 180px;
+    text-align: center;
+    line-height: 0;
+    opacity: 0.9;
+  }
+
+  .soc_news_text {
+    padding-top: 10px;
+  }
+
+  .instagram_icon {
+    filter: invert(1);
+    transition: all 0.5s;
+  }
+
+  .vk_icon {
+    filter: invert(1);
+    margin-right: 10px;
+    transition: all 0.5s;
+  }
+
+  .vk_icon:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  .instagram_icon:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  /* Logo Panda + OliviaColin */
+
+  .panda_oliviacolin {
     position: absolute;
-    top: 12px;
-    right: 10px;
+    top: 145px;
+    line-height: 0;
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  .panda {
+    margin-left: 8px;
+    margin-bottom: 10px;
+  }
+
+  .and_logo {
+    margin-left: 22px;
+    margin-bottom: 10px;
+  }
+
+  .oliviacolin {
   }
 </style>
 
