@@ -2,14 +2,14 @@
   <div class="about_bg">
 
     <v-container>
-      <v-container class="mt-3">
-        <h1 class="primary--text">О нас</h1>
+      <v-container class="mt-1">
+        <h1 class="primary--text about_us_main_title">О нас</h1>
 
 
         <div class="about_header">
           <img src="../../../static/img/home/about_us/about_us.png" height="40%" width="40%"/>
         </div>
-        <h2 class="about_sub_header secondary--text">Важность движени</h2>
+        <h2 class="about_sub_header secondary--text">Важность движения</h2>
         <p class="about_sub_header secondary--text">Один из основных принципов Монтессори</p>
 
         <v-flex xs12 sm10 offset-sm1>
@@ -65,8 +65,8 @@
 
 <style scoped>
   .about_bg {
+    background: url("../../../static/img/common_background.png") repeat;
     background-size: 100%;
-    background: url("../../../static/img/home/about_us/about_background.png") repeat;
     position: relative;
     z-index: 1;
   }
@@ -87,5 +87,9 @@
   .about_sub_header {
     display: flex;
     justify-content: center;
+  }
+
+  .about_us_main_title {
+    margin-left: 90px;
   }
 </style>

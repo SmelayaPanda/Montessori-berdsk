@@ -63,4 +63,11 @@
   .fade-enter, .fade-leave-active {
     opacity: 0
   }
+
+  .main_bg {
+    background: url("../static/img/common_background.png") repeat;
+    background-size: 100%;
+    position: relative;
+    z-index: 1;
+  }
 </style>

@@ -4,9 +4,9 @@
 
       <!--Block 1-->
       <v-flex xs2 sm2 class="footer_block">
-        <div class="block_wrapper">
+        <div class="about_us_footer">
           <router-link to="/about">
-            <div>О нас</div>
+            <div class="mb-1">О нас</div>
           </router-link>
           <router-link to="/about">
             <div class="pg_text">О центре</div>
@@ -21,7 +21,7 @@
       <!--Block 2-->
       <v-flex xs2 sm2>
         <router-link to="/services">
-          <div>Услуги</div>
+          <div class="mb-1">Услуги</div>
         </router-link>
         <router-link to="/services">
           <div class="pg_text">Возрастные группы</div>
@@ -34,12 +34,19 @@
       <!--Block 3-->
       <v-flex xs2 sm2 class="footer_contacts">
         <router-link to="/contacts">
-          <div>Контакты</div>
+          <div class="mb-1 pl-4">Контакты</div>
         </router-link>
-        <a style="font-size: 12px; font-weight: normal"
-           :href="'tel://' + loadContacts.phone.replace(/[ -]/g,'')">
-          {{ loadContacts.phone }}
-        </a>
+        <p class="tel_text">
+          <img class="tel_icon"
+               src="../../../../static/img/home/footer/tel.png" height="15" width="15"/>
+          <a style="font-weight: normal"
+             :href="'tel://' + loadContacts.phone.replace(/[ -]/g,'')">
+            {{ loadContacts.phone }}
+          </a>
+        </p>
+
+        <img class="letter_icon"
+             src="../../../../static/img/home/footer/letter.png" height="14" width="18"/>
         <a style="font-size: 12px; font-weight: normal"
            :href="'mailto:' + loadContacts.email + '?Subject=Привет монтессори!&body=Спасибо!'"
            target="_blank">
@@ -48,10 +55,15 @@
       </v-flex>
 
       <!--Block 4-->
-      <v-flex xs2 sm2>
-        <div>Адрес:
+      <v-flex xs2 sm2 class="pr-2">
+        <div class="mb-1">Адрес:
           <router-link to="/contacts">
-            <p class="pg_text">{{ loadContacts.address }}</p>
+            <span class="pg_text">{{ loadContacts.address.split(',')[0] + ', ' }}</span>
+            <p class="pg_text">
+              {{ loadContacts.address.split(',')[1] }} ,
+              {{ loadContacts.address.split(',')[2] }}
+              {{ loadContacts.address.split(',')[3] }}
+            </p>
           </router-link>
         </div>
       </v-flex>
@@ -70,7 +82,7 @@
                  src="../../../../static/img/home/footer/vk.png" height="22%" width="22%"/>
             <img class="instagram_icon"
                  onclick="window.open('https://www.instagram.com/montessori_prostranstvo/', '_blank')"
-                 src="../../../../static/img/home/footer/instagram.png" height="17%" width="17%"/></div>
+                 src="../../../../static/img/home/footer/inst.png" height="17%" width="17%"/></div>
         </div>
       </v-flex>
     </v-layout>
@@ -120,13 +132,17 @@
     justify-content: space-evenly;
   }
 
+  .about_us_footer {
+    padding-left: 20px;
+  }
+
   .pg_text {
     font-size: 12px;
     font-weight: normal;
   }
 
   .footer_block {
-    margin-left: 8%;
+    margin-left: 11.5%;
   }
 
   .footer_wrapper {
@@ -154,8 +170,7 @@
   }
 
   .footer_contacts {
-    text-align: center;
-    margin-right: 50px;
+    margin-right: 10px;
   }
 
   .soc_news {
@@ -163,10 +178,11 @@
     border: 1px solid white;
     border-radius: 20px;
     height: 100px;
-    width: 180px;
+    width: 130px;
     text-align: center;
     line-height: 0;
     opacity: 0.9;
+    margin-left: 10px;
   }
 
   .soc_news_text {
@@ -174,12 +190,10 @@
   }
 
   .instagram_icon {
-    filter: invert(1);
     transition: all 0.5s;
   }
 
   .vk_icon {
-    filter: invert(1);
     margin-right: 10px;
     transition: all 0.5s;
   }
@@ -201,7 +215,7 @@
     top: 145px;
     line-height: 0;
     font-size: 10px;
-    font-weight: bold;
+    opacity: 0.65;
   }
 
   .panda {
@@ -216,5 +230,24 @@
 
   .oliviacolin {
   }
+
+  .tel_icon {
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  .letter_icon {
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  .tel_text {
+    font-size: 12px;
+    font-weight: normal !important;
+    line-height: 0 !important;
+    margin-bottom: 0px;
+  }
+
+
 </style>
 

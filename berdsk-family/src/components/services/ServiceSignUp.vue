@@ -1,7 +1,7 @@
 <template>
   <v-layout row justify-end>
     <v-dialog v-model="dialog" persistent max-width="700px">
-      <v-btn color="white" dark slot="activator" class="primary--text">
+      <v-btn dark slot="activator" class="white--text signup_btn">
         Записаться
         <v-icon class="ml-3">done</v-icon>
       </v-btn>
@@ -163,4 +163,9 @@
 
 <style scoped>
 
+  .signup_btn {
+    background-image: linear-gradient(90deg, rgb(255, 171, 148) 23%, rgb(166, 238, 153) 100%);
+    border-radius: 20px;
+    text-decoration: none !important;
+  }
 </style>
