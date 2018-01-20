@@ -1,13 +1,13 @@
 <template>
-  <div class="about_bg">
-    <v-container>
+  <div>
+    <!--Loading circular-->
+    <v-container v-if="loading">
+      <app-loader></app-loader>
+    </v-container>
 
-      <!--Loading circular-->
-      <app-loader v-if="loading"></app-loader>
-
-
-      <!--Meetups-->
-      <div v-if="!loading">
+    <!--Meetups-->
+    <div class="main_bg">
+      <v-container v-if="!loading">
         <v-container class="mt-1">
           <h1 class="primary--text meetups_title">Новости</h1>
         </v-container>
@@ -65,8 +65,8 @@
             ></v-pagination>
           </div>
         </template>
-      </div>
-    </v-container>
+      </v-container>
+    </div>
   </div>
 
 </template>
@@ -103,12 +103,6 @@
 </script>
 
 <style scoped>
-  .about_bg {
-    background: url("../../../static/img/common_background.png") repeat;
-    background-size: 100%;
-    position: relative;
-    z-index: 1;
-  }
 
   .card {
     border-radius: 30px !important;

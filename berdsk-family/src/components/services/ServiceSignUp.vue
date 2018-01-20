@@ -3,7 +3,7 @@
     <v-dialog v-model="dialog" persistent max-width="700px">
       <v-btn dark slot="activator" class="white--text signup_btn">
         Записаться
-        <v-icon class="ml-3">done</v-icon>
+        <v-icon class="ml-3 white--text">done</v-icon>
       </v-btn>
       <v-card>
 

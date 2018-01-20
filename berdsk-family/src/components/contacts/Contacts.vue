@@ -1,10 +1,12 @@
 <template>
-  <div class="main_bg">
-    <v-container>
-      <!--Loading circular-->
-      <app-loader v-if="this.$store.getters.loading"></app-loader>
+  <div>
+    <!--Loading circular-->
+    <v-container v-if="loading">
+      <app-loader></app-loader>
+    </v-container>
 
-      <v-container v-if="!this.$store.getters.loading">
+    <div class="main_bg">
+      <v-container v-if="!loading">
         <h1 class="primary--text contacts mt-1">Контакты</h1>
 
         <v-layout row wrap class="mt-3">
@@ -73,7 +75,7 @@
           </v-flex>
         </v-layout>
       </v-container>
-    </v-container>
+    </div>
   </div>
 </template>
 
@@ -99,6 +101,10 @@
       loadContacts:
         function () {
           return this.$store.getters.contacts
+        },
+      loading:
+        function () {
+          return this.$store.getters.loading
         }
     }
   }

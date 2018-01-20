@@ -1,10 +1,10 @@
 <template>
-  <div style="margin-left: 50px; margin-right: 50px">
+  <div style="margin-left: 50px; margin-right: 50px" @mouseover="upHere = true" @mouseleave="upHere = false">
     <div class="hovereffect">
       <p class="card_bg"></p>
 
       <div class="overlay">
-        <h2>{{ this.tapeText }}</h2>
+        <h2 :style="tapePadding">{{ this.tapeText }}</h2>
         <a class="lenta" href="#">
           <v-container>
             <v-layout row wrap>
@@ -18,9 +18,11 @@
       <div>
 
         <router-link to="/services">
-          <div class="more_btn white--text">
-            Подробнее
-          </div>
+          <transition name="fade">
+            <div class="more_btn white--text" v-show="upHere">
+              Подробнее
+            </div>
+          </transition>
         </router-link>
       </div>
 
@@ -32,7 +34,12 @@
 <script>
   export default {
     name: 'hovered-cards',
-    props: ['bgStyle', 'tapeText']
+    props: ['bgStyle', 'tapeText', 'tapePadding'],
+    data: function () {
+      return {
+        upHere: false
+      }
+    }
   }
 </script>
 
@@ -80,7 +87,8 @@
     text-align: center;
     position: relative;
     font-size: 17px;
-    padding: 10px;
+    height: 50px;
+    /*padding: 10px;*/
     background: rgba(250, 175, 148, 1);
     -webkit-transform: translateY(120px);
     -ms-transform: translateY(120px);
@@ -135,13 +143,13 @@
     border-radius: 30px;
     background-image: linear-gradient(90deg, rgb(255, 171, 148) 23%, rgb(166, 238, 153) 100%);
     box-shadow: 0px 0px 38.8px 1.2px rgba(255, 255, 255, 0.5);
-    transition: box-shadow 0.8s;
+    transition: all 1s;
   }
 
   .more_btn:hover {
     color: rgba(255, 255, 255, 1);
     cursor: pointer;
-    transition: box-shadow 0.6s;
+    transition: all 1s;
     box-shadow: 0 0 60px 2px rgba(255, 255, 255, .7), 0 0 30px rgba(255, 255, 255, .7);
   }
 </style>

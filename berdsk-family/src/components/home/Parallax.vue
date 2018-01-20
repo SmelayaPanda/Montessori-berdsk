@@ -7,6 +7,7 @@
 
       <div class="hovered_cards">
         <hovered-cards
+          :tape-padding="'padding-top: 12px'"
           :tape-text="'Дети от 0 до 3 лет'"
           :bg-style="`
           background-image: url(&quot;../../../../static/img/home/cards/0-3_3part.png&quot;);
@@ -18,6 +19,7 @@
           `"
         ></hovered-cards>
         <hovered-cards
+          :tape-padding="'padding-top: 12px'"
           :tape-text="'Дети от 3 до 6 лет'"
           :bg-style="`
           background-image: url(&quot;../../../../static/img/home/cards/3-6_3part.png&quot;);
@@ -28,6 +30,7 @@
           `"
         ></hovered-cards>
         <hovered-cards
+          :tape-padding="'padding-top: 12px'"
           :tape-text="'Дети от 6 до 12 лет'"
           :bg-style="`
           background-image: url(&quot;../../../../static/img/home/cards/6-12_3part.png&quot;);
@@ -41,6 +44,7 @@
       </div>
       <div class="hovered_cards mt-5">
         <hovered-cards
+          :tape-padding="'padding-top: 12px'"
           :tape-text="'Особенные дети'"
           :bg-style="`
           background-image: url(&quot;../../../../static/img/home/cards/specialChild3part.png&quot;);
@@ -52,6 +56,7 @@
           `"
         ></hovered-cards>
         <hovered-cards
+          :tape-padding="'padding-top: 0'"
           :tape-text="'Школа для дошкольников'"
           :bg-style="`
           background-image: url(&quot;../../../../static/img/home/cards/preschool3part.png&quot;);
@@ -63,6 +68,7 @@
           `"
         ></hovered-cards>
         <hovered-cards
+          :tape-padding="'padding-top: 0'"
           :tape-text="'Монтессори + Английский'"
           :bg-style="`
           background-image: url(&quot;../../../../static/img/home/cards/english3part.png&quot;);
