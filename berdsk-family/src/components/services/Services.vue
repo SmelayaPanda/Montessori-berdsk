@@ -75,7 +75,7 @@
                         <delete-service-sub-group :subGroup="subG"></delete-service-sub-group>
                       </div>
                       <v-card>
-                        <v-card-text class="grey lighten-3 mt-0 secondary--text">
+                        <v-card-text class="grey lighten-3 mt-0 readable--text">
                           <v-container>
                             <p style="font-weight: normal" v-html="subG.description"></p>
                             <v-icon class="primary--text">bookmark</v-icon>

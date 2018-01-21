@@ -188,7 +188,8 @@
         sideNav: false,
         mainTitle: 'Admin Panel',
         pagination: {
-          sortBy: 'Дата'
+          sortBy: 'Дата',
+          descending: true
         },
         headers: [
           {
