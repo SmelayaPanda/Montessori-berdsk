@@ -67,7 +67,7 @@
   }
 
   .app-logo {
-    background-image: url(../../static/img/home/logo.png);
+    background-image: url(../../static/img/home/app_logo.png);
     width: 258px;
     height: 49px;
     position: absolute;
