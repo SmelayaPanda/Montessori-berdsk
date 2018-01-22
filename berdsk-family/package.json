@@ -15,6 +15,7 @@
     "bootstrap": "^4.0.0-beta.2",
     "bootstrap-vue": "^1.4.1",
     "firebase": "^4.8.2",
+    "jquery": "^3.3.1",
     "vue": "^2.5.3",
     "vue-carousel-3d": "^0.1.19",
     "vue-html-editor": "^0.2.1",

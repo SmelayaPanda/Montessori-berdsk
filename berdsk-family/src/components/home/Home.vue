@@ -251,8 +251,6 @@
     background-size: 100%;
     background-color: #faaf94;
     position: relative;
-    width: 1920px;
-    /*height: 437px;*/
     height: 680px;
     z-index: 15;
   }
