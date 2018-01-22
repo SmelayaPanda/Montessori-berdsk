@@ -8,7 +8,7 @@
       <v-carousel-item
         v-for="item in items"
         :key="item.src"
-        :src="item.src"
+        :src="imagePath(item.src)"
         transition="fade"
         reverseTransition="fade"
       ></v-carousel-item>
@@ -23,14 +23,19 @@
     data: function () {
       return {
         items: [
-          {src: '../../static/img/home/1.jpg'},
-          {src: '../../static/img/home/2.jpg'},
-          {src: '../../static/img/home/3.jpg'},
-          {src: '../../static/img/home/4.jpg'}
+          {src: '1'},
+          {src: '2'},
+          {src: '3'},
+          {src: '4'}
         ]
       }
     },
-    computed: {}
+    computed: {},
+    methods: {
+      imagePath: function (itemSrc) {
+        return require('@/assets/img/' + itemSrc + '.jpg')
+      }
+    }
   }
 </script>
 
