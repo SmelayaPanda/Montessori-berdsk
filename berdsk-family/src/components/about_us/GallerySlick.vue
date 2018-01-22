@@ -16,27 +16,11 @@
       >
         <slide :index="0">
           <span class="title mb-3">Свобода</span>
-          <img src="../../../static/img/home/about_us_main/svoboda.jpg"/>
+          <img :src="getImgUrl('about_us_main/svoboda.jpg')" />
         </slide>
         <slide :index="1">
           <span class="title mb-3">Впитывающий разум</span>
-          <img src="../../../static/img/home/about_us_main/VpitivUm.jpg"/>
-        </slide>
-        <slide :index="2">
-          <span class="title mb-3">Уважение личности</span>
-          <img src="../../../static/img/home/about_us_main/UvazhenieLichnosti.jpg"/>
-        </slide>
-        <slide :index="3">
-          <span class="title mb-3">Роль взрослого</span>
-          <img src="../../../static/img/home/about_us_main/RolVzroslogo.jpg"/>
-        </slide>
-        <slide :index="4">
-          <span class="title mb-3">Развивающая среда</span>
-          <img src="../../../static/img/home/about_us_main/RazvivSreda.jpg"/>
-        </slide>
-        <slide :index="5">
-          <span class="title mb-3">Разновозрастные группа</span>
-          <img src="../../../static/img/home/about_us_main/razniiVozrast.jpeg"/>
+          <img :src="getImgUrl('about_us_main/svoboda.jpg')" />
         </slide>
       </carousel-3d>
     </div>
@@ -53,6 +37,11 @@
     components: {
       Carousel3d,
       Slide
+    },
+    methods: {
+      getImgUrl (img) {
+        return require('../../assets/img/' + img)
+      }
     }
   }
 </script>
