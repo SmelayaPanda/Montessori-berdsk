@@ -38,7 +38,7 @@
         </router-link>
         <p class="tel_text">
           <img class="tel_icon"
-               src="../../../../static/img/home/footer/tel.png" height="15" width="15"/>
+               src="@/assets/img/footer/tel.png" height="15" width="15"/>
           <a style="font-weight: normal"
              :href="'tel://' + loadContacts.phone.replace(/[ -]/g,'')">
             {{ loadContacts.phone }}
@@ -46,7 +46,7 @@
         </p>
 
         <img class="letter_icon"
-             src="../../../../static/img/home/footer/letter.png" height="14" width="18"/>
+             src="@/assets/img/footer/letter.png" height="14" width="18"/>
         <a style="font-size: 12px; font-weight: normal"
            :href="'mailto:' + loadContacts.email + '?Subject=Привет монтессори!&body=Спасибо!'"
            target="_blank">
@@ -79,10 +79,10 @@
 
             <img class="vk_icon"
                  onclick="window.open('https://vk.com/club153200073', '_blank')"
-                 src="../../../../static/img/home/footer/vk.png" height="22%" width="22%"/>
+                 src="@/assets/img/footer/vk.png" height="22%" width="22%"/>
             <img class="instagram_icon"
                  onclick="window.open('https://www.instagram.com/montessori_prostranstvo/', '_blank')"
-                 src="../../../../static/img/home/footer/inst.png" height="17%" width="17%"/></div>
+                 src="@/assets/img/footer/inst.png" height="17%" width="17%"/></div>
         </div>
       </v-flex>
     </v-layout>

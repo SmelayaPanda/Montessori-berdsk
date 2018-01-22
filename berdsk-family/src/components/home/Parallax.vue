@@ -89,19 +89,19 @@
         <div class="parallax__layer parallax__layer--base">
 
           <div class="title">
-            <img src="../../../static/img/parallax/parallax_3.png" alt="Base Layer">
+            <img src="@/assets/img/parallax/parallax_3.png" alt="Base Layer">
           </div>
         </div>
         <div class="parallax__layer parallax__layer--back">
 
           <div class="title">
-            <img src="../../../static/img/parallax/parallax_2.png" alt="Background Layer">
+            <img src="@/assets/img/parallax/parallax_2.png" alt="Background Layer">
           </div>
         </div>
 
         <div class="parallax__layer parallax__layer--deep">
           <div class="title">
-            <img src="../../../static/img/parallax/parallax_1.png" alt="Deep Background Layer">
+            <img src="@/assets/img/parallax/parallax_1.png" alt="Deep Background Layer">
           </div>
         </div>
       </div>

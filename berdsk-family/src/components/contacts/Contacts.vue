@@ -54,11 +54,11 @@
                     <v-spacer></v-spacer>
                     <v-flex>
                       <v-btn fab class="primary" onclick="window.open('https://vk.com/club153200073', '_blank')">
-                        <img class="icons" src="../../../static/img/icons/vk.png" alt="">
+                        <img class="icons" src="@/assets/img/icons/vk.png" alt="">
                       </v-btn>
                       <v-btn fab class="primary"
                              onclick="window.open('https://www.instagram.com/montessori_prostranstvo/', '_blank')">
-                        <img class="icons" src="../../../static/img/icons/instagram.png" alt="">
+                        <img class="icons" src="@/assets/img/icons/instagram.png" alt="">
                       </v-btn>
                     </v-flex>
                   </v-layout>

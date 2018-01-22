@@ -33,7 +33,7 @@
     computed: {},
     methods: {
       imagePath: function (itemSrc) {
-        return require('@/assets/img/' + itemSrc + '.jpg')
+        return require('@/assets/img/home_carousel/' + itemSrc + '.jpg')
       }
     }
   }
