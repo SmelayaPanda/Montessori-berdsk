@@ -14,7 +14,7 @@
 
         <v-flex xs12 sm10 offset-sm1>
 
-          <v-card class="secondary white--text about_card">
+          <v-card class="secondary white--text about_card elevation-5">
             <v-card-text>
               <b>Движение является одним из самых важных аспектов развития в первые годы жизни.</b>
               <p>Движение – основная характеристика жизни. В случае если свобода движений не предоставляется, ребенок

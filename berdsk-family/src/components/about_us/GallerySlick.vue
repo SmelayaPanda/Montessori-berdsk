@@ -90,7 +90,6 @@
   #carousel3d .carousel-3d-slide.current span {
     font-size: 20px;
     font-weight: 500;
-    /*margin-bottom: 10px;*/
   }
 
   img {

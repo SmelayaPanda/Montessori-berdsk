@@ -90,7 +90,7 @@
     <div class="footer_line">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="22.66in" height="0.005in">
+        width="22.66in" height="0.010in">
         <path fill-rule="evenodd"
               stroke="rgb(255, 255, 255)"
               stroke-width="1px"

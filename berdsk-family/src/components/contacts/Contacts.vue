@@ -11,7 +11,7 @@
 
         <v-layout row wrap class="mt-3">
           <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
-            <v-card class="full_contact_card">
+            <v-card class="full_contact_card elevation-15">
               <v-container>
                 <v-layout>
                   <v-flex xs12>

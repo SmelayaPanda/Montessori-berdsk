@@ -5,12 +5,9 @@
       <app-loader></app-loader>
     </v-container>
 
+    <!--All Services-->
     <div class="main_bg">
       <v-container v-if="!loading">
-        <!--Loading circular-->
-        <app-loader v-if="this.$store.getters.loading"></app-loader>
-
-        <!--All Services-->
         <v-container class="mt-1 all_services" v-if="!this.$store.getters.loading">
           <h1 class="primary--text mb-2">Услуги</h1>
 
@@ -61,7 +58,7 @@
                   <v-expansion-panel popout focusable class="mt-2">
                     <v-expansion-panel-content
                       style="border-radius: 30px; background-color: #bced96"
-                      class=" white--text mb-2"
+                      class=" white--text mb-2 elevation-3"
                       :title="subG.title"
                       :coast="subG.coast"
                       :schedule="subG.schedule"

@@ -3,7 +3,7 @@
     <v-dialog v-model="dialog" persistent max-width="700px">
       <v-btn dark slot="activator" class="white--text signup_btn">
         Записаться
-        <v-icon class="ml-3 white--text">done</v-icon>
+        <v-icon class="ml-3 white--text done_icon">done</v-icon>
       </v-btn>
       <v-card>
 
@@ -166,6 +166,10 @@
   .signup_btn {
     background-image: linear-gradient(90deg, rgb(255, 171, 148) 23%, rgb(166, 238, 153) 100%);
     border-radius: 20px;
-    text-decoration: none !important;
+  }
+
+  .done_icon {
+    color: white;
+    filter: brightness(0) invert(1);
   }
 </style>
