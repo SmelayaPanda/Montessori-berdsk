@@ -11,11 +11,6 @@
 
     <!--Slide show-->
     <app-home-slide-show class="hidden-xs-only"></app-home-slide-show>
-    <a href="#"
-       v-scroll="onScroll"
-       v-scroll-to="scrollToParallaxOptions"
-       ref="emitScroll"></a>
-
 
     <!--About our center-->
     <div class="about_us_title"></div>
@@ -84,20 +79,7 @@
       goServices:
         function () {
           this.$router.push('/services')
-        },
-      onScroll: function () {
-        this.offsetTop = window.pageYOffset
-        let scrolled = this.scrolled
-        if (scrolled === false &&
-          ((this.offsetTop > 950 && this.offsetTop < 1000) ||
-            (this.offsetTop > 1800 && this.offsetTop < 1900))) {
-          this.$refs.emitScroll.click()
-          this.scrolled = true
         }
-        if ((this.offsetTop > 0 && this.offsetTop < 500) || (this.offsetTop > 1900)) {
-          this.scrolled = false
-        }
-      }
     },
     computed: {}
   }

@@ -10,7 +10,7 @@
           <div class="app-logo"></div>
         </router-link>
 
-        <v-tabs-bar dark>
+        <v-tabs-bar dark style="left: -100px;">
           <v-tabs-slider color="white"></v-tabs-slider>
           <v-tabs-item
             class="tab__text"
@@ -56,13 +56,13 @@
 
   .toolbar__background {
     background-image: url(../../static/img/common/toolbar.png);
-    width: 2333px;
+    width: 3219px;
     height: 79px;
     position: absolute;
     background-size: 78%;
     top: 0;
-    left: 50%;
-    margin-left: -980px;
+    left: 30%;
+    margin-left: -1020px;
     z-index: 1003 !important;
   }
 
@@ -73,8 +73,8 @@
     position: absolute;
     background-size: 78%;
     top: 0;
-    left: 50%;
-    margin-left: -625px;
+    left: 40%;
+    margin-left: -425px;
     margin-top: 10px;
     z-index: 1005 !important;
   }
@@ -88,6 +88,6 @@
     font-weight: normal;
     color: white;
     text-transform: capitalize !important;
+    margin-left: 0;
   }
-
 </style>
