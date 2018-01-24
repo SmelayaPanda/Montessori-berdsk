@@ -16,7 +16,7 @@
       >
         <slide :index="0">
           <span class="title mb-3">Свобода</span>
-          <img src="@/assets/img/about_us_main/Svoboda.jpg"/>
+          <img src="@/assets/img/about_us_main/svo.jpg"/>
         </slide>
         <slide :index="1">
           <span class="title mb-3">Впитывающий разум</span>
