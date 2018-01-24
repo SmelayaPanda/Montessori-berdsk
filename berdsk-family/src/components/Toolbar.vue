@@ -10,7 +10,8 @@
           <div class="app-logo"></div>
         </router-link>
 
-        <v-tabs-bar dark style="left: -100px;">
+        <v-tabs-bar dark
+                    style="left: -100px;">
           <v-tabs-slider color="white"></v-tabs-slider>
           <v-tabs-item
             class="tab__text"
@@ -89,5 +90,9 @@
     color: white;
     text-transform: capitalize !important;
     margin-left: 0;
+  }
+
+  .tabs__slider {
+    top: 43px !important;
   }
 </style>
