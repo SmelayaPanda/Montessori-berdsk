@@ -22,6 +22,7 @@
 
 
     <!--Unicallity-->
+    <rotate-image></rotate-image>
     <div class="unicallity_title"></div>
     <div class="unicallity_center"></div>
     <div class="unicallity_bg"></div>
@@ -49,6 +50,7 @@
   import CallUs from './CallUs'
   import AppFooter from './footer/AppFooter'
   import LiveContacts from './live_contacts/LiveContacts'
+  import RotateImage from './rotate_image/RotateImage'
 
   export default {
     name: 'home',
@@ -71,7 +73,8 @@
       HoveredCards,
       CallUs,
       AppFooter,
-      LiveContacts
+      LiveContacts,
+      RotateImage
     },
     methods: {
       callUs: function () {
