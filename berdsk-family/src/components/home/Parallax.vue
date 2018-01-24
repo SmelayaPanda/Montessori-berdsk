@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-parallax src="../../../static/img/home/newParallax.png" class="parallax_main"></v-parallax>
+    <v-parallax src="../../../static/img/home/parallax.png" class="parallax_main"></v-parallax>
 
     <div id="cards_wrapper">
 

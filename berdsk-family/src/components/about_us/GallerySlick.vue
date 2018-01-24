@@ -16,7 +16,7 @@
       >
         <slide :index="0">
           <span class="title mb-3">Свобода</span>
-          <img src="@/assets/img/about_us_main/svoboda.jpg"/>
+          <img src="@/assets/img/about_us_main/Svoboda.jpg"/>
         </slide>
         <slide :index="1">
           <span class="title mb-3">Впитывающий разум</span>
@@ -32,11 +32,11 @@
         </slide>
         <slide :index="4">
           <span class="title mb-3">Развивающая среда</span>
-          <img src="@/assets/img/about_us_main/RazvivSreda.jpg"/>
+          <img src="@/assets/img/about_us_main/razvivaushSreda.jpg"/>
         </slide>
         <slide :index="5">
           <span class="title mb-3">Разновозрастные группа</span>
-          <img src="@/assets/img/about_us_main/razniiVozrast.jpg"/>
+          <img src="@/assets/img/about_us_main/RazniiVozrast.jpeg"/>
         </slide>
       </carousel-3d>
     </div>

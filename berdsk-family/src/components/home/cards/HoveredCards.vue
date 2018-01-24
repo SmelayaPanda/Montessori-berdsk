@@ -17,17 +17,20 @@
           </v-container>
         </a>
       </div>
+      <!--More info-->
       <div>
-
         <router-link to="/services">
           <transition name="fade">
             <div class="more_btn white--text" v-show="upHere">
+              <transition name="fade">
+                <div class="in_card_border" v-show="upHere"></div>
+              </transition>
               Подробнее
             </div>
           </transition>
         </router-link>
-      </div>
 
+      </div>
     </div>
   </div>
 
@@ -55,7 +58,6 @@
 
   .card_bg {
     border-radius: 40px;
-    /*background-color: #E0FFCF;*/
     width: 240px;
     height: 300px;
     z-index: 1;
@@ -141,7 +143,7 @@
     font-size: 11px;
     margin: 0;
     padding: 0;
-    top: 260px;
+    top: 247px;
     left: 65px;
     width: 120px;
     height: 28px;
@@ -160,5 +162,21 @@
     cursor: pointer;
     transition: all 1s;
     box-shadow: 0 0 60px 2px rgba(255, 255, 255, .7), 0 0 30px rgba(255, 255, 255, .7);
+  }
+
+  .in_card_border {
+    position: absolute;
+    border: 2px solid #faaf94;
+    border-radius: 30px;
+    width: 220px;
+    height: 280px;
+    z-index: 10000;
+    top: -238px;
+    left: -55px;
+    transition: all 1s;
+  }
+
+  .in_card_border {
+    transition: all 1s;
   }
 </style>

@@ -118,13 +118,12 @@
                     v-if="props.item.email.trim() === 'montessoriberdsk@gmail.com'">
                   Call
                   <v-icon>call</v-icon>
-                  <p>{{ props.item.date | admin_date }}</p>
                 </td>
-                <td v-else class="text-xs-right">{{ props.item.email }}</td>
+                <td v-else class="text-xs-right secondary">{{ props.item.email }}</td>
 
-                <td class="text-xs-right">{{ props.item.phone }}</td>
-                <td class="text-xs-right">{{ props.item.message }}</td>
-                <td class="text-xs-right">{{ props.item.date | admin_date }}</td>
+                <td class="text-xs-left">{{ props.item.date | admin_date }}</td>
+                <td class="text-xs-left">{{ props.item.phone }}</td>
+                <td class="text-xs-left">{{ props.item.message }}</td>
               </template>
             </v-data-table>
 
@@ -188,7 +187,7 @@
         sideNav: false,
         mainTitle: 'Admin Panel',
         pagination: {
-          sortBy: 'Дата',
+          sortBy: 'date',
           descending: true
         },
         headers: [
@@ -199,9 +198,9 @@
             value: 'name'
           },
           {text: 'Почта', value: 'email'},
+          {text: 'Дата', value: 'date'},
           {text: 'Телефон', value: 'phone'},
-          {text: 'Сообщение', value: 'maessage'},
-          {text: 'Дата', value: 'date'}
+          {text: 'Сообщение', value: 'maessage'}
         ],
         items: []
       }

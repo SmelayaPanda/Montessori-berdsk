@@ -39,8 +39,7 @@
             {title: 'О нас', link: '/about'},
             {title: 'Услуги', link: '/services'},
             {title: 'Новости', link: '/meetups'},
-            {title: 'Контакты', link: '/contacts'},
-            {title: 'Admin', link: '/admin'}
+            {title: 'Контакты', link: '/contacts'}
           ]
         }
       },
