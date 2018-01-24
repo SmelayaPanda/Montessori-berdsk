@@ -44,10 +44,10 @@
 </template>
 
 <script>
-  import AppHomeSlideShow from './HomeSlideShow'
-  import AppParallax from './Parallax'
+  import AppHomeSlideShow from './slide_show/HomeSlideShow'
+  import AppParallax from './parallax/Parallax'
   import HoveredCards from './cards/HoveredCards'
-  import CallUs from './CallUs'
+  import CallUs from './call_us/CallUs'
   import AppFooter from './footer/AppFooter'
   import LiveContacts from './live_contacts/LiveContacts'
   import RotateImage from './rotate_image/RotateImage'

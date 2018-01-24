@@ -87,7 +87,7 @@
 </template>
 
 <script>
-  import HoveredCards from './cards/HoveredCards'
+  import HoveredCards from '../cards/HoveredCards'
 
   export default {
     name: 'parallax',
@@ -117,7 +117,7 @@
   }
 
   .hovered_cards_title {
-    background-image: url("../../../static/img/home/cards/titlepart3.png");
+    background-image: url("../../../../static/img/home/cards/titlepart3.png");
     background-size: 80%;
     width: 540px;
     height: 113px;
