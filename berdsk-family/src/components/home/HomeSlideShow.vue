@@ -4,6 +4,7 @@
                 hide-controls
                 interval="5000"
                 dark
+                class="elevation-0"
     >
       <v-carousel-item
         v-for="item in items"

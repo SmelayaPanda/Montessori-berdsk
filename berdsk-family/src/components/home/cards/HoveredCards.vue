@@ -138,6 +138,7 @@
 
   .more_btn {
     z-index: 50;
+    font-size: 11px;
     margin: 0;
     padding: 0;
     top: 260px;
