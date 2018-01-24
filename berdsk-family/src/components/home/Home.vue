@@ -22,8 +22,9 @@
 
 
     <!--Unicallity-->
-    <rotate-image></rotate-image>
-    <div class="unicallity_title"></div>
+    <div class="unicallity_title">
+      <rotate-image></rotate-image>
+    </div>
     <div class="unicallity_center"></div>
     <div class="unicallity_bg"></div>
 

@@ -1,8 +1,14 @@
 <template>
   <div>
     <img v-model="rotate"
-         id="rt_image"
-         src="../../../../static/img/home/flower.png" height="200px" width="200px" />
+         id="rt_image_1"
+         src="../../../../static/img/home/rotate_circles/1circle.png" height="70px" width="70px"/>
+    <img v-model="rotate"
+         id="rt_image_2"
+         src="../../../../static/img/home/rotate_circles/2circle.png" height="107px" width="107px"/>
+    <img v-model="rotate"
+         id="rt_image_3"
+         src="../../../../static/img/home/rotate_circles/3circle.png" height="170px" width="170px"/>
   </div>
 </template>
 
@@ -17,8 +23,11 @@
     computed: {
       rotate: function () {
         $(window).scroll(function () {
-          let theta = $(window).scrollTop() / 100 % Math.PI
-          $('#rt_image').css({transform: 'rotate(' + theta + 'rad)'})
+          let theta1 = $(window).scrollTop() / Math.PI * 0.1
+          let theta2 = $(window).scrollTop() / Math.PI * 0.2
+          $('#rt_image_1').css({transform: 'rotate(' + theta1 + 'rad)'})
+          $('#rt_image_2').css({transform: 'rotate(-' + theta2 + 'rad)'})
+          $('#rt_image_3').css({transform: 'rotate(' + theta1 + 'rad)'})
         })
       }
     }
@@ -26,10 +35,27 @@
 </script>
 
 <style scoped>
-  div > img {
+  #rt_image_1,
+  #rt_image_2,
+  #rt_image_3 {
     position: absolute;
     margin-left: 50%;
-    left: -100px;
-    margin-top: 205px;
+  }
+  #rt_image_1 {
+    left: -130px;
+    margin-top: 253px;
+    opacity: 0.8;
+  }
+
+  #rt_image_2 {
+    left: -148px;
+    margin-top: 235px;
+    opacity: 0.8;
+  }
+
+  #rt_image_3 {
+    left: -180px;
+    margin-top: 203px;
+    opacity: 0.65;
   }
 </style>
