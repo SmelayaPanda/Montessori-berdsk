@@ -36,7 +36,7 @@
         </slide>
         <slide :index="5">
           <span class="title mb-3">Разновозрастные группа</span>
-          <img src="@/assets/img/about_us_main/razniiVozrast.jpg"/>
+          <img src="@/assets/img/about_us_main/RazniiVozrast.jpeg"/>
         </slide>
       </carousel-3d>
     </div>
