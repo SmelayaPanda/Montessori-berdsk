@@ -40,7 +40,9 @@
             <div style="display: flex; justify-content: center">
               <img class="meetup_image ml-0"
                    :src="meetup.imageUrl"
-                   height="400px"/>
+                   height="400px"
+                   alt="Новости Монтессори Бердск"
+              />
             </div>
 
             <!--Full description-->
