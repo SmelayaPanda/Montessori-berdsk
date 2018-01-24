@@ -23,8 +23,8 @@
     computed: {
       rotate: function () {
         $(window).scroll(function () {
-          let theta1 = $(window).scrollTop() / Math.PI * 0.1
-          let theta2 = $(window).scrollTop() / Math.PI * 0.2
+          let theta1 = $(window).scrollTop() / Math.PI * 0.05
+          let theta2 = $(window).scrollTop() / Math.PI * 0.1
           $('#rt_image_1').css({transform: 'rotate(' + theta1 + 'rad)'})
           $('#rt_image_2').css({transform: 'rotate(-' + theta2 + 'rad)'})
           $('#rt_image_3').css({transform: 'rotate(' + theta1 + 'rad)'})
@@ -40,6 +40,7 @@
   #rt_image_3 {
     position: absolute;
     margin-left: 50%;
+    transition: all 1.5s;
   }
   #rt_image_1 {
     left: -130px;

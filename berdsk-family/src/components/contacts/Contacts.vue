@@ -7,7 +7,7 @@
 
     <div class="main_bg">
       <v-container v-if="!loading">
-        <h1 class="primary--text contacts mt-1">Контакты</h1>
+        <h1 class="primary--text contacts mt-3 pt-1">Контакты</h1>
 
         <v-layout row wrap class="mt-3">
           <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
