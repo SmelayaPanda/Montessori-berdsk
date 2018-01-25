@@ -1,6 +1,6 @@
 <template>
   <div class="footer_wrapper">
-    <v-layout row wrap class="hidden-xs-only">
+    <v-layout row wrap class="hidden-sm-and-down">
 
       <!--Block 1-->
       <v-flex xs2 sm2 class="footer_block">
@@ -98,7 +98,7 @@
       </v-flex>
     </v-layout>
 
-    <div class="footer_line hidden-xs-only">
+    <div class="footer_line hidden-sm-and-down">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="22.66in" height="0.010in">
@@ -113,7 +113,7 @@
       </svg>
     </div>
 
-    <div class="panda_oliviacolin hidden-xs-only">
+    <div class="panda_oliviacolin hidden-sm-and-down">
       <p class="panda">panda</p>
       <p class="and_logo">&</p>
       <p class="oliviacolin">oliviacolin</p>
@@ -121,7 +121,7 @@
 
     <!--Mobile footer-->
     <!--Line 1-->
-    <v-layout row wrap class="hidden-sm-and-up">
+    <v-layout row wrap class="hidden-md-and-up">
       <v-flex xs12 style="margin-left: 10%">
         <router-link to="/contacts">
           <div class="mb-1 pl-4">Контакты</div>

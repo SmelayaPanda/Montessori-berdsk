@@ -1,7 +1,7 @@
 <template>
   <div v-show="!isAdminPanel">
     <!--Desctop toolbar-->
-    <div class="hidden-xs-only">
+    <div class="hidden-sm-and-down">
       <!--Mock block-->
       <div style="height: 40px"></div>
       <!--Toolbar-->
@@ -25,10 +25,10 @@
 
 
     <!--Mobile toolbar-->
-    <v-toolbar class="hidden-sm-and-up primary">
+    <v-toolbar class="hidden-md-and-up primary mobile_toolbar">
       <v-toolbar-side-icon
         @click="sideNav = !sideNav"
-        class="hidden-sm-and-up secondary--text ml-3 pl-3"
+        class="hidden-md-and-up white--text ml-3 pl-3 side_icon"
       ></v-toolbar-side-icon>
     </v-toolbar>
 
@@ -119,5 +119,13 @@
 
   .tabs__slider {
     top: 43px !important;
+  }
+
+  .mobile_toolbar {
+    background-image: linear-gradient(90deg, rgb(255, 171, 148) 23%, rgb(166, 238, 153) 100%);
+  }
+
+  .side_icon {
+    filter: brightness(0) invert(1);
   }
 </style>

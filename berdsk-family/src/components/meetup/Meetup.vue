@@ -120,7 +120,7 @@
   .card_image {
       height: 450px !important;
   }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 960px) {
     .meetup_image {
       border: 2px solid white;
       border-radius: 0 !important;

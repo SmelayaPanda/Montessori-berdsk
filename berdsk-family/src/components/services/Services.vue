@@ -146,7 +146,7 @@
     margin-left: 90px;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 960px) {
     .all_services {
       margin: -10px;
       padding: 0px;
@@ -186,7 +186,7 @@
     background-color: white !important;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 960px) {
     .main_title {
       margin-left: 38%;
     }

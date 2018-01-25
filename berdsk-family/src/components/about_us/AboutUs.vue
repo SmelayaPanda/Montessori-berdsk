@@ -96,7 +96,7 @@
   }
 
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 960px) {
     .about_us_main_title {
       margin-left: 35%;
     }

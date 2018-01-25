@@ -39,10 +39,10 @@
       </v-toolbar-title>
       <v-toolbar-side-icon
         v-on:click="sideNav = !sideNav"
-        class="hidden-sm-and-up"
+        class="hidden-md-and-up"
       ></v-toolbar-side-icon>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-xs-only">
+      <v-toolbar-items class="hidden-sm-and-down">
 
         <!--Go Home-->
         <v-btn flat v-on:click="goHome">

@@ -5,7 +5,6 @@
 
         <v-dialog v-model="dialog" persistent max-width="600px">
 
-
           <div slot="activator" style="width: 170px; height: 32px;">
             <p class="signup_main_text">Записаться</p>
           </div>

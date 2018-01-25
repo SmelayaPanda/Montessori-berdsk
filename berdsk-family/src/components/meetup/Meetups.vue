@@ -37,7 +37,7 @@
                     </v-flex>
 
                     <!--Desctop-->
-                    <v-flex xs7 sm8 md9 class="ml-3 hidden-xs-only">
+                    <v-flex xs7 sm8 md9 class="ml-3 hidden-sm-and-down">
                       <v-card-title primary-title>
                         <div class="secondary--text">
                           <h2 class="white--text">{{ meetup.title | snippet }}</h2>
@@ -52,7 +52,7 @@
                 </v-container>
 
                 <!--Mobile-->
-                <v-container fluid class="hidden-sm-and-up mobile_title">
+                <v-container fluid class="hidden-md-and-up mobile_title">
                   <v-layout row>
                     <v-flex xs10 class="ml-3">
                       <v-card-title primary-title>
