@@ -1,7 +1,7 @@
 <template>
-  <v-container>
-    <v-layout row wrap style="justify-content: center">
-      <div class="col-3-wrapper">
+  <v-container class="pt-0 pr-5 pl-5">
+    <v-layout row wrap style="justify-content: space-evenly">
+      <v-flex xs12 sm4 md3 class="col-3-wrapper mt-2">
         <div class="col-3">
           <input class="effect-2"
                  type="text"
@@ -9,21 +9,21 @@
                  v-model="name">
           <span class="focus-border"></span>
         </div>
-      </div>
-      <div class="col-3-wrapper  ml-5">
+      </v-flex>
+      <v-flex xs12 sm4 md3 class="col-3-wrapper mt-2">
         <div class="col-3">
           <input class="effect-2"
                  type="text"
                  v-model="phone"
                  placeholder="Ваш номер телефона">
-          <span class="focus-border"></span>
+          <span xs12 class="focus-border"></span>
         </div>
-      </div>
+      </v-flex>
 
       <!--Submit-->
-      <div class="signup_main_btn" @click="submit">
+      <v-flex xs12 sm3 md2 class="signup_main_btn mt-2" @click="submit">
         <p class="signup_main_text">Отправить</p>
-      </div>
+      </v-flex>
     </v-layout>
 
 
@@ -139,7 +139,6 @@
     display: flex;
     position: relative;
     justify-content: center;
-    left: 4%;
     z-index: 10;
     width: 180px;
     height: 48px;

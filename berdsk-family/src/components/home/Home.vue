@@ -248,9 +248,16 @@
     height: 168px;
     position: relative;
     z-index: 21;
-    left: -260px;
+    left: -240px;
     margin-left: 50%;
     margin-top: 15px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .contacts_title {
+      background-size: 50%;
+      left: -160px;
+    }
   }
 
   .contacts_bg {

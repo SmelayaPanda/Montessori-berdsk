@@ -146,7 +146,7 @@
     margin-left: 90px;
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 600px) {
     .all_services {
       margin: -10px;
       padding: 0px;
