@@ -29,19 +29,35 @@
                   <v-layout row>
                     <v-flex xs5 sm4 md3>
                       <v-card-media
+                        class="pb-0"
                         :src="meetup.imageUrl"
                         height="140px">
                         <!-- with "contain" image wouldn't cut-->
                       </v-card-media>
                     </v-flex>
 
-                    <v-flex xs7 sm8 md9 class="ml-3">
+                    <!--Desctop-->
+                    <v-flex xs7 sm8 md9 class="ml-3 hidden-xs-only">
                       <v-card-title primary-title>
                         <div class="secondary--text">
-                          <!-- "--text" works for all colors
-                        without "--text" will changed background color-->
                           <h2 class="white--text">{{ meetup.title | snippet }}</h2>
-                          <!-- | date means add filter registered as DateFilter -->
+                          <p class="mb-1" style="font-size: 10px;">
+                            Добавлено {{ meetup.date | date }}
+                          </p>
+                        </div>
+                      </v-card-title>
+                    </v-flex>
+
+                  </v-layout>
+                </v-container>
+
+                <!--Mobile-->
+                <v-container fluid class="hidden-sm-and-up mobile_title">
+                  <v-layout row>
+                    <v-flex xs10 class="ml-3">
+                      <v-card-title primary-title>
+                        <div class="secondary--text">
+                          <h2 class="white--text">{{ meetup.title | snippet }}</h2>
                           <p class="mb-1" style="font-size: 10px;">
                             Добавлено {{ meetup.date | date }}
                           </p>
@@ -50,6 +66,7 @@
                     </v-flex>
                   </v-layout>
                 </v-container>
+
               </div>
             </v-card>
           </v-flex>
@@ -124,5 +141,13 @@
 
   .meetups_title {
     margin-left: 90px;
+  }
+
+  .mobile_title {
+    padding: 0;
+  }
+
+  .card__title{
+    padding-top: 0 !important;
   }
 </style>
