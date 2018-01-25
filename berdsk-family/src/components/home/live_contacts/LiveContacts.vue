@@ -173,7 +173,7 @@
   /* necessary to give position: relative to parent. */
   input[type="text"] {
     color: white;
-    width: 120%;
+    width: 100%;
     box-sizing: border-box;
     letter-spacing: 1px;
   }
@@ -201,7 +201,7 @@
   }
 
   .effect-2:focus ~ .focus-border {
-    width: 130%;
+    width: 115%;
     transition: 0.4s;
     left: 0;
   }

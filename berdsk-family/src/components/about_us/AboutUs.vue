@@ -1,5 +1,5 @@
 <template>
-  <v-container grid-list-md class="about_bg">
+  <div grid-list-md class="about_bg">
     <v-layout row wrap>
       <v-flex xs12>
         <v-container class="mt-1">
@@ -51,7 +51,7 @@
         <gallery-slick class="hidden-sm-and-down"></gallery-slick>
       </v-flex>
     </v-layout>
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -94,4 +94,12 @@
   .about_us_main_title {
     margin-left: 90px;
   }
+
+
+  @media only screen and (max-width: 600px) {
+    .about_us_main_title {
+      margin-left: 35%;
+    }
+  }
+
 </style>

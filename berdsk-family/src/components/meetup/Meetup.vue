@@ -24,7 +24,7 @@
           <v-card class="secondary white--text full_card">
             <v-card-title>
               <!--Title-->
-              <v-flex>
+              <v-flex xs12>
                 <h3 class="white--text text-xs-center">{{ meetup.title }}</h3>
               </v-flex>
               <!--Edit meetup details dialog-->
@@ -35,27 +35,24 @@
                 <app-delete-meetup :meetup="meetup"></app-delete-meetup>
               </template>
             </v-card-title>
-
-            <!--Image-->
-            <div style="display: flex; justify-content: center">
-              <img class="meetup_image ml-0"
-                   :src="meetup.imageUrl"
-                   height="400px"
-                   alt="Новости Монтессори Бердск"
-              />
-            </div>
+            <v-card-media
+              class="pb-0 card_image"
+              :src="meetup.imageUrl"
+              alt="Новости Монтессори Бердск"
+            >
+            </v-card-media>
 
             <!--Full description-->
             <v-card-text>
               <div>
                 <b class="white--text">
-                  <p class="mb-1" style="font-size: 10px;">Добавлено</p>
+                  <p class="mb-1 add_time">Добавлено</p>
                   <p>
-                    <v-icon class="primary--text">access_time</v-icon>
+                    <v-icon class="primary--text" style="margin: 10px">access_time</v-icon>
                     {{ meetup.date | date }}
                   </p>
                 </b>
-                <v-container row wrap>
+                <v-container row wrap class="news_descr">
                   <v-flex xs12 class="ml-2">
                     <p v-html="meetup.description"></p>
                   </v-flex>
@@ -108,6 +105,7 @@
   .meetup_image {
     border: 2px solid white;
     border-radius: 30px !important;
+    height: 400px;
   }
 
   .full_card {
@@ -117,4 +115,40 @@
   .meetup_container {
     width: 70vw;
   }
+
+
+  .card_image {
+      height: 450px !important;
+  }
+  @media only screen and (max-width: 600px) {
+    .meetup_image {
+      border: 2px solid white;
+      border-radius: 0 !important;
+      position: absolute;
+    }
+
+    .meetup_container {
+      width: 90vw;
+      padding: 10px;
+    }
+
+    .card__text {
+      padding: 0 !important;
+    }
+
+    .add_time {
+      font-size: 10px;
+      margin: 10px;
+      margin-bottom: 0!important;
+    }
+
+    .news_descr {
+      padding: 5px;
+    }
+
+    .card_image {
+      height: 200px !important;
+    }
+  }
+
 </style>

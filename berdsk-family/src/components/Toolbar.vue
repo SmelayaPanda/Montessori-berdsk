@@ -60,11 +60,11 @@
         return {
           sideNav: false,
           menuItems: [
-            {title: 'Главная', link: '/'},
-            {title: 'О нас', link: '/about'},
-            {title: 'Услуги', link: '/services'},
-            {title: 'Новости', link: '/meetups'},
-            {title: 'Контакты', link: '/contacts'}
+            {title: 'Главная', link: '/', icon: 'home'},
+            {title: 'О нас', link: '/about', icon: 'mood'},
+            {title: 'Услуги', link: '/services', icon: 'loyalty'},
+            {title: 'Новости', link: '/meetups', icon: 'album'},
+            {title: 'Контакты', link: '/contacts', icon: 'room'}
           ]
         }
       },
