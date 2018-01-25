@@ -11,8 +11,8 @@
           :tape-padding="'padding-top: 12px'"
           :tape-text="'Дети от 0 до 3 лет'"
           :bg-style="`
-          background-image: url(&quot;../../../../static/img/home/cards/0-3_3part.png&quot;);
-          background-size: 61%;
+          background-image: url(../../../../static/img/home/cards/0-3_3part.png);
+          background-size: 65%;
           height: 262px;
           width: 360px;
           margin-left: -8px;
@@ -23,8 +23,8 @@
           :tape-padding="'padding-top: 12px'"
           :tape-text="'Дети от 3 до 6 лет'"
           :bg-style="`
-          background-image: url(&quot;../../../../static/img/home/cards/3-6_3part.png&quot;);
-          background-size: 61%;
+          background-image: url(../../../../static/img/home/cards/3-6_3part.png);
+          background-size: 65%;
           height: 244px;
           width: 345px;
           margin-left: -5px;
@@ -34,8 +34,8 @@
           :tape-padding="'padding-top: 12px'"
           :tape-text="'Дети от 6 до 12 лет'"
           :bg-style="`
-          background-image: url(&quot;../../../../static/img/home/cards/6-12_3part.png&quot;);
-          background-size: 61%;
+          background-image: url(../../../../static/img/home/cards/6-12_3part.png);
+          background-size: 65%;
           height: 220px;
           width: 384px;
           margin-left: -14px;
@@ -48,8 +48,8 @@
           :tape-padding="'padding-top: 12px'"
           :tape-text="'Особенные дети'"
           :bg-style="`
-          background-image: url(&quot;../../../../static/img/home/cards/specialChild3part.png&quot;);
-          background-size: 61%;
+          background-image: url(../../../../static/img/home/cards/specialChild3part.png);
+          background-size: 65%;
           height: 285px;
           width: 425px;
           margin-left: -19px;
@@ -58,10 +58,10 @@
         ></hovered-cards>
         <hovered-cards
           :tape-padding="'padding-top: 0'"
-          :tape-text="'Школа для дошкольников'"
+          :tape-text="'Школа для <p>дошкольников</p>'"
           :bg-style="`
-          background-image: url(&quot;../../../../static/img/home/cards/preschool3part.png&quot;);
-          background-size: 61%;
+          background-image: url(../../../../static/img/home/cards/preschool3part.png);
+          background-size: 65%;
           height: 261px;
           width: 362px;
           margin-left: -10px;
@@ -70,10 +70,10 @@
         ></hovered-cards>
         <hovered-cards
           :tape-padding="'padding-top: 0'"
-          :tape-text="'Монтессори + Английский'"
+          :tape-text="'Монтессори + <p>Английский</p>'"
           :bg-style="`
-          background-image: url(&quot;../../../../static/img/home/cards/english3part.png&quot;);
-          background-size: 61%;
+          background-image: url(../../../../static/img/home/cards/english3part.png);
+          background-size: 65%;
           height: 216px;
           width: 357px;
           margin-left: -5px;
@@ -129,7 +129,7 @@
   }
 
   .parallax_main {
-    height: 900px !important;
+    height: 935px !important;
     background-color: #bced96;
   }
 </style>

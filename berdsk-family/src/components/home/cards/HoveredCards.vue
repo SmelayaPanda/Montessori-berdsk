@@ -6,7 +6,7 @@
          :style="'background-color:' + cardBackground"></p>
 
       <div class="overlay">
-        <h2 :style="tapePadding">{{ this.tapeText }}</h2>
+        <h2 :style="tapePadding" v-html="tapeText"></h2>
         <a class="lenta" href="#">
           <v-container>
             <v-layout row wrap>
@@ -58,8 +58,8 @@
 
   .card_bg {
     border-radius: 40px;
-    width: 240px;
-    height: 300px;
+    width: 260px;
+    height: 330px;
     z-index: 1;
     transition: all 0.5s;
   }
@@ -79,7 +79,7 @@
   }
 
   .hovereffect .overlay {
-    width: 240px;
+    width: 260px;
     height: 100%;
     position: absolute;
     overflow: hidden;
@@ -100,9 +100,9 @@
     height: 50px;
     /*padding: 10px;*/
     background: rgba(250, 175, 148, 1);
-    -webkit-transform: translateY(120px);
-    -ms-transform: translateY(120px);
-    transform: translateY(120px);
+    -webkit-transform: translateY(130px);
+    -ms-transform: translateY(130px);
+    transform: translateY(130px);
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
     z-index: 10;
@@ -143,8 +143,8 @@
     font-size: 11px;
     margin: 0;
     padding: 0;
-    top: 247px;
-    left: 65px;
+    top: 272px;
+    left: 69px;
     width: 120px;
     height: 28px;
     position: absolute;
@@ -168,11 +168,11 @@
     position: absolute;
     border: 2px solid #faaf94;
     border-radius: 30px;
-    width: 220px;
-    height: 280px;
+    width: 240px;
+    height: 311px;
     z-index: 10000;
-    top: -238px;
-    left: -55px;
+    top: -263px;
+    left: -59px;
     transition: all 1s;
   }
 
