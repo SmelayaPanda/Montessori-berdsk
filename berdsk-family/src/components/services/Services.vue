@@ -54,7 +54,7 @@
                 <delete-service-group :group="{id: id, name: serviceGroup }"></delete-service-group>
               </h3>
               <v-layout row justify-center>
-                <v-flex xs10>
+                <v-flex xs12 sm10>
                   <v-expansion-panel popout focusable class="mt-2">
                     <v-expansion-panel-content
                       style="border-radius: 30px; background-color: #bced96"
@@ -144,6 +144,13 @@
 <style scoped>
   .all_services {
     margin-left: 90px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .all_services {
+      margin: -10px;
+      padding: 0px;
+    }
   }
 
   .lesson {

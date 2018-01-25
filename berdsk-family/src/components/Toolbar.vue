@@ -4,20 +4,13 @@
     <div class="hidden-xs-only">
       <!--Mock block-->
       <div style="height: 40px"></div>
-
       <!--Toolbar-->
       <v-tabs centered style="z-index: 10000" class="toolbar__background">
         <router-link to="/">
           <div class="app-logo"></div>
         </router-link>
-
-        <v-tabs-bar dark
-                    style="left: -100px;">
+        <v-tabs-bar dark style="left: -100px;">
           <v-tabs-slider color="white"></v-tabs-slider>
-          <v-toolbar-side-icon
-            v-on:click="sideNav = !sideNav"
-            class="hidden-sm-and-down"
-          ></v-toolbar-side-icon>
           <v-tabs-item
             class="tab__text"
             v-for="i in menuItems"
@@ -29,6 +22,15 @@
         </v-tabs-bar>
       </v-tabs>
     </div>
+
+
+    <!--Mobile toolbar-->
+    <v-toolbar class="hidden-sm-and-up primary">
+      <v-toolbar-side-icon
+        @click="sideNav = !sideNav"
+        class="hidden-sm-and-up secondary--text ml-3 pl-3"
+      ></v-toolbar-side-icon>
+    </v-toolbar>
 
     <!--Navigation drawer-->
     <v-navigation-drawer style="z-index: 100" temporary absolute v-model="sideNav">
@@ -46,15 +48,6 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-
-    <!--Mobile toolbar-->
-    <v-toolbar centered class="hidden-sm-and-up primary">
-        <!--<v-tabs-slider color="white"></v-tabs-slider>-->
-        <v-toolbar-side-icon
-          @click="sideNav = !sideNav"
-          class="secondary--text ml-3 pl-3"
-        ></v-toolbar-side-icon>
-    </v-toolbar>
   </div>
 
 </template>
