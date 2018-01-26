@@ -194,14 +194,14 @@
 
   .unicallity_center {
     background-image: url("../../../static/img/home/unicallity/unicallity_center.png");
-    background-size: 92%;
+    background-size: 90%;
     width: 1397px;
     height: 376px;
     position: absolute;
     z-index: 21;
-    left: -630px;
+    left: -593px;
     margin-left: 50%;
-    margin-top: 135px;
+    margin-top: 113px;
   }
 
   #app-parallax {
@@ -247,7 +247,7 @@
     height: 168px;
     position: relative;
     z-index: 21;
-    left: -240px;
+    left: -275px;
     margin-left: 50%;
     margin-top: 15px;
   }

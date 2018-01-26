@@ -24,10 +24,11 @@
       rotate: function () {
         $(window).scroll(function () {
           let theta1 = $(window).scrollTop() / Math.PI * 0.05
-          let theta2 = $(window).scrollTop() / Math.PI * 0.1
+          let theta2 = $(window).scrollTop() / Math.PI * 0.04
+          let theta3 = $(window).scrollTop() / Math.PI * 0.03
           $('#rt_image_1').css({transform: 'rotate(' + theta1 + 'rad)'})
           $('#rt_image_2').css({transform: 'rotate(-' + theta2 + 'rad)'})
-          $('#rt_image_3').css({transform: 'rotate(' + theta1 + 'rad)'})
+          $('#rt_image_3').css({transform: 'rotate(' + theta3 + 'rad)'})
         })
       }
     }

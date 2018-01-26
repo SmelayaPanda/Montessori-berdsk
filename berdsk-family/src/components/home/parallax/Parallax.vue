@@ -117,7 +117,7 @@
   }
 
   .hovered_cards_title {
-    background-image: url("../../../../static/img/home/cards/titlepart3.png");
+    background-image: url("../../../../static/img/home/cards/cards_title.png");
     background-size: 80%;
     width: 540px;
     height: 113px;
