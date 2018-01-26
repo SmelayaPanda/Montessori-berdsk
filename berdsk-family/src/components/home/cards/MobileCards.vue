@@ -1,5 +1,5 @@
 <template>
-  <div class="hidden-md-and-up">
+  <div>
 
     <img src="../../../assets/img/mobile/aboutMobile.png" height="100%" width="100%"/>
     <v-parallax src="../../../static/img/home/parallax.png" class="parallax_main">

@@ -57,8 +57,7 @@
                 <v-flex xs12 sm10>
                   <v-expansion-panel popout focusable class="mt-2">
                     <v-expansion-panel-content
-                      style="border-radius: 30px; background-color: #bced96"
-                      class=" white--text mb-2 elevation-3"
+                      class="exp_panel white--text mb-2 elevation-3"
                       :title="subG.title"
                       :coast="subG.coast"
                       :schedule="subG.schedule"
@@ -192,5 +191,10 @@
     }
   }
 
+  .exp_panel {
+    border-radius: 30px;
+    background-image: linear-gradient(90deg, rgb(255, 171, 148) 23%, rgb(166, 238, 153) 100%);
+    font-size: 15px;
+  }
 </style>
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="footer_wrapper">
-    <v-layout row wrap class="hidden-sm-and-down">
+  <div class="footer_wrapper  hidden-sm-and-down">
+    <v-layout row wrap>
 
       <!--Block 1-->
       <v-flex xs2 sm2 class="footer_block">
@@ -98,7 +98,7 @@
       </v-flex>
     </v-layout>
 
-    <div class="footer_line hidden-sm-and-down">
+    <div class="footer_line">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="22.66in" height="0.010in">
@@ -113,80 +113,12 @@
       </svg>
     </div>
 
-    <div class="panda_oliviacolin hidden-sm-and-down">
+    <div class="panda_oliviacolin">
       <p class="panda">panda</p>
       <p class="and_logo">&</p>
       <p class="oliviacolin">oliviacolin</p>
     </div>
-
-    <!--Mobile footer-->
-    <!--Line 1-->
-    <v-layout row wrap class="hidden-md-and-up">
-      <v-flex xs12 style="margin-left: 10%">
-        <router-link to="/contacts">
-          <div class="mb-1 pl-4">Контакты</div>
-        </router-link>
-        <p class="tel_text">
-          <img class="tel_icon"
-               src="@/assets/img/footer/tel.png"
-               height="15" width="15"
-               alt="телефон детского центра в Бердске"/>
-          <a style="font-weight: normal"
-             :href="'tel://' + loadContacts.phone.replace(/[ -]/g,'')">
-            {{ loadContacts.phone }}
-          </a>
-        </p>
-
-        <img class="letter_icon"
-             src="@/assets/img/footer/letter.png"
-             height="14" width="18"
-             alt="почта детского центра в Бердске"/>
-        <a style="font-size: 12px; font-weight: normal"
-           :href="'mailto:' + loadContacts.email + '?Subject=Привет монтессори!&body=Спасибо!'"
-           target="_blank">
-          {{ loadContacts.email }}
-        </a>
-
-          <div class="mb-1">Адрес:
-            <router-link to="/contacts">
-              {{ loadContacts.address }}
-            </router-link>
-          </div>
-
-      </v-flex>
-
-      <!--Line 2-->
-      <v-container style="width: 100vw" class="pt-0">
-        <v-layout row wrap>
-          <v-flex xs6>
-            <router-link to="/about">
-              <img class="vk_icon"
-                   style="margin-left: 40%"
-                   onclick="window.open('https://vk.com/club153200073', '_blank')"
-                   src="@/assets/img/footer/vk.png"
-                   height="24px" width="36px"
-                   alt="Вконтакте Монтессори Бердск"
-              />
-            </router-link>
-          </v-flex>
-
-          <v-flex xs6>
-            <router-link to="/about">
-              <img style="margin-left: 33%"
-                   class="instagram_icon"
-                   onclick="window.open('https://www.instagram.com/montessori_prostranstvo/', '_blank')"
-                   src="@/assets/img/footer/inst.png"
-                   height="29px" width="29px"
-                   alt="Instagram Монтессори Бердск"
-              />
-            </router-link>
-          </v-flex>
-
-        </v-layout>
-      </v-container>
-    </v-layout>
   </div>
-
 </template>
 
 <script>

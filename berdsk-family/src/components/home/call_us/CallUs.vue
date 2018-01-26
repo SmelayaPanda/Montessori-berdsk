@@ -2,9 +2,7 @@
   <div class="signup_main_btn">
     <v-layout row justify-end>
       <v-flex>
-
         <v-dialog v-model="dialog" persistent max-width="600px">
-
           <div slot="activator" style="width: 170px; height: 32px;">
             <p class="signup_main_text">Записаться</p>
           </div>
@@ -14,7 +12,6 @@
               <span class="headline primary--text">Мы свяжемся с Вами в ближайшее время!</span>
             </v-card-title>
             <v-card-text>
-
               <v-container grid-list-md>
                 <v-layout wrap>
                   <v-flex xs10>
@@ -23,8 +20,7 @@
                       label="Ваше имя"
                       required
                       v-model="name"
-                    >
-                    </v-text-field>
+                    ></v-text-field>
                   </v-flex>
 
                   <v-flex xs10>
@@ -33,8 +29,7 @@
                       label="Телефон"
                       required
                       v-model="phone"
-                    >
-                    </v-text-field>
+                    ></v-text-field>
                   </v-flex>
 
                   <v-flex xs12>
@@ -43,8 +38,7 @@
                       v-model="message"
                       multi-line
                       label="Сообщение"
-                    >
-                    </v-text-field>
+                    ></v-text-field>
                   </v-flex>
                 </v-layout>
               </v-container>
@@ -184,4 +178,12 @@
     box-shadow: 0 0 60px 2px rgba(255, 255, 255, .7), 0 0 30px rgba(255, 255, 255, .7);
   }
 
+  @media only screen and (max-width: 960px) {
+    .signup_main_btn {
+      position: absolute;
+      left: 0px;
+      margin-right: 30%;
+      top: 320px;
+    }
+  }
 </style>

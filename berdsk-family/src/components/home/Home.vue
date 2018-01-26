@@ -1,40 +1,44 @@
 <template>
   <div>
-    <!--Call us Button-->
-    <call-us style="position: absolute"></call-us>
-    <!--Choice service button-->
-    <div class="choose_service_btn hidden-sm-and-down" @click="goServices">
-      <p class="signup_main_text">Выбрать занятие</p>
+    <div class="hidden-sm-and-down">
+      <!--Call us Button-->
+      <call-us style="position: absolute"></call-us>
+      <!--Choice service button-->
+      <div class="choose_service_btn" @click="goServices">
+        <p class="signup_main_text">Выбрать занятие</p>
+      </div>
+      <div class="montessori_space_main_text"></div>
+      <!--Slide show-->
+      <app-home-slide-show></app-home-slide-show>
+      <!--About our center-->
+      <div class="about_us_title"></div>
+      <div class="about_us_center"></div>
+      <div class="about_us_bg"></div>
+      <!--Parallax-->
+      <app-parallax id="app-parallax"></app-parallax>
+      <!--Unicallity-->
+      <div class="unicallity_title">
+        <rotate-image></rotate-image>
+      </div>
+      <div class="unicallity_center"></div>
+      <div class="unicallity_bg"></div>
+      <!--Unicallity-->
+      <div class="material_title"></div>
+      <div class="material_icons"></div>
+      <div class="material_bg"></div>
+      <!--Contacts-->
+      <div class="contacts_title"></div>
+      <live-contacts class="contacts_center"></live-contacts>
+      <div class="contacts_bg"></div>
+      <!--Footer-->
+      <app-footer class="app_footer"></app-footer>
     </div>
-    <div class="montessori_space_main_text hidden-sm-and-down"></div>
-    <!--Slide show-->
-    <app-home-slide-show class="hidden-sm-and-down"></app-home-slide-show>
-    <div class="mobile_background hidden-md-and-up"></div>
-    <!--About our center-->
-    <div class="about_us_title hidden-sm-and-down"></div>
-    <div class="about_us_center hidden-sm-and-down"></div>
-    <div class="about_us_bg hidden-sm-and-down"></div>
-    <!--Parallax-->
-    <app-parallax id="app-parallax" class="hidden-sm-and-down"></app-parallax>
-    <!--Mobile cards-->
-    <mobile-cards></mobile-cards>
-    <!--Unicallity-->
-    <div class="unicallity_title hidden-sm-and-down">
-      <rotate-image></rotate-image>
-    </div>
-    <div class="unicallity_center hidden-sm-and-down"></div>
-    <div class="unicallity_bg hidden-sm-and-down"></div>
-    <!--Unicallity-->
-    <div class="material_title hidden-sm-and-down"></div>
-    <div class="material_icons hidden-sm-and-down"></div>
-    <div class="material_bg hidden-sm-and-down"></div>
-    <!--Contacts-->
-    <div class="contacts_title"></div>
-    <live-contacts class="contacts_center"></live-contacts>
-    <div class="contacts_bg"></div>
-    <!--Footer-->
-    <app-footer class="app_footer"></app-footer>
+
+
+    <!--Mobile home-->
+    <mobile-home class="hidden-md-and-up"></mobile-home>
   </div>
+
 </template>
 
 <script>
@@ -45,7 +49,7 @@
   import AppFooter from './footer/AppFooter'
   import LiveContacts from './live_contacts/LiveContacts'
   import RotateImage from './rotate_image/RotateImage'
-  import MobileCards from './mobile/MobileCards'
+  import MobileHome from './MobileHome'
 
   export default {
     name: 'home',
@@ -70,7 +74,7 @@
       AppFooter,
       LiveContacts,
       RotateImage,
-      MobileCards
+      MobileHome
     },
     methods: {
       callUs: function () {
@@ -290,7 +294,7 @@
   }
 
   @media only screen and (max-width: 960px) {
-    .contacts_bg{
+    .contacts_bg {
       background: none;
     }
   }

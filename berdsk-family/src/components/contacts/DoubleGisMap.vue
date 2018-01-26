@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid style="padding: 0;">
     <v-layout row wrap>
       <v-flex>
         <v-container id="map" style="height: 450px"></v-container>
