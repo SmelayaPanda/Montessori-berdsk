@@ -1,42 +1,26 @@
 <template>
   <div>
-
-    <img src="../../../assets/img/mobile/aboutMobile.png" height="100%" width="100%"/>
     <v-parallax src="../../../static/img/home/parallax.png" class="parallax_main">
       <v-container>
-        <v-layout class="pl-2 ml-5 mt-5">
+        <v-layout class="mt-2 pb-0">
           <v-flex xs12>
-            <img src="@/assets/img/mobile/cardTitle.png" height="47" width="210"/>
+            <p class="white--text mb-0 text-xs-center">Мы подобрали методику основываясь на</p>
+            <h3 class="secondary--text text-xs-center">Возрастные группы</h3>
           </v-flex>
         </v-layout>
-        <v-layout>
-          <v-flex xs12>
-            <img src="@/assets/img/mobile/card1.png" height="162" width="320"/>
-          </v-flex>
-        </v-layout>
-        <v-layout>
-          <v-flex xs12>
-            <img src="@/assets/img/mobile/card2.png" height="160" width="320"/>
-          </v-flex>
-        </v-layout>
-        <v-layout>
-          <v-flex xs12>
-            <img src="@/assets/img/mobile/card3.png" height="163" width="320"/>
-          </v-flex>
-        </v-layout>
-        <v-layout>
-          <v-flex xs12>
-            <img src="@/assets/img/mobile/card4.png" height="165" width="300"/>
-          </v-flex>
-        </v-layout>
-        <v-layout>
-          <v-flex xs12>
-            <img src="@/assets/img/mobile/card5.png" height="157" width="320"/>
-          </v-flex>
-        </v-layout>
-        <v-layout>
-          <v-flex xs12>
-            <img src="@/assets/img/mobile/card6.png" height="170" width="320"/>
+      </v-container>
+
+      <v-container v-for="card in cards"
+                   :key="card.src"
+                   style="padding: 0 !important;"
+      >
+        <v-layout class="m-0 p-0">
+          <v-flex xs12 class="m-0 p-0">
+            <div>
+              <img :src="imagePath(card.src)"
+                   class="card_img"
+              />
+            </div>
           </v-flex>
         </v-layout>
       </v-container>
@@ -47,7 +31,24 @@
 
 <script>
   export default {
-    name: 'mobile-cards'
+    name: 'mobile-cards',
+    data: function () {
+      return {
+        cards: [
+          {src: '1'},
+          {src: '2'},
+          {src: '3'},
+          {src: '4'},
+          {src: '5'},
+          {src: '6'}
+        ]
+      }
+    },
+    methods: {
+      imagePath: function (itemSrc) {
+        return require('@/assets/img/mobile/card' + itemSrc + '.png')
+      }
+    }
   }
 </script>
 
@@ -57,4 +58,11 @@
     background-color: #bced96;
     background-size: 30%;
   }
+
+  .card_img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
 </style>

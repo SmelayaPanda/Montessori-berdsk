@@ -135,8 +135,6 @@
     box-shadow: 0 0 5px white;
   }
 
-  .card_img {
-  }
 
   .more_btn {
     z-index: 50;

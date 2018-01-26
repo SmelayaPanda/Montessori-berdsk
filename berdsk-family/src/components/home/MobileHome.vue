@@ -14,6 +14,32 @@
       </v-layout>
     </v-container>
 
+    <h4 class="mt-3 primary--text text-xs-center">Что важно знать</h4>
+    <h3 class="secondary--text text-xs-center">О НАШЕМ ЦЕНТРЕ</h3>
+    <v-container class="pt-2">
+      <v-layout>
+        <v-flex xs12>
+          <div class="secondary about_card_text">
+            <p class="white--text text-xs-center">Концепция Детского развивающего центра<br>
+              "Монессори-пространство" :<br>
+              "Помоги мне сделать это самому"<br>
+              <br>
+              <br>
+              В специально подготовленной<br>
+              монтессори среде ребенок становится<br>
+              свободным, активным, любознательным,<br>
+              радостным.<br>
+            </p>
+
+          </div>
+        </v-flex>
+      </v-layout>
+    </v-container>
+
+
+    <!--Mobile cards-->
+    <mobile-cards></mobile-cards>
+
     <!--Contacts-->
     <h3 class="mt-3 secondary--text text-xs-center">Оставьте свои контакты!</h3>
     <h4 class="mb-2 primary--text text-xs-center">И мы расскажем все и даже больше...</h4>
@@ -21,9 +47,6 @@
     <div class="contacts_bg"></div>
 
     <mobile-footer></mobile-footer>
-
-    <!--Mobile cards-->
-    <!--<mobile-cards></mobile-cards>-->
   </div>
 </template>
 
@@ -71,4 +94,9 @@
     /*width: 50%;*/
   }
 
+  .about_card_text {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
 </style>
