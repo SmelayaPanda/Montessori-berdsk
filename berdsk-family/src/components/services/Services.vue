@@ -19,7 +19,7 @@
             </p>
 
             <v-layout row wrap class="ml-4">
-              <v-flex xs10 sm6>
+              <v-flex xs12 sm6>
                 <add-service-main-coast></add-service-main-coast>
                 <p class="coast_block" v-for="(servCoast,key) in loadServiceMainCoast">
                   <span class="lesson">
