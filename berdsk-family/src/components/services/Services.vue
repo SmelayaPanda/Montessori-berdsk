@@ -14,33 +14,23 @@
           <div class="ml-4">
             <h2 class="primary--text mt-1">Основные</h2>
             <p class="secondary--text ml-4">
-              Занятия для всех детей от 0 до 12 лет в Монтессори пространстве
+              Занятия для всех детей от 0 до 12 лет в Монтессори-пространстве
               с уникальными материалами:
             </p>
 
             <v-layout row wrap class="ml-4">
               <v-flex xs10 sm6>
-                <p class="coast_block">
-              <span class="lesson">
-                &nbsp1 занятие (час):
-                <span v-html="'&nbsp350 p&nbsp'" class="coast"></span>
-              </span>
-                </p>
-                <p class="coast_block">
-              <span class="lesson">
-                4 занятия (час):
-                <span class="coast">1200 р</span>
-              </span>
-                </p>
-                <p class="coast_block">
-              <span class="lesson">
-                8 занятий (час):
-                <span class="coast">2100 р</span>
-              </span>
+                <add-service-main-coast></add-service-main-coast>
+                <p class="coast_block" v-for="(servCoast,key) in loadServiceMainCoast">
+                  <span class="lesson">
+                    {{ servCoast.name }}
+                    <span v-html="servCoast.coast" class="coast"></span>
+                  </span>
+                  <edit-service-main-coast :coast="{key: key, name: servCoast.name, coast: servCoast.coast}"></edit-service-main-coast>
+                  <delete-service-main-coast :service="{key: key, name: servCoast.name}"></delete-service-main-coast>
                 </p>
               </v-flex>
             </v-layout>
-            <!--</v-container>-->
 
 
             <h2 class="primary--text mt-2">Специальные</h2>
@@ -101,10 +91,13 @@
 <script>
   import AddServiceGroup from './create/AddServiceGroup'
   import AddServiceSubGroup from './create/AddServiceSubGroup'
+  import AddServiceMainCoast from './create/AddServiceMainCoast'
   import EditServiceGroup from './edit/EditServiceGroup'
   import EditServiceSubGroup from './edit/EditServiceSubGroup'
+  import EditServiceMainCoast from './edit/EditServiceMainCoast'
   import DeleteServiceGroup from './delete/DeleteServiceGroup'
   import DeleteServiceSubGroup from './delete/DeleteServiceSubGroup'
+  import DeleteServiceMainCoast from './delete/DeleteServiceMainCoast'
   import ServiceSignUp from './ServiceSignUp'
 
   export default {
@@ -112,10 +105,13 @@
     components: {
       AddServiceGroup,
       AddServiceSubGroup,
+      AddServiceMainCoast,
       EditServiceGroup,
       EditServiceSubGroup,
+      EditServiceMainCoast,
       DeleteServiceGroup,
       DeleteServiceSubGroup,
+      DeleteServiceMainCoast,
       ServiceSignUp
     },
     data: function () {
@@ -124,6 +120,10 @@
       }
     },
     computed: {
+      loadServiceMainCoast:
+        function () {
+          return this.$store.getters.serviceMainCoast
+        },
       loadServiceGroups:
         function () {
           return this.$store.getters.serviceGroups

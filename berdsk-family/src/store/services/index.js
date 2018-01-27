@@ -3,12 +3,17 @@ import * as firebase from 'firebase'
 export default {
   // State ---------------------------------------------------
   state: {
+    serviceMainCoast: {},
     serviceGroups: {},
     serviceSubGroups: {},
     signUpMessages: []
   },
   // Mutations ---------------------------------------------------
   mutations: { // to change state
+    updateServiceMainCoast:
+      (state, payload) => {
+        state.serviceMainCoast = payload
+      },
     updateServiceGroups:
       (state, payload) => {
         state.serviceGroups = payload
@@ -24,6 +29,66 @@ export default {
   },
   // Actions ---------------------------------------------------
   actions: { // specify the mutation
+    loadServicesMainCoast:
+      ({commit}) => {
+        commit('setLoading', true)
+        firebase.database().ref('services/serviceMainCoast').once('value')
+          .then((data) => {
+            commit('setLoading', false)
+            commit('updateServiceMainCoast', data.val())
+          })
+          .catch(
+            error => {
+              commit('setLoading', false)
+              console.log(error)
+            })
+      },
+    addServiceMainCoast:
+      ({commit, getters}, payload) => {
+        commit('setLoading', true)
+        let serviceMainCoast = getters.serviceMainCoast
+        firebase.database().ref('services/serviceMainCoast').push(payload)
+          .then((data) => {
+            serviceMainCoast[data.key] = payload
+            commit('updateServiceMainCoast', serviceMainCoast)
+            commit('setLoading', false)
+          })
+          .catch(error => {
+            console.log(error)
+            commit('setLoading', false)
+          })
+      },
+    editServiceMainCoast:
+      ({commit, getters}, payload) => {
+        commit('setLoading', true)
+        let newMainService = {name: payload.name, coast: payload.coast}
+        firebase.database().ref('services/serviceMainCoast').child(payload.key).set(newMainService)
+          .then(() => {
+            let serviceMainCoast = getters.serviceMainCoast
+            serviceMainCoast[payload.key] = newMainService
+            commit('updateServiceMainCoast', serviceMainCoast)
+            commit('setLoading', false)
+          })
+          .catch(error => {
+            console.log(error)
+            commit('setLoading', false)
+          })
+      },
+    deleteServiceMainCoast:
+      ({commit, getters}, payload) => {
+        commit('setLoading', true)
+        let serviceMainCoast = getters.serviceMainCoast
+        firebase.database().ref('services/serviceMainCoast').child(payload).remove()
+          .then(() => {
+            delete serviceMainCoast[payload]
+            commit('updateServiceMainCoast', serviceMainCoast)
+            commit('setLoading', false)
+          })
+          .catch(error => {
+            console.log(error)
+            commit('setLoading', false)
+          })
+      },
     loadServiceGroups:
       ({commit}) => {
         commit('setLoading', true)
@@ -190,6 +255,10 @@ export default {
   },
 // Getters  ---------------------------------------------------
   getters: {
+    serviceMainCoast:
+      state => {
+        return state.serviceMainCoast
+      },
     serviceGroups:
       state => {
         return state.serviceGroups

@@ -77,6 +77,7 @@ new Vue({
       })
     this.$store.dispatch('loadMeetups')
     this.$store.dispatch('loadServiceGroups')
+    this.$store.dispatch('loadServicesMainCoast')
     this.$store.dispatch('loadSignUpMessages')
     this.$store.dispatch('loadServiceSubGroups')
     this.$store.dispatch('loadContacts')
