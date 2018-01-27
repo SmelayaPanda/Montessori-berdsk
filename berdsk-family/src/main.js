@@ -20,11 +20,16 @@ import {VueEditor} from 'vue2-editor'
 import VueScrollTo from 'vue-scrollto'
 import BootstrapVue from 'bootstrap-vue'
 import Notifications from 'vue-notification'
+import VueAnalytics from 'vue-analytics'
 
 // register global filter
 Vue.use(VueScrollTo)
 Vue.use(Notifications)
 Vue.use(BootstrapVue)
+Vue.use(VueAnalytics, {
+  id: 'UA-113190452-1',
+  router
+})
 Vue.filter('date', DateFilter)
 Vue.filter('admin_date', AdminDateFilter)
 Vue.filter('snippet', Snippet)
