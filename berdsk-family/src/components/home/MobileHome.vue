@@ -2,7 +2,7 @@
   <div>
 
     <div class="main_home_text">
-      <h3>Монтессори пространство</h3>
+      <h2 style="font-family: MullerBlack">Монтессори-пространство</h2>
 
       <h4>Детский центр<br> развития</h4>
     </div>

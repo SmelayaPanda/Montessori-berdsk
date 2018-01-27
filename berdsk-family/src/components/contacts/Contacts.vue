@@ -6,7 +6,7 @@
     </v-container>
 
     <div class="main_bg">
-      <v-container v-if="!loading">
+      <v-container v-if="!loading" style="padding: 10px">
         <h1 class="primary--text contacts mt-3 pt-1">Контакты</h1>
 
         <v-layout row wrap class="mt-3">
@@ -28,21 +28,21 @@
               <v-card-title class="pt-0">
                 <div class="ml-3 secondary--text">
                   <v-flex>
-                    <span class="primary--text">Мы рядом!</span>
+                    <span class="secondary--text"><b>Мы рядом!</b></span>
                   </v-flex>
-                  <span>Искитим, Посёлок Новый, Посёлок Геологов, Академгородок</span><br>
-                  <address style="font-style: normal; font-weight: bold">Адрес:
-                    <span class="primary--text">{{ loadContacts.address }}</span>
+                  <span class="pb-5">Искитим, Посёлок Новый, Посёлок Геологов, Академгородок</span>
+                  <address style="font-style: normal; font-weight: bold; margin-top: 5px">Адрес:
+                    <span class="secondary--text"><b>{{ loadContacts.address }}</b></span>
                   </address>
-                  <span>  Телефон:
+                  <span class="secondary--text">  Телефон:
                     <a :href="'tel://' + loadContacts.phone.replace(/[ -]/g,'')">
-                      {{ loadContacts.phone }}
+                      <span class="secondary--text"><b>{{ loadContacts.phone }}</b></span>
                     </a>
                   </span>
                   <p>Электронная почта:
                     <a :href="'mailto:' + loadContacts.email + '?Subject=Привет монтессори!&body=Спасибо!'"
                        target="_blank">
-                      {{ loadContacts.email }}
+                      <span class="secondary--text"><b>{{ loadContacts.email }}</b></span>
                     </a>
                   </p>
                   <edit-contacts :contacts="loadContacts"></edit-contacts>
@@ -53,12 +53,21 @@
                   <v-layout row wrap>
                     <v-spacer></v-spacer>
                     <v-flex>
+                      <v-btn fab class="primary" onclick="window.open('', '_blank')">
+                        <img class="icons" src="@/assets/img/icons/od.png" alt="Однокласники Монтессори Бердск"
+                        style="height: 37px; width: 37px;">
+                      </v-btn>
                       <v-btn fab class="primary" onclick="window.open('https://vk.com/club153200073', '_blank')">
                         <img class="icons" src="@/assets/img/icons/vk.png" alt="Вконтакте Монтессори Бердск">
                       </v-btn>
                       <v-btn fab class="primary"
                              onclick="window.open('https://www.instagram.com/montessori_prostranstvo/', '_blank')">
                         <img class="icons" src="@/assets/img/icons/instagram.png" alt="Instagram Монтессори Бердск">
+                      </v-btn>
+                      <v-btn fab class="primary"
+                             onclick="window.open('http://www.montessori-material.ru/', '_blank')">
+                        <img class="icons" src="@/assets/img/icons/partner.png" alt="Партнеры Монтессори Бердск"
+                        style="padding-bottom: 5px">
                       </v-btn>
                     </v-flex>
                   </v-layout>

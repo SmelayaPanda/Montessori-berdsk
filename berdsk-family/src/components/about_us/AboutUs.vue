@@ -2,7 +2,7 @@
   <div grid-list-md class="about_bg">
     <v-layout row wrap>
       <v-flex xs12>
-        <v-container class="mt-1">
+        <v-container class="mt-1" style="padding: 10px">
           <h1 class="primary--text about_us_main_title">О нас</h1>
           <div class="about_header">
             <img src="../../../static/img/home/about_us/about_us.png" height="40%" width="40%"/>

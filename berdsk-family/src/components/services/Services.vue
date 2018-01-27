@@ -7,7 +7,7 @@
 
     <!--All Services-->
     <div class="main_bg">
-      <v-container v-if="!loading">
+      <v-container v-if="!loading" style="padding: 0px">
         <v-container class="mt-1 all_services" v-if="!this.$store.getters.loading">
           <h1 class="primary--text mb-2 main_title">Услуги</h1>
 

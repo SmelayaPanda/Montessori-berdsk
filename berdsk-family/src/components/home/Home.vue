@@ -91,13 +91,13 @@
 <style scoped>
   .montessori_space_main_text {
     background-image: url("../../../static/img/home/main-text.png");
-    background-size: 75%;
+    background-size: 50%;
     position: absolute;
     width: 1203px;
     height: 412px;
     left: 50%;
-    margin-left: -210px;
-    top: 35px;
+    margin-left: -84px;
+    top: 135px;
     z-index: 4;
   }
 
@@ -139,7 +139,7 @@
     background-size: 100%;
     position: relative;
     width: 1937px;
-    height: 700px;
+    height: 630px;
     z-index: 5;
     opacity: 0.2;
   }
@@ -199,9 +199,9 @@
     height: 376px;
     position: absolute;
     z-index: 21;
-    left: -593px;
+    left: -617px;
     margin-left: 50%;
-    margin-top: 113px;
+    margin-top: 104px;
   }
 
   #app-parallax {

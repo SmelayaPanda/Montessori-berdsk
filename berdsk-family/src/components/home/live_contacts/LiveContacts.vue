@@ -201,7 +201,7 @@
   }
 
   .effect-2:focus ~ .focus-border {
-    width: 115%;
+    width: 105%;
     transition: 0.4s;
     left: 0;
   }

@@ -81,7 +81,9 @@
     border-radius: 30px;
     border: none;
   }
-
+  #carousel3d .carousel-3d-slide {
+    color: #fff;
+  }
   #carousel3d .carousel-3d-slide.current {
     background-color: #bced96;
     color: #fff;
