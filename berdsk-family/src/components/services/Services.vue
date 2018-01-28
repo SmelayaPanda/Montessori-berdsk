@@ -9,7 +9,7 @@
     <div class="main_bg">
       <v-container v-if="!loading" style="padding: 0px">
         <v-container class="mt-1 all_services" v-if="!this.$store.getters.loading">
-          <h1 class="primary--text mb-2 main_title">Услуги</h1>
+          <h1 class="primary--text mt-2 mb-2 main_title">Услуги</h1>
 
           <div class="ml-4">
             <h2 class="primary--text mt-1">Основные</h2>

@@ -8,7 +8,7 @@
     <!--Meetups-->
     <div class="main_bg">
       <v-container v-if="!loading">
-        <v-container class="mt-1">
+        <v-container>
           <h1 class="primary--text meetups_title">Новости</h1>
         </v-container>
 

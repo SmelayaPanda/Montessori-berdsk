@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home/Home'
 import AboutUs from '@/components/about_us/AboutUs'
+import MontessoriMaterials from '@/components/materials/MontessoriMaterials'
 import Services from '@/components/services/Services'
 import Contacts from '@/components/contacts/Contacts'
 import Meetups from '@/components/meetup/Meetups'
@@ -25,7 +26,13 @@ export default new Router({
       path: '/about',
       name: 'AboutUs',
       component: AboutUs
-    }, {
+    },
+    {
+      path: '/materials',
+      name: 'Materials',
+      component: MontessoriMaterials
+    },
+    {
       path: '/services',
       name: 'Services',
       component: Services

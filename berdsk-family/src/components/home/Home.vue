@@ -11,9 +11,7 @@
       <!--Slide show-->
       <app-home-slide-show></app-home-slide-show>
       <!--About our center-->
-      <div class="about_us_title"></div>
-      <div class="about_us_center"></div>
-      <div class="about_us_bg"></div>
+      <about-us-home></about-us-home>
       <!--Parallax-->
       <app-parallax id="app-parallax"></app-parallax>
       <!--Unicallity-->
@@ -43,6 +41,7 @@
 
 <script>
   import AppHomeSlideShow from './slide_show/HomeSlideShow'
+  import AboutUsHome from './about_us/AboutUsHome'
   import AppParallax from './parallax/Parallax'
   import HoveredCards from './cards/HoveredCards'
   import CallUs from './call_us/CallUs'
@@ -74,7 +73,8 @@
       AppFooter,
       LiveContacts,
       RotateImage,
-      MobileHome
+      MobileHome,
+      AboutUsHome
     },
     methods: {
       callUs: function () {
@@ -131,44 +131,6 @@
     transition: box-shadow 0.6s;
     box-shadow: 0 0 60px 2px rgba(255, 255, 255, .7), 0 0 30px rgba(255, 255, 255, .7);
   }
-
-  /* About us block */
-
-  .about_us_bg {
-    background-image: url("../../../static/img/home/about_us/about_bg.png");
-    background-size: 100%;
-    position: relative;
-    width: 1937px;
-    height: 630px;
-    z-index: 5;
-    opacity: 0.2;
-  }
-
-  .about_us_title {
-    background-image: url("../../../static/img/home/about_us/about_title.png");
-    background-size: 85%;
-    width: 445px;
-    height: 138px;
-    position: absolute;
-    z-index: 21;
-    left: -195px;
-    margin-left: 50%;
-    margin-top: 35px;
-  }
-
-  .about_us_center {
-    background-image: url("../../../static/img/home/about_us/about_center.png");
-    background-size: 85%;
-    width: 1375px;
-    height: 526px;
-    position: absolute;
-    z-index: 21;
-    left: -585px;
-    margin-left: 50%;
-    margin-top: 160px;
-  }
-
-  /* About us block */
 
   .unicallity_bg {
     background-image: url("../../../static/img/home/unicallity/unicallity_bg.png");
