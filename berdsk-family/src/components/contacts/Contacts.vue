@@ -53,7 +53,7 @@
                   <v-layout row wrap>
                     <v-spacer></v-spacer>
                     <v-flex>
-                      <v-btn fab class="primary" onclick="window.open('', '_blank')">
+                      <v-btn fab class="primary" onclick="window.open('https://ok.ru/profile/577714671811', '_blank')">
                         <img class="icons" src="@/assets/img/icons/od.png" alt="Однокласники Монтессори Бердск"
                         style="height: 37px; width: 37px;">
                       </v-btn>
