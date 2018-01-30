@@ -92,7 +92,7 @@
 
 <style scoped>
   .material_card {
-    border: 10px solid #faaf94;
+    border: 9px solid #faaf94;
     background: rgb(166, 238, 153);
     border-radius: 50px;
   }
