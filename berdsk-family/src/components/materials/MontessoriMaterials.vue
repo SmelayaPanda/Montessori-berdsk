@@ -1,39 +1,58 @@
 <template>
   <div>
-
-    <!-- Images used to open the lightbox -->
-    <v-container class="row">
-      <v-layout row wrap>
-        <v-flex xs4 class="column" v-for="img in images" :key="img.num">
-          <img :src="imagePath(img.name)" @click="openModal(img.num)" class="hover-shadow" width="300px" height="200px">
-        </v-flex>
-      </v-layout>
+    <!--Loading circular-->
+    <v-container v-if="loading">
+      <app-loader></app-loader>
     </v-container>
 
-    <!-- The Modal/Lightbox -->
-    <div ref="myModal" class="modal">
-      <span class="close cursor" @click="closeModal">&times;</span>
-      <div class="modal-content">
 
-        <div ref="mySlides">
-          <div class="numbertext">1 / 4</div>
-          <img src="@/assets/img/about_us_main/svo.jpg" style="width:100%">
-        </div>
+    <div class="main_bg">
+      <!--v-if="!loading"-->
+      <v-container class="mt-0 pt-0">
+        <h1 class="primary--text mb-3 ml-5">Материалы</h1>
+        <v-layout>
+          <v-flex d-flex xs12 sm12 lg10 offset-lg1>
 
-        <!-- Next/previous controls -->
-        <a class="prev" @click="plusSlides(-1)">&#10094;</a>
-        <a class="next" @click="plusSlides(1)">&#10095;</a>
 
-        <!-- Caption text -->
-        <div class="caption-container">
-          <p ref="caption"></p>
-        </div>
-
-        <!-- Thumbnail image controls -->
-        <div class="column">
-          <img ref="demo" src="img1.jpg" @click="currentSlide(1)" alt="Nature">
-        </div>
-      </div>
+            <v-layout row wrap justify-center>
+              <v-flex d-flex xs12 sm6
+                      v-for="img in images"
+                      :key="img.num"
+                      class="m-2"
+              >
+                <v-card class="material_card">
+                  <v-card-media :src="imagePath(img.name)" height="360px">
+                  </v-card-media>
+                  <v-card-title primary-title class="card_title_cust">
+                    <v-flex xs12>
+                      <v-expansion-panel focusable>
+                        <v-expansion-panel-content class="exp_panel">
+                          <div slot="header" class="white--text">
+                            <h3>
+                              Kangaroo Valley Safari
+                              Kangaroo Valley Safari
+                              Kangaroo Valley Safari
+                            </h3>
+                          </div>
+                          <v-card class="card-text_wrapper">
+                            <v-card-text>
+                              <h4>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                              </h4>
+                            </v-card-text>
+                          </v-card>
+                        </v-expansion-panel-content>
+                      </v-expansion-panel>
+                    </v-flex>
+                  </v-card-title>
+                </v-card>
+              </v-flex>
+            </v-layout>
+          </v-flex>
+        </v-layout>
+      </v-container>
     </div>
   </div>
 </template>
@@ -59,40 +78,10 @@
       }
     },
     methods: {
-      openModal: function (num) {
-        this.$refs.myModal.style.display = 'block'
-        this.showSlides(num)
-      },
-      closeModal: function () {
-        this.$refs.myModal.style.display = 'none'
-      },
-      plusSlides: function (n) {
-        this.showSlides(this.slideIndex += n)
-      },
-      currentSlide: function (n) {
-        this.showSlides(this.slideIndex = n)
-      },
-      showSlides: function (n) {
-        let i
-        let slides = this.$refs.mySlides
-        let dots = this.$refs.demo
-        let captionText = this.$refs.caption
-        if (n > slides.length) {
-          this.slideIndex = 1
-        }
-        if (n < 1) {
-          this.slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = 'none'
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(' active', '')
-        }
-        slides[this.slideIndex - 1].style.display = 'block'
-        dots[this.slideIndex - 1].className += ' active'
-        captionText.innerHTML = dots[this.slideIndex - 1].alt
-      },
+      loading:
+        function () {
+          return this.$store.getters.loading
+        },
       imagePath: function (itemSrc) {
         return require('@/assets/img/about_us_main/' + itemSrc + '.jpg')
       }
@@ -102,129 +91,36 @@
 
 
 <style scoped>
-  .row > .column {
-    padding: 0 8px;
+  .material_card {
+    border: 10px solid #faaf94;
+    background: rgb(166, 238, 153);
+    border-radius: 50px;
   }
 
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
+  .exp_panel {
+    background-image: linear-gradient(90deg, rgb(255, 171, 148) 23%, rgb(166, 238, 153) 100%);
+    font-size: 15px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
   }
 
-  /* Create four equal columns that floats next to eachother */
-  .column {
-    float: left;
-    width: 25%;
+  .card_title_cust {
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
-  /* The Modal (background) */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: black;
+  .expansion-panel {
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
   }
 
-  /* Modal Content */
-  .modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    width: 90%;
-    max-width: 1200px;
+  .card-text_wrapper {
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
   }
 
-  /* The Close Button */
-  .close {
-    color: white;
-    position: absolute;
-    top: 100px;
-    right: 25px;
-    font-size: 35px;
-    font-weight: bold;
-  }
-
-  .close:hover,
-  .close:focus {
-    color: #999;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  /* Hide the slides by default */
-  .mySlides {
-    display: none;
-  }
-
-  /* Next & previous buttons */
-  .prev,
-  .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -50px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    -webkit-user-select: none;
-  }
-
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover,
-  .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-
-  /* Number text (1/3 etc) */
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-  }
-
-  /* Caption text */
-  .caption-container {
-    text-align: center;
-    background-color: black;
-    padding: 2px 16px;
-    color: white;
-  }
-
-  img.demo {
-    opacity: 0.6;
-  }
-
-  .active,
-  .demo:hover {
-    opacity: 1;
-  }
-
-  img.hover-shadow {
-    transition: 0.3s
-  }
-
-  .hover-shadow:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+  .card__media {
+    border-top-left-radius: 41px !important;
+    border-top-right-radius: 41px !important;
   }
 </style>
