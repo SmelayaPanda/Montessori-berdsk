@@ -40,6 +40,8 @@ export default {
       },
     addMaterial:
       ({commit, getters}, payload) => {
+        let materials = []
+        materials = getters.materials
         const material = {
           title: payload.title,
           description: payload.description,
@@ -64,11 +66,12 @@ export default {
             })
           .then(
             () => {
-              commit('updateMaterials', {
+              materials.push({
                 ...material,
                 imageUrl: imageUrl,
                 storageId: key
               })
+              commit('updateMaterials', materials)
             })
           .catch(
             error => {
