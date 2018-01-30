@@ -70,4 +70,18 @@
     position: relative;
     z-index: 1;
   }
+
+  .app_page_title {
+    padding-left: 8vw;
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+
+  @media only screen and (max-width: 960px) {
+    .app_page_title {
+      padding-left: 0;
+      padding-top: 0;
+      text-align: center;
+    }
+  }
 </style>

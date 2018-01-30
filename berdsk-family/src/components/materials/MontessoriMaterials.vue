@@ -5,18 +5,17 @@
       <app-loader></app-loader>
     </v-container>
 
-
     <div class="main_bg">
-      <!--v-if="!loading"-->
-      <v-container class="mt-0 pt-0">
-        <h1 class="primary--text mb-3 ml-5">Материалы</h1>
+      <v-container v-if="!loading">
+        <h1 class="primary--text app_page_title">Материалы</h1>
+
         <v-container v-show="this.$store.getters.isAdmin">
           <v-btn fab class="primary white--text" to="materials/new">
             <v-icon>add</v-icon>
           </v-btn>
         </v-container>
 
-        <v-layout>
+        <v-layout class="pt-1">
           <v-flex d-flex xs12 sm12 lg10 offset-lg1>
             <v-layout row wrap justify-center>
               <v-flex d-flex xs12 sm6
@@ -67,16 +66,14 @@
     data: function () {
       return {}
     },
-    methods: {
-      loading:
-        function () {
-          return this.$store.getters.loading
-        }
-    },
     computed: {
       loadMaterials:
         function () {
           return this.$store.getters.materials
+        },
+      loading:
+        function () {
+          return this.$store.getters.loading
         }
     }
   }
@@ -116,5 +113,9 @@
   .card__media {
     border-top-left-radius: 41px !important;
     border-top-right-radius: 41px !important;
+  }
+
+  .expansion-panel__header {
+    height: 80px;
   }
 </style>

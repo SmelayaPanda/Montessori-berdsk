@@ -6,10 +6,10 @@
     </v-container>
 
     <div class="main_bg">
-      <v-container v-if="!loading" style="padding: 10px">
-        <h1 class="primary--text contacts mt-3 pt-1">Контакты</h1>
+      <v-container v-if="!loading">
+        <h1 class="primary--text app_page_title">Контакты</h1>
 
-        <v-layout row wrap class="mt-3">
+        <v-layout row wrap class="mt-2">
           <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
             <v-card class="full_contact_card elevation-15">
               <v-container>
@@ -116,10 +116,6 @@
   .icons {
     width: 40px;
     height: 40px;
-  }
-
-  .contacts {
-    margin-left: 90px;
   }
 
   .full_contact_card {

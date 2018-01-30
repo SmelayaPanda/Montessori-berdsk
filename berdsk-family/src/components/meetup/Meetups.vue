@@ -8,9 +8,7 @@
     <!--Meetups-->
     <div class="main_bg">
       <v-container v-if="!loading">
-        <v-container>
-          <h1 class="primary--text meetups_title">Новости</h1>
-        </v-container>
+        <h1 class="primary--text app_page_title">Новости</h1>
 
         <v-container v-show="this.$store.getters.isAdmin">
           <v-btn fab class="primary white--text" to="meetup/new">
@@ -139,15 +137,11 @@
     border: 2px solid white !important;
   }
 
-  .meetups_title {
-    margin-left: 90px;
-  }
-
   .mobile_title {
     padding: 0;
   }
 
-  .card__title{
+  .card__title {
     padding-top: 0 !important;
   }
 </style>

@@ -7,12 +7,12 @@
 
     <!--All Services-->
     <div class="main_bg">
-      <v-container v-if="!loading" style="padding: 0px">
-        <v-container class="mt-1 all_services" v-if="!this.$store.getters.loading">
-          <h1 class="primary--text mt-2 mb-2 main_title">Услуги</h1>
+      <v-container v-if="!loading">
+        <h1 class="primary--text app_page_title">Услуги</h1>
 
+        <v-container class="all_services">
           <div class="ml-4">
-            <h2 class="primary--text mt-1">Основные</h2>
+            <h2 class="primary--text">Основные</h2>
             <p class="secondary--text ml-4">
               Занятия для всех детей от 0 до 12 лет в Монтессори-пространстве
               с уникальными материалами:
