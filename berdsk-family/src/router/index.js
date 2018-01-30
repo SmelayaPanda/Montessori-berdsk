@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/home/Home'
 import AboutUs from '@/components/about_us/AboutUs'
 import MontessoriMaterials from '@/components/materials/MontessoriMaterials'
+import AddMaterial from '@/components/materials/create/AddMaterial'
 import Services from '@/components/services/Services'
 import Contacts from '@/components/contacts/Contacts'
 import Meetups from '@/components/meetup/Meetups'
@@ -11,7 +12,7 @@ import CreateMeetup from '@/components/meetup/create/CreateMeetup'
 import Signin from '@/components/user/Signin'
 import Signup from '@/components/user/Signup'
 import AdminPanel from '@/components/admin/AdminPanel'
-// import AuthGuard from '../router/auth-guard'
+import AuthGuard from '../router/auth-guard'
 
 Vue.use(Router)
 
@@ -33,6 +34,12 @@ export default new Router({
       component: MontessoriMaterials
     },
     {
+      path: '/materials/new',
+      name: 'AddMaterial',
+      component: AddMaterial,
+      beforeEnter: AuthGuard
+    },
+    {
       path: '/services',
       name: 'Services',
       component: Services
@@ -50,8 +57,8 @@ export default new Router({
     {
       path: '/meetup/new',
       name: 'CreateMeetup',
-      component: CreateMeetup
-      // , beforeEnter: AuthGuard // check user is login
+      component: CreateMeetup,
+      beforeEnter: AuthGuard
     },
     {
       path: '/meetups/:id',

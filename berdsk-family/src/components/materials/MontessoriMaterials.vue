@@ -10,18 +10,22 @@
       <!--v-if="!loading"-->
       <v-container class="mt-0 pt-0">
         <h1 class="primary--text mb-3 ml-5">Материалы</h1>
+        <v-container v-show="this.$store.getters.isAdmin">
+          <v-btn fab class="primary white--text" to="materials/new">
+            <v-icon>add</v-icon>
+          </v-btn>
+        </v-container>
+
         <v-layout>
           <v-flex d-flex xs12 sm12 lg10 offset-lg1>
-
-
             <v-layout row wrap justify-center>
               <v-flex d-flex xs12 sm6
-                      v-for="img in images"
-                      :key="img.num"
+                      v-for="material in loadMaterials"
+                      :key="material.id"
                       class="m-2"
               >
                 <v-card class="material_card">
-                  <v-card-media :src="imagePath(img.name)" height="360px">
+                  <v-card-media :src="material.imageUrl" height="360px">
                   </v-card-media>
                   <v-card-title primary-title class="card_title_cust">
                     <v-flex xs12>
@@ -29,17 +33,13 @@
                         <v-expansion-panel-content class="exp_panel">
                           <div slot="header" class="white--text">
                             <h3>
-                              Kangaroo Valley Safari
-                              Kangaroo Valley Safari
-                              Kangaroo Valley Safari
+                              {{ material.title }}
                             </h3>
                           </div>
                           <v-card class="card-text_wrapper">
                             <v-card-text>
                               <h4>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                {{ material.description }}
                               </h4>
                             </v-card-text>
                           </v-card>
@@ -58,33 +58,26 @@
 </template>
 
 <script>
-  import Lightbox from 'vue-image-lightbox'
+  import AddMaterial from './create/AddMaterial'
 
   export default {
     components: {
-      Lightbox
+      AddMaterial
     },
     data: function () {
-      return {
-        slideIndex: 1,
-        images: [
-          {name: 'svo', num: 1},
-          {name: 'razvivaushSreda', num: 2},
-          {name: 'RolVzroslogo', num: 3},
-          {name: 'UvazhenieLichnosti', num: 4},
-          {name: 'VpitivUm', num: 5},
-          {name: 'svo', num: 6}
-        ]
-      }
+      return {}
     },
     methods: {
       loading:
         function () {
           return this.$store.getters.loading
-        },
-      imagePath: function (itemSrc) {
-        return require('@/assets/img/about_us_main/' + itemSrc + '.jpg')
-      }
+        }
+    },
+    computed: {
+      loadMaterials:
+        function () {
+          return this.$store.getters.materials
+        }
     }
   }
 </script>
@@ -95,6 +88,7 @@
     border: 9px solid #faaf94;
     background: rgb(166, 238, 153);
     border-radius: 50px;
+    box-shadow: 2px 2px #dbdbdb;
   }
 
   .exp_panel {

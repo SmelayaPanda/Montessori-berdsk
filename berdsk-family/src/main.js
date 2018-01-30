@@ -80,6 +80,7 @@ new Vue({
     this.$store.dispatch('loadServicesMainCoast')
     this.$store.dispatch('loadSignUpMessages')
     this.$store.dispatch('loadServiceSubGroups')
+    this.$store.dispatch('loadMaterials')
     this.$store.dispatch('loadContacts')
   }
 })
