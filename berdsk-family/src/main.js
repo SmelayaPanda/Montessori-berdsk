@@ -11,6 +11,7 @@ import {sync} from 'vuex-router-sync'
 import DateFilter from './filters/date'
 import AdminDateFilter from './filters/admin_date'
 import Snippet from './filters/snippet'
+import LongSnippet from './filters/long_snippet'
 import * as firebase from 'firebase'
 import AlertComp from './components/shared/Alert'
 import Loader from './components/shared/Loader'
@@ -28,6 +29,7 @@ Vue.use(BootstrapVue)
 Vue.filter('date', DateFilter)
 Vue.filter('admin_date', AdminDateFilter)
 Vue.filter('snippet', Snippet)
+Vue.filter('long_snippet', LongSnippet)
 Vue.component('app-alert', AlertComp)
 Vue.component('app-loader', Loader)
 Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)
