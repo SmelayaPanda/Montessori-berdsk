@@ -107,6 +107,30 @@ export default {
               commit('setLoading', false)
             })
       },
+    editMaterialImage:
+      ({commit, getters}, payload) => {
+        commit('setLoading', true)
+        let materials = []
+        materials = getters.materials
+        firebase.storage().ref('materials/' + payload.id).put(payload.image)
+          .then(
+            fileData => {
+              let imageUrl = fileData.metadata.downloadURLs[0]
+              console.log('New Image uploaded to storage.')
+              firebase.database().ref('materials').child(payload.id).update({imageUrl: imageUrl})
+              materials.findIndex(el => {
+                if (el.id === payload.id) {
+                  el.imageUrl = imageUrl
+                }
+              })
+              commit('updateMaterials', materials)
+              commit('setLoading', false)
+            })
+          .catch((error) => {
+            console.log(error)
+            commit('setLoading', false)
+          })
+      },
     deleteMaterial:
       ({commit, getters}, payload) => {
         commit('setLoading', true)
