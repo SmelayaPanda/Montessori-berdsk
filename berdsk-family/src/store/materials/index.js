@@ -77,6 +77,31 @@ export default {
               console.log(error)
             })
       },
+    editMaterial:
+      ({commit, getters}, payload) => {
+        commit('setLoading', true)
+        const updateObj = {}
+        if (payload.title) {
+          updateObj.title = payload.title
+        }
+        if (payload.description) {
+          updateObj.description = payload.description
+        }
+        if (payload.imageUrl) {
+          updateObj.imageUrl = payload.imageUrl
+        }
+        console.log(updateObj)
+        firebase.database().ref('materials').child(payload.id).update(updateObj)
+          .then(() => {
+            commit('setLoading', false)
+            // commit('updateMaterials', materials) доделать
+          })
+          .catch(
+            error => {
+              console.log(error)
+              commit('setLoading', false)
+            })
+      },
     deleteMaterial:
       ({commit, getters}, payload) => {
         commit('setLoading', true)
@@ -91,9 +116,7 @@ export default {
           .then(
             () => {
               console.log('Description successfully deleted!')
-              console.log(materials)
               materials.splice(materials.indexOf(payload), 1)
-              console.log(materials)
               commit('updateMaterials', materials)
               commit('setLoading', false)
             })

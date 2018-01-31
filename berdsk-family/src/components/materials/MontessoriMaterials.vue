@@ -23,6 +23,7 @@
                       :key="material.id"
                       class="m-2 img_container"
               >
+                <edit-material-description :material="material"></edit-material-description>
                 <delete-material :material="material"></delete-material>
                 <div class="image_border"></div>
                 <div :style="`background-image: url( ${material.imageUrl} );
@@ -35,7 +36,7 @@
                 </div>
                 <div class="img_overlay">
                   <div class="img_text">
-                    <h3> {{ material.title }} </h3>
+                    <h3> {{ material.title | long_snippet }} </h3>
                     <hr class="primary" style="margin: 10px">
                     <p style="font-weight: normal"> {{ material.description | long_snippet }} </p>
                   </div>
@@ -52,11 +53,13 @@
 <script>
   import AddMaterial from './create/AddMaterial'
   import DeleteMaterial from './delete/DeleteMaterial'
+  import EditMaterialDescription from './edit/EditMaterialDescription'
 
   export default {
     components: {
       AddMaterial,
-      DeleteMaterial
+      DeleteMaterial,
+      EditMaterialDescription
     },
     data: function () {
       return {}
