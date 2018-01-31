@@ -6,7 +6,7 @@
     </v-container>
 
     <div class="main_bg">
-      <v-container v-if="!loading">
+      <v-container fluid v-if="!loading">
         <h1 class="primary--text app_page_title">Материалы</h1>
 
         <v-container v-show="this.$store.getters.isAdmin">
@@ -16,9 +16,9 @@
         </v-container>
 
         <v-layout class="pt-1">
-          <v-flex d-flex xs12 sm12 lg10 offset-lg1>
+          <v-flex xs12 sm12 lg10 offset-lg1>
             <v-layout row wrap justify-center>
-              <v-flex xs12 sm6
+              <v-flex xs12 sm5
                       v-for="material in loadMaterials"
                       :key="material.id"
                       class="m-2 img_container"
