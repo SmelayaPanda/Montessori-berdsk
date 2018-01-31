@@ -143,7 +143,9 @@ export default {
           .then(
             () => {
               console.log('Description successfully deleted!')
-              materials.splice(materials.indexOf(payload), 1)
+              materials = materials.filter(function (obj) {
+                return obj.id !== payload
+              })
               commit('updateMaterials', materials)
               commit('setLoading', false)
             })

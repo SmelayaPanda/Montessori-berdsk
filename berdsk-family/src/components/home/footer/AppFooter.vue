@@ -14,7 +14,9 @@
           <router-link to="/contacts">
             <div class="pg_text">Расположение</div>
           </router-link>
-          <div class="pg_text">Материалы</div>
+          <router-link to="/materials">
+            <div class="pg_text">Материалы</div>
+          </router-link>
         </div>
       </v-flex>
 
@@ -206,6 +208,7 @@
   .vk_icon {
     margin-right: 10px;
     transition: all 0.5s;
+    padding-bottom: 3px;
   }
 
   .vk_icon:hover {
