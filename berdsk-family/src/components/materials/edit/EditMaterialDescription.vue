@@ -31,6 +31,16 @@
                 v-model="editedTitle"
                 required></v-text-field>
 
+              <!--Edit Order-->
+              <v-text-field
+                name="order"
+                label="Приоритет (чем меньше число, тем выше на странице)"
+                id="order"
+                v-model="editedOrder"
+                required
+              >
+              </v-text-field>
+
               <!--Edit description-->
               <p>Описание</p>
               <v-text-field
@@ -41,7 +51,7 @@
                 multi-line
                 required>
               </v-text-field>
-              <small class="grey-text">**  длина заголовка не должна превышать 80 символов</small>
+              <small class="grey-text">** длина заголовка не должна превышать 80 символов</small>
               <br>
               <small class="grey-text">*** длина описания не должна превышать 400 символов</small>
             </v-card-text>
@@ -72,6 +82,7 @@
       function () {
         return {
           editDialog: false,
+          editedOrder: this.material.order,
           editedTitle: this.material.title,
           editedDescription: this.material.description
         }
@@ -83,13 +94,16 @@
           this.$store.dispatch('editMaterialDescription', {
             id: this.material.id,
             title: this.editedTitle,
+            order: this.editedOrder,
             description: this.editedDescription
           })
         }
     },
     computed: {
       validCheck: function () {
-        return this.editedTitle.trim() !== '' || this.editedDescription.trim() !== ''
+        return this.editedTitle.trim() !== '' ||
+          this.editedDescription.trim() !== '' ||
+          this.editedOrder.trim() !== ''
       }
     }
   }

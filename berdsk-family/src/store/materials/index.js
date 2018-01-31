@@ -84,17 +84,15 @@ export default {
         materials = getters.materials
         const updateObj = {}
         updateObj.id = payload.id
-        if (payload.title) {
-          updateObj.title = payload.title
-        }
-        if (payload.description) {
-          updateObj.description = payload.description
-        }
+        updateObj.title = payload.title
+        updateObj.order = payload.order
+        updateObj.description = payload.description
         firebase.database().ref('materials').child(payload.id).update(updateObj)
           .then(() => {
             materials.findIndex(el => {
               if (el.id === payload.id) {
                 el.title = payload.title
+                el.order = payload.order
                 el.description = payload.description
               }
             })

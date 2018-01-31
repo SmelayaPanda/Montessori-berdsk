@@ -70,7 +70,11 @@
     computed: {
       loadMaterials:
         function () {
-          return this.$store.getters.materials
+          let materials = this.$store.getters.materials
+          materials.sort(function (a, b) {
+            return a.order > b.order
+          })
+          return materials
         },
       loading:
         function () {

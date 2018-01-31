@@ -24,6 +24,22 @@
             </v-flex>
           </v-layout>
 
+
+          <!--Order-->
+          <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
+              <v-text-field
+                name="order"
+                label="Приоритет (чем меньше число, тем выше на странице)"
+                id="order"
+                v-model="order"
+                required
+              >
+              </v-text-field>
+            </v-flex>
+          </v-layout>
+
+
           <!--Description-->
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
@@ -32,21 +48,6 @@
                 label="Описание"
                 id="description"
                 v-model="description"
-                required
-                multi-line
-              >
-              </v-text-field>
-            </v-flex>
-          </v-layout>
-
-          <!--Description-->
-          <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
-              <v-text-field
-                name="order"
-                label="Приоритет (чем меньше число, тем выше на странице)"
-                id="order"
-                v-model="order"
                 required
                 multi-line
               >
