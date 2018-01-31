@@ -36,8 +36,8 @@
                 </div>
                 <div class="img_overlay">
                   <div class="img_text">
-                    <h3> {{ material.title | long_snippet }} </h3>
-                    <hr class="primary" style="margin: 10px">
+                    <h3 style="text-align: center"> {{ material.title | snippet }} </h3>
+                    <hr class="white" style="margin: 10px">
                     <p style="font-weight: normal"> {{ material.description | long_snippet }} </p>
                   </div>
                 </div>
@@ -115,7 +115,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    text-align: center;
+    /*text-align: center;*/
     margin: 0;
     padding: 0;
     width: 350px;

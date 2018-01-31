@@ -1,6 +1,8 @@
 <template>
   <!--persistent means on the top of the screen-->
-  <v-dialog width="1000px" persistent v-model="editDialog"
+  <v-dialog width="1000px" persistent
+            v-model="editDialog"
+            v-show="this.$store.getters.isAdmin"
             style="position: absolute; z-index: 51; margin-top: 70px"
   >
     <v-btn fab accent slot="activator" class="primary">
@@ -39,7 +41,9 @@
                 multi-line
                 required>
               </v-text-field>
-              <small class="grey-text">** длина описаний не должна превышать 300 символов</small>
+              <small class="grey-text">**  длина заголовка не должна превышать 80 символов</small>
+              <br>
+              <small class="grey-text">*** длина описания не должна превышать 400 символов</small>
             </v-card-text>
 
           </v-flex>
@@ -76,7 +80,7 @@
       onSaveChanges:
         function () {
           this.editDialog = false
-          this.$store.dispatch('editMaterial', {
+          this.$store.dispatch('editMaterialDescription', {
             id: this.material.id,
             title: this.editedTitle,
             description: this.editedDescription

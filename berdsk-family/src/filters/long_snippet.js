@@ -1,7 +1,7 @@
 export default (value) => {
   let val
-  if (value.length > 300) {
-    val = value.slice(0, 300) + ' . . .'
+  if (value.length > 400) {
+    val = value.slice(0, 400) + ' . . .'
   } else {
     val = value
   }

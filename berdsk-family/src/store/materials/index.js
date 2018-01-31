@@ -77,24 +77,29 @@ export default {
               console.log(error)
             })
       },
-    editMaterial:
+    editMaterialDescription:
       ({commit, getters}, payload) => {
         commit('setLoading', true)
+        let materials = []
+        materials = getters.materials
         const updateObj = {}
+        updateObj.id = payload.id
         if (payload.title) {
           updateObj.title = payload.title
         }
         if (payload.description) {
           updateObj.description = payload.description
         }
-        if (payload.imageUrl) {
-          updateObj.imageUrl = payload.imageUrl
-        }
-        console.log(updateObj)
         firebase.database().ref('materials').child(payload.id).update(updateObj)
           .then(() => {
+            materials.findIndex(el => {
+              if (el.id === payload.id) {
+                el.title = payload.title
+                el.description = payload.description
+              }
+            })
             commit('setLoading', false)
-            // commit('updateMaterials', materials) доделать
+            commit('updateMaterials', materials)
           })
           .catch(
             error => {
