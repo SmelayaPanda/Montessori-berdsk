@@ -23,6 +23,7 @@
                       :key="material.id"
                       class="m-2 img_container"
               >
+                <delete-material :material="material"></delete-material>
                 <div class="image_border"></div>
                 <div :style="`background-image: url( ${material.imageUrl} );
                               background-size: cover;
@@ -50,10 +51,12 @@
 
 <script>
   import AddMaterial from './create/AddMaterial'
+  import DeleteMaterial from './delete/DeleteMaterial'
 
   export default {
     components: {
-      AddMaterial
+      AddMaterial,
+      DeleteMaterial
     },
     data: function () {
       return {}

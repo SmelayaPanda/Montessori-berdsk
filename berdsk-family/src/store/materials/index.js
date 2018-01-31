@@ -14,12 +14,11 @@ export default {
     loadMaterials:
       ({commit}) => {
         commit('setLoading', true)
-        // fetch meetup data
         firebase.database().ref('materials').once('value')
           .then(
             data => {
               const materials = []
-              const obj = data.val() // .val() method of promise ?
+              const obj = data.val()
               for (let key in obj) {
                 materials.push({
                   id: key,
@@ -76,6 +75,32 @@ export default {
           .catch(
             error => {
               console.log(error)
+            })
+      },
+    deleteMaterial:
+      ({commit, getters}, payload) => {
+        commit('setLoading', true)
+        let materials = []
+        materials = getters.materials
+        firebase.storage().ref('materials/' + payload)
+          .delete()
+          .then(() => console.log('Image was deleted!'))
+          .catch((error) => console.log(error))
+        firebase.database().ref('materials').child(payload)
+          .remove()
+          .then(
+            () => {
+              console.log('Description successfully deleted!')
+              console.log(materials)
+              materials.splice(materials.indexOf(payload), 1)
+              console.log(materials)
+              commit('updateMaterials', materials)
+              commit('setLoading', false)
+            })
+          .catch(
+            error => {
+              console.log(error)
+              commit('setLoading', false)
             })
       }
   },
