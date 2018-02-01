@@ -1,12 +1,12 @@
 <template>
   <div>
     <!--Loading circular-->
-    <v-container v-if="loading">
+    <v-container v-if="this.isLoading">
       <app-loader></app-loader>
     </v-container>
 
     <div class="main_bg">
-      <v-container fluid v-if="!loading">
+      <v-container fluid v-if="!this.isLoading">
         <h1 class="primary--text materials_title">Материалы</h1>
 
         <v-container v-show="this.$store.getters.isAdmin">
@@ -75,10 +75,6 @@
             return a.order > b.order
           })
           return materials
-        },
-      loading:
-        function () {
-          return this.$store.getters.loading
         }
     }
   }

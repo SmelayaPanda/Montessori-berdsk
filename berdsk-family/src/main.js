@@ -16,6 +16,7 @@ import LongSnippet from './filters/long_snippet'
 // mixins
 import {authMixin} from './mixins/autentication'
 import {image} from './mixins/image'
+import {isLoading} from './mixins/loading'
 // other
 import * as firebase from 'firebase'
 import AlertComp from './components/shared/Alert'
@@ -31,6 +32,7 @@ Vue.use(Notifications)
 Vue.use(BootstrapVue)
 Vue.mixin(authMixin)
 Vue.mixin(image)
+Vue.mixin(isLoading)
 Vue.filter('date', DateFilter)
 Vue.filter('admin_date', AdminDateFilter)
 Vue.filter('snippet', Snippet)

@@ -1,12 +1,12 @@
 <template>
   <div>
     <!--Loading circular-->
-    <v-container v-if="loading">
+    <v-container v-if="this.isLoading">
       <app-loader></app-loader>
     </v-container>
 
     <div class="main_bg">
-      <v-container v-if="!loading">
+      <v-container v-if="!this.isLoading">
         <h1 class="primary--text app_page_title">Контакты</h1>
 
         <v-layout row wrap class="mt-2">
@@ -103,10 +103,6 @@
       loadContacts:
         function () {
           return this.$store.getters.contacts
-        },
-      loading:
-        function () {
-          return this.$store.getters.loading
         }
     }
   }

@@ -1,13 +1,13 @@
 <template>
   <div>
     <!--Loading circular-->
-    <v-container v-if="loading">
+    <v-container v-if="this.isLoading">
       <app-loader></app-loader>
     </v-container>
 
     <!--Meetup-->
     <div class="main_bg">
-      <v-container class="meetup_container" v-if="!loading">
+      <v-container class="meetup_container" v-if="!this.isLoading">
         <v-layout row wrap class="mt-3">
           <v-btn fab flat class="primary" to="/meetups">
             <v-icon>arrow_back</v-icon>
@@ -89,10 +89,6 @@
             return false
           }
           return this.$store.getters.user.id === this.meetup.creatorId
-        },
-      loading:
-        function () {
-          return this.$store.getters.loading
         }
     }
   }
