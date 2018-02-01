@@ -8,11 +8,19 @@
     <!--All Services-->
     <div class="main_bg">
       <v-container v-if="!loading">
-        <h1 class="primary--text app_page_title">Услуги</h1>
+        <h1 class="primary--text app_page_title">
+          Услуги
+          <span class="secondary--text">.</span>
+          Расписание
+        </h1>
 
         <v-container class="all_services">
-          <div class="ml-4">
-            <h2 class="primary--text">Основные</h2>
+          <div class="ml-4 ">
+
+            <!--Scedule-->
+            <app-schedule></app-schedule>
+
+            <h2 class="primary--text">Основные услуги</h2>
             <p class="secondary--text ml-4">
               Занятия для всех детей от 0 до 12 лет в Монтессори-пространстве
               с уникальными материалами:
@@ -32,8 +40,7 @@
               </v-flex>
             </v-layout>
 
-
-            <h2 class="primary--text mt-2">Специальные</h2>
+            <h2 class="primary--text mt-2">Специальные услуги</h2>
             <add-service-group></add-service-group>
 
             <!--Expansion panel-->
@@ -89,6 +96,7 @@
 </template>
 
 <script>
+  import AppSchedule from './Schedule'
   import AddServiceGroup from './create/AddServiceGroup'
   import AddServiceSubGroup from './create/AddServiceSubGroup'
   import AddServiceMainCoast from './create/AddServiceMainCoast'
@@ -103,6 +111,7 @@
   export default {
     name: 'services',
     components: {
+      AppSchedule,
       AddServiceGroup,
       AddServiceSubGroup,
       AddServiceMainCoast,
@@ -196,5 +205,6 @@
     background-image: linear-gradient(90deg, rgb(255, 171, 148) 23%, rgb(166, 238, 153) 100%);
     font-size: 15px;
   }
+
 </style>
 
