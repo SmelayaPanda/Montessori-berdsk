@@ -34,6 +34,7 @@
                 id="order"
                 v-model="order"
                 required
+                type="number"
               >
               </v-text-field>
             </v-flex>
@@ -55,6 +56,13 @@
             </v-flex>
           </v-layout>
 
+          <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
+              <small class="grey-text">** длина заголовка не должна превышать 80 символов</small>
+              <br>
+              <small class="grey-text">*** длина описания не должна превышать 400 символов</small>
+            </v-flex>
+          </v-layout>
 
           <!--Image-->
           <v-layout row>

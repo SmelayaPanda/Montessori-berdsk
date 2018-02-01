@@ -14,7 +14,7 @@
 
           <v-container grid-list-md>
             <v-layout wrap>
-              <v-flex xs10>
+              <v-flex xs6>
                 <v-text-field
                   prepend-icon="people"
                   label="Ваше имя"
@@ -23,24 +23,19 @@
                 >
                 </v-text-field>
               </v-flex>
-              <v-flex xs10>
-                <v-text-field
-                  prepend-icon="phone"
-                  label="Телефон"
-                  required
-                  v-model="phone"
-                >
-                </v-text-field>
+
+              <!--Phone-->
+              <v-flex xs6>
+                <v-icon class="ml-3">phone</v-icon>
+                <masked-input v-model="phone"
+                              class="mt-1 pt-4"
+                              required
+                              mask="\+\7 (111) 111-11-11"
+                              placeholder="Телефон*"
+                />
               </v-flex>
-              <v-flex xs12>
-                <v-text-field
-                  prepend-icon="email"
-                  label="Email"
-                  v-model="email"
-                  required
-                >
-                </v-text-field>
-              </v-flex>
+
+              <!--Message-->
               <v-flex xs12>
                 <v-text-field
                   prepend-icon="message"
@@ -51,6 +46,7 @@
                 >
                 </v-text-field>
               </v-flex>
+              <small class="ml-4 pl-3">* обязательные для заполнения</small>
             </v-layout>
           </v-container>
         </v-card-text>
@@ -97,7 +93,6 @@
         infoMessage: '',
         infoIcon: '',
         name: '',
-        email: '',
         phone: '',
         message:
         'Здравствуйте! Желаем прийти к Вам на занятия "' +
@@ -120,7 +115,7 @@
         let fullMessage = {
           message: this.message,
           name: this.name,
-          email: this.email,
+          email: 'montessoriberdsk@gmail.com',
           phone: this.phone,
           date: date.toISOString()
         }
@@ -150,12 +145,12 @@
     },
     computed: {
       validCheck: function () {
-        return this.message.trim() !== '' && this.name.trim() !== '' &&
-          this.phone.trim() !== '' && this.email.trim() !== ''
+        return this.message.trim() !== '' &&
+          this.name.trim() !== '' &&
+          this.validPhone
       },
       validPhone: function () {
-        let regex = new RegExp('^(1[ \\-\\+]{0,3}|\\+1[ -\\+]{0,3}|\\+1|\\+)?((\\(\\+?1-[2-9][0-9]{1,2}\\))|(\\(\\+?[2-8][0-9][0-9]\\))|(\\(\\+?[1-9][0-9]\\))|(\\(\\+?[17]\\))|(\\([2-9][2-9]\\))|([ \\-\\.]{0,3}[0-9]{2,4}))?([ \\-\\.][0-9])?([ \\-\\.]{0,3}[0-9]{2,4}){2,3}$')
-        return regex.test(this.phone)
+        return this.phone.replace(/[^0-9]/g, '').length === 11
       }
     }
   }

@@ -141,10 +141,9 @@
     },
     computed: {
       validCheck: function () {
-        return this.name.trim() !== '' && this.phone.trim() !== ''
+        return this.name.trim() !== '' && this.validPhone
       },
       validPhone: function () {
-        console.log(this.phone.replace(/[^0-9]/g, ''))
         return this.phone.replace(/[^0-9]/g, '').length === 11
       }
     }

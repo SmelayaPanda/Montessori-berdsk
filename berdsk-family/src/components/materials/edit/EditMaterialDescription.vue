@@ -38,6 +38,7 @@
                 id="order"
                 v-model="editedOrder"
                 required
+                type="number"
               >
               </v-text-field>
 
