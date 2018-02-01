@@ -21,8 +21,8 @@ import {VueEditor} from 'vue2-editor'
 import VueScrollTo from 'vue-scrollto'
 import BootstrapVue from 'bootstrap-vue'
 import Notifications from 'vue-notification'
+import MaskedInput from 'vue-masked-input'
 
-// register global filter
 Vue.use(VueScrollTo)
 Vue.use(Notifications)
 Vue.use(BootstrapVue)
@@ -30,6 +30,7 @@ Vue.filter('date', DateFilter)
 Vue.filter('admin_date', AdminDateFilter)
 Vue.filter('snippet', Snippet)
 Vue.filter('long_snippet', LongSnippet)
+Vue.component('masked-input', MaskedInput)
 Vue.component('app-alert', AlertComp)
 Vue.component('app-loader', Loader)
 Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)

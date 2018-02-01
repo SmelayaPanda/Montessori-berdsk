@@ -23,15 +23,18 @@
                     ></v-text-field>
                   </v-flex>
 
+                  <!--Phone-->
                   <v-flex xs10>
-                    <v-text-field
-                      prepend-icon="phone"
-                      label="Телефон"
-                      required
-                      v-model="phone"
-                    ></v-text-field>
+                    <v-icon>phone</v-icon>
+                    <masked-input v-model="phone"
+                                  class="pl-2 ml-1"
+                                  required
+                                  mask="\+\7 (111) 111-11-11"
+                                  placeholder="Телефон*"
+                    />
                   </v-flex>
 
+                  <!--Message-->
                   <v-flex xs12>
                     <v-text-field
                       prepend-icon="message"
@@ -141,8 +144,8 @@
         return this.name.trim() !== '' && this.phone.trim() !== ''
       },
       validPhone: function () {
-        let regex = new RegExp('^(1[ \\-\\+]{0,3}|\\+1[ -\\+]{0,3}|\\+1|\\+)?((\\(\\+?1-[2-9][0-9]{1,2}\\))|(\\(\\+?[2-8][0-9][0-9]\\))|(\\(\\+?[1-9][0-9]\\))|(\\(\\+?[17]\\))|(\\([2-9][2-9]\\))|([ \\-\\.]{0,3}[0-9]{2,4}))?([ \\-\\.][0-9])?([ \\-\\.]{0,3}[0-9]{2,4}){2,3}$')
-        return regex.test(this.phone)
+        console.log(this.phone.replace(/[^0-9]/g, ''))
+        return this.phone.replace(/[^0-9]/g, '').length === 11
       }
     }
   }
