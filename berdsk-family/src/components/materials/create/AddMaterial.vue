@@ -85,7 +85,7 @@
           <!--Image preview-->
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-              <img :src="imageUrl" :height="imageHeight">
+              <img :src="imageUrl" :height="this.imageHeight">
             </v-flex>
           </v-layout>
 
@@ -127,21 +127,6 @@
             this.imageUrl !== '' &&
             this.description !== '' &&
             this.order !== ''
-        },
-      imageHeight:
-        function () {
-          switch (this.$vuetify.breakpoint.name) {
-            case 'xs':
-              return '150px'
-            case 'sm':
-              return '200px'
-            case 'md':
-              return '250px'
-            case 'lg':
-              return '300px'
-            case 'xl':
-              return '400px'
-          }
         }
     },
     methods: {

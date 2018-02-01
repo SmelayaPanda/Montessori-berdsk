@@ -15,12 +15,11 @@ import Snippet from './filters/snippet'
 import LongSnippet from './filters/long_snippet'
 // mixins
 import {authMixin} from './mixins/autentication'
+import {image} from './mixins/image'
 // other
 import * as firebase from 'firebase'
 import AlertComp from './components/shared/Alert'
 import Loader from './components/shared/Loader'
-import EditMeetupDetailsDialog from './components/meetup/edit/EditMeetupDetailsDialog'
-import EditMeetupImageDialog from './components/meetup/edit/EditMeetupImageDialog'
 import {VueEditor} from 'vue2-editor'
 import VueScrollTo from 'vue-scrollto'
 import BootstrapVue from 'bootstrap-vue'
@@ -31,6 +30,7 @@ Vue.use(VueScrollTo)
 Vue.use(Notifications)
 Vue.use(BootstrapVue)
 Vue.mixin(authMixin)
+Vue.mixin(image)
 Vue.filter('date', DateFilter)
 Vue.filter('admin_date', AdminDateFilter)
 Vue.filter('snippet', Snippet)
@@ -38,8 +38,6 @@ Vue.filter('long_snippet', LongSnippet)
 Vue.component('masked-input', MaskedInput)
 Vue.component('app-alert', AlertComp)
 Vue.component('app-loader', Loader)
-Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)
-Vue.component('app-edit-meetup-image-dialog', EditMeetupImageDialog)
 Vue.component('vue-html-editor', VueEditor)
 
 const unsync = sync(store, router) // Sync vue-router's current $route as part of vuex store's state.

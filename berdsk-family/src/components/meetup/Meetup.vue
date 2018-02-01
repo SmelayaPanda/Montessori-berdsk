@@ -70,12 +70,16 @@
 
 <script>
   import AppDeleteMeetup from './delete/DeleteMeetup'
+  import AppEditMeetupDetailsDialog from './edit/EditMeetupDetailsDialog'
+  import AppEditMeetupImageDialog from './edit/EditMeetupImageDialog'
 
   export default {
     name: 'meetup',
     props: ['id'], // dynamic parameters from router/index.js meetups/:id
     components: {
-      AppDeleteMeetup
+      AppDeleteMeetup,
+      AppEditMeetupDetailsDialog,
+      AppEditMeetupImageDialog
     },
     computed: {
       meetup:
@@ -116,10 +120,10 @@
     width: 70vw;
   }
 
-
   .card_image {
-      height: 450px !important;
+    height: 450px !important;
   }
+
   @media only screen and (max-width: 960px) {
     .meetup_image {
       border: 2px solid white;
@@ -139,7 +143,7 @@
     .add_time {
       font-size: 10px;
       margin: 10px;
-      margin-bottom: 0!important;
+      margin-bottom: 0 !important;
     }
 
     .news_descr {
