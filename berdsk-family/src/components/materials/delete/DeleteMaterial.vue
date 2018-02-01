@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="dialog" persistent max-width="500px"
-            v-show="this.$store.getters.isAdmin"
+            v-show="this.isAdmin"
             style="position: absolute; z-index: 51"
   >
     <v-btn fab color="secondary" dark slot="activator">

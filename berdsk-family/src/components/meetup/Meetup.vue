@@ -28,7 +28,7 @@
                 <h3 class="white--text text-xs-center">{{ meetup.title }}</h3>
               </v-flex>
               <!--Edit meetup details dialog-->
-              <template v-if="this.$store.getters.isAdmin">
+              <template v-if="this.isAdmin">
                 <v-spacer></v-spacer>
                 <app-edit-meetup-details-dialog :meetup="meetup"></app-edit-meetup-details-dialog>
                 <app-edit-meetup-image-dialog :meetup="meetup"></app-edit-meetup-image-dialog>

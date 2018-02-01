@@ -1,5 +1,5 @@
 <template>
-  <v-dialog width="400px" persistent v-model="editDialog" v-show="this.$store.getters.isAdmin">
+  <v-dialog width="400px" persistent v-model="editDialog" v-show="this.isAdmin">
     <v-btn fab accent class="primary" slot="activator">
       <v-icon>edit</v-icon>
     </v-btn>

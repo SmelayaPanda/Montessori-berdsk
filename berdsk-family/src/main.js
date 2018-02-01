@@ -1,17 +1,21 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-
+// main
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
 import App from './App'
 import router from './router'
 import {store} from './store'
 import {sync} from 'vuex-router-sync'
+// filters
 import DateFilter from './filters/date'
 import AdminDateFilter from './filters/admin_date'
 import Snippet from './filters/snippet'
 import LongSnippet from './filters/long_snippet'
+// mixins
+import {authMixin} from './mixins/autentication'
+// other
 import * as firebase from 'firebase'
 import AlertComp from './components/shared/Alert'
 import Loader from './components/shared/Loader'
@@ -26,6 +30,7 @@ import MaskedInput from 'vue-masked-input'
 Vue.use(VueScrollTo)
 Vue.use(Notifications)
 Vue.use(BootstrapVue)
+Vue.mixin(authMixin)
 Vue.filter('date', DateFilter)
 Vue.filter('admin_date', AdminDateFilter)
 Vue.filter('snippet', Snippet)
