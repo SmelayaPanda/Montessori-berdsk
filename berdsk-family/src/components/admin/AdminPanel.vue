@@ -115,7 +115,7 @@
                 <td>{{ props.item.name }}</td>
 
                 <td class="text-xs-center primary pt-2"
-                    v-if="props.item.email.trim() === 'montessoriberdsk@gmail.com'">
+                    v-if="props.item.email.trim() === this.appMail">
                   Call
                   <v-icon>call</v-icon>
                 </td>
