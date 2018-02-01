@@ -122,9 +122,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    /*text-align: center;*/
     margin: 0;
     padding: 0;
     width: 350px;
+  }
+
+  @media only screen and (max-width: 960px) {
+    .img_text {
+      padding: 35px;
+      margin: 5px;
+    }
   }
 </style>

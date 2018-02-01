@@ -62,7 +62,7 @@
           menuItems: [
             {title: 'Главная', link: '/', icon: 'home'},
             {title: 'О нас', link: '/about', icon: 'mood'},
-            {title: 'Материалы', link: '/materials', icon: 'mood'},
+            {title: 'Материалы', link: '/materials', icon: 'extension'},
             {title: 'Услуги', link: '/services', icon: 'loyalty'},
             {title: 'Новости', link: '/meetups', icon: 'album'},
             {title: 'Контакты', link: '/contacts', icon: 'room'}

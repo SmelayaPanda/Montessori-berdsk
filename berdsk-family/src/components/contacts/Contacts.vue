@@ -49,7 +49,7 @@
                 </div>
               </v-card-title>
               <v-card-actions>
-                <v-container class="pt-0">
+                <v-container class="pt-0 pr-1 pl-1">
                   <v-layout row wrap>
                     <v-spacer></v-spacer>
                     <v-flex>
