@@ -1,70 +1,63 @@
 <template>
-  <div class="main_bg">
-
-    <v-container class="meetup_container">
-      <!--Loading circular-->
-      <v-layout row wrap v-if="loading">
-        <v-flex xs12 class="text-xs-center">
-          <v-progress-circular
-            indeterminate
-            color="primary"
-            :width="2"
-            :size="70"
-          >
-          </v-progress-circular>
-        </v-flex>
-      </v-layout>
-
-      <!--Meetup-->
-      <v-layout row wrap v-else="!loading" class="mt-3">
-        <v-btn fab flat class="primary" to="/meetups">
-          <v-icon>arrow_back</v-icon>
-        </v-btn>
-        <v-flex xs12>
-          <v-card class="secondary white--text full_card">
-            <v-card-title>
-              <!--Title-->
-              <v-flex xs12>
-                <h3 class="white--text text-xs-center">{{ meetup.title }}</h3>
-              </v-flex>
-              <!--Edit meetup details dialog-->
-              <template v-if="this.isAdmin">
-                <v-spacer></v-spacer>
-                <app-edit-meetup-details-dialog :meetup="meetup"></app-edit-meetup-details-dialog>
-                <app-edit-meetup-image-dialog :meetup="meetup"></app-edit-meetup-image-dialog>
-                <app-delete-meetup :meetup="meetup"></app-delete-meetup>
-              </template>
-            </v-card-title>
-            <v-card-media
-              class="pb-0 card_image"
-              :src="meetup.imageUrl"
-              alt="Новости Монтессори Бердск"
-            >
-            </v-card-media>
-
-            <!--Full description-->
-            <v-card-text>
-              <div>
-                <b class="white--text">
-                  <p class="mb-1 add_time">Добавлено</p>
-                  <p>
-                    <v-icon class="primary--text" style="margin: 10px">access_time</v-icon>
-                    {{ meetup.date | date }}
-                  </p>
-                </b>
-                <v-container row wrap class="news_descr">
-                  <v-flex xs12 class="ml-2">
-                    <p v-html="meetup.description"></p>
-                  </v-flex>
-                </v-container>
-              </div>
-            </v-card-text>
-
-
-          </v-card>
-        </v-flex>
-      </v-layout>
+  <div>
+    <!--Loading circular-->
+    <v-container v-if="loading">
+      <app-loader></app-loader>
     </v-container>
+
+    <!--Meetup-->
+    <div class="main_bg">
+      <v-container class="meetup_container" v-if="!loading">
+        <v-layout row wrap class="mt-3">
+          <v-btn fab flat class="primary" to="/meetups">
+            <v-icon>arrow_back</v-icon>
+          </v-btn>
+          <v-flex xs12>
+            <v-card class="secondary white--text full_card">
+              <v-card-title>
+                <!--Title-->
+                <v-flex xs12>
+                  <h3 class="white--text text-xs-center">{{ meetup.title }}</h3>
+                </v-flex>
+                <!--Edit meetup details dialog-->
+                <template v-if="this.isAdmin">
+                  <v-spacer></v-spacer>
+                  <app-edit-meetup-details-dialog :meetup="meetup"></app-edit-meetup-details-dialog>
+                  <app-edit-meetup-image-dialog :meetup="meetup"></app-edit-meetup-image-dialog>
+                  <app-delete-meetup :meetup="meetup"></app-delete-meetup>
+                </template>
+              </v-card-title>
+              <v-card-media
+                class="pb-0 card_image"
+                :src="meetup.imageUrl"
+                alt="Новости Монтессори Бердск"
+              >
+              </v-card-media>
+
+              <!--Full description-->
+              <v-card-text>
+                <div>
+                  <b class="white--text">
+                    <p class="mb-1 add_time">Добавлено</p>
+                    <p>
+                      <v-icon class="primary--text" style="margin: 10px">access_time</v-icon>
+                      {{ meetup.date | date }}
+                    </p>
+                  </b>
+                  <v-container row wrap class="news_descr">
+                    <v-flex xs12 class="ml-2">
+                      <p v-html="meetup.description"></p>
+                    </v-flex>
+                  </v-container>
+                </div>
+              </v-card-text>
+
+
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </div>
   </div>
 </template>
 
