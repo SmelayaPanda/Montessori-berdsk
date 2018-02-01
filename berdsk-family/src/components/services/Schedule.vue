@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!--Schedule xs and up-->
-    <div class="hidden-xs-only">
+    <!--Schedule-->
+    <v-flex xs10 class="hidden-xs-only">
       <h2 class="text-sm-center primary--text mb-3 ml-4">Мы открыты для Вас</h2>
       <v-flex xs12 sm12 class="ml-4">
         <div class="secondary--text text-sm-center">
@@ -18,7 +18,7 @@
           </p>
         </div>
       </v-flex>
-    </div>
+    </v-flex>
 
     <!--Schedule mobile-->
     <div class="hidden-sm-and-up">

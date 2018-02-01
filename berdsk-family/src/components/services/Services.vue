@@ -15,7 +15,7 @@
         </h1>
 
         <v-container class="all_services">
-          <div class="ml-4 ">
+          <div class="ml-4">
 
             <!--Scedule-->
             <app-schedule></app-schedule>
