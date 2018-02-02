@@ -61,7 +61,6 @@ Vue.use(Vuetify, {
 Vue.config.productionTip = false
 
 var config
-console.log(process.env)
 if (process.env.NODE_ENV === 'development') {
   config = {
     apiKey: 'AIzaSyBVMnzJaWQOgViwK03kzya27sdyZNQ50o0',

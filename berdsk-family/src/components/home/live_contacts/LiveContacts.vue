@@ -105,16 +105,12 @@
             console.log(error)
             this.infoTitle = 'Упс...'
             this.infoIcon = 'warning'
-            this.infoMessage = 'Что то пошло не так. ' +
-              'Сервер не отвечает. Убедитесь в корректности введеного email'
+            this.infoMessage = 'Что то пошло не так. Сервер не отвечает. Попробуйте повторить попытку позже.'
             this.infoDialog = true
           })
       }
     },
     computed: {
-      validCheck: function () {
-        return this.name.trim() !== '' && this.phone.trim() !== ''
-      },
       validPhone: function () {
         let regex = new RegExp('^(1[ \\-\\+]{0,3}|\\+1[ -\\+]{0,3}|\\+1|\\+)?((\\(\\+?1-[2-9][0-9]{1,2}\\))|(\\(\\+?[2-8][0-9][0-9]\\))|(\\(\\+?[1-9][0-9]\\))|(\\(\\+?[17]\\))|(\\([2-9][2-9]\\))|([ \\-\\.]{0,3}[0-9]{2,4}))?([ \\-\\.][0-9])?([ \\-\\.]{0,3}[0-9]{2,4}){2,3}$')
         return regex.test(this.phone)

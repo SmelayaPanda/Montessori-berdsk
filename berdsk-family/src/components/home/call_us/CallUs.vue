@@ -99,13 +99,6 @@
     methods: {
       submit: function () {
         this.dialog = false
-        if (!this.validPhone) {
-          this.infoTitle = 'Упс...'
-          this.infoIcon = 'warning'
-          this.infoMessage = 'Введите пожалуйста корректный номер телефона'
-          this.infoDialog = true
-          return
-        }
         let date = new Date()
         console.log('Current Email ' + this.$store.getters.contacts.email)
         let fullMessage = {
@@ -133,8 +126,7 @@
             console.log(error)
             this.infoTitle = 'Упс...'
             this.infoIcon = 'warning'
-            this.infoMessage = 'Что то пошло не так. ' +
-              'Сервер не отвечает. Убедитесь в корректности введеного email'
+            this.infoMessage = 'Что то пошло не так. Сервер не отвечает. Попробуйте повторить попытку позже.'
             this.infoDialog = true
           })
       }
