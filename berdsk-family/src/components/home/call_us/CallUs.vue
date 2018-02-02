@@ -14,7 +14,7 @@
             <v-card-text class="pb-0">
               <v-container grid-list-md>
                 <v-layout wrap>
-                  <v-flex xs6>
+                  <v-flex xs10>
                     <v-text-field
                       prepend-icon="people"
                       label="Ваше имя"
