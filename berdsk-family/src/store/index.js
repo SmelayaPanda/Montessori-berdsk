@@ -5,6 +5,7 @@ import contacts from './contacts/index'
 import meetup from './meetup/index'
 import user from './user/index'
 import services from './services/index'
+import requests from './people_requests/index'
 import materials from './materials/index'
 import shared from './shared/index'
 
@@ -16,6 +17,7 @@ export const store = new Vuex.Store({
     meetup: meetup,
     user: user,
     services: services,
+    requests: requests,
     shared: shared,
     materials: materials
   }

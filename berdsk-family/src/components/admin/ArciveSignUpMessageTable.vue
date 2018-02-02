@@ -1,14 +1,7 @@
 <template>
   <!--Message table-->
   <v-container v-model="loadSignUpMessages">
-    <h2 class="primary--text">Новые заявки!</h2>
-    <v-btn class="primary white--text"
-           @click="archiveRequest"
-    >
-      <v-icon left>beenhere</v-icon>
-      В архив
-    </v-btn>
-
+    <h3 class="secondary--text ml-2 pb-1">Архив</h3>
     <v-layout>
       <v-data-table
         v-model="selected"
@@ -20,8 +13,9 @@
         class="elevation-1"
       >
         <template slot="headers" slot-scope="props">
-          <tr class="primary white--text">
-            <th>
+          <tr class="secondary">
+
+            <!--<th>
               <v-checkbox
                 primary
                 hide-details
@@ -29,7 +23,8 @@
                 :input-value="props.all"
                 :indeterminate="props.indeterminate"
               ></v-checkbox>
-            </th>
+            </th>-->
+
             <th v-for="header in props.headers" :key="header.text"
                 :class="['column sortable', pagination.descending ? 'desc' : 'asc', header.value === pagination.sortBy ? 'active' : '']"
                 @click="changeSort(header.value)"
@@ -41,13 +36,15 @@
         </template>
         <template slot="items" slot-scope="props">
           <tr :active="props.selected" @click="props.selected = !props.selected">
-            <td>
+
+            <!--<td>
               <v-checkbox
                 primary
                 hide-details
                 :input-value="props.selected"
               ></v-checkbox>
-            </td>
+            </td>-->
+
             <td>{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.phone }}</td>
             <td class="text-xs-right">{{ props.item.date }}</td>
@@ -88,7 +85,7 @@
       loadSignUpMessages: function () {
         let request = this.$store.getters.serviceSignUpMessages
         for (let val in request) {
-          if (request[val].status !== 'closed') {
+          if (request[val].status === 'closed') {
             let obj = {}
             obj.id = val
             obj.name = request[val].name
@@ -111,12 +108,6 @@
         } else {
           this.pagination.sortBy = column
           this.pagination.descending = false
-        }
-      },
-      archiveRequest: function () {
-        let selectedItems = this.selected
-        for (let item in selectedItems) {
-          this.$store.dispatch('markAsRead', {id: selectedItems[item].id, status: 'closed'})
         }
       }
     }

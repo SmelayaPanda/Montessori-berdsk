@@ -82,6 +82,7 @@
         </v-layout>
       </v-container>
       <sign-up-message-table></sign-up-message-table>
+      <arcive-sign-up-message-table></arcive-sign-up-message-table>
     </div>
 
 
@@ -121,9 +122,13 @@
 
 <script>
   import SignUpMessageTable from './SignUpMessageTable'
+  import ArciveSignUpMessageTable from './ArciveSignUpMessageTable.vue'
 
   export default {
-    components: {SignUpMessageTable},
+    components: {
+      SignUpMessageTable,
+      ArciveSignUpMessageTable
+    },
     data: function () {
       return {
         sideNav: false,

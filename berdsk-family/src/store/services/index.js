@@ -5,8 +5,7 @@ export default {
   state: {
     serviceMainCoast: {},
     serviceGroups: {},
-    serviceSubGroups: {},
-    signUpMessages: []
+    serviceSubGroups: {}
   },
   // Mutations ---------------------------------------------------
   mutations: { // to change state
@@ -21,10 +20,6 @@ export default {
     updateServiceSubGroups:
       (state, payload) => {
         state.serviceSubGroups = payload
-      },
-    updateSignUpMessages:
-      (state, payload) => {
-        state.signUpMessages = payload
       }
   },
   // Actions ---------------------------------------------------
@@ -219,38 +214,6 @@ export default {
             console.log(error)
             commit('setLoading', false)
           })
-      },
-    addSignUpMessages:
-      ({commit, getters}, payload) => {
-        let messages = []
-        messages = getters.serviceSignUpMessages
-        firebase.database().ref('signUpMessages').push(payload)
-          .then(() => {
-            messages.push(payload)
-            commit('updateSignUpMessages', payload)
-          })
-          .catch(error => {
-            console.log(error)
-          })
-      },
-    loadSignUpMessages:
-      ({commit}) => {
-        commit('setLoading', true)
-        firebase.database().ref('signUpMessages').once('value')
-          .then((data) => {
-            let dataObj = data.val()
-            let messages = []
-            for (let msg in dataObj) {
-              messages.push(dataObj[msg])
-            }
-            commit('setLoading', false)
-            commit('updateSignUpMessages', messages)
-          })
-          .catch(
-            error => {
-              commit('setLoading', false)
-              console.log(error)
-            })
       }
   },
 // Getters  ---------------------------------------------------
@@ -266,10 +229,6 @@ export default {
     serviceSubGroups:
       state => {
         return state.serviceSubGroups
-      },
-    serviceSignUpMessages:
-      state => {
-        return state.signUpMessages
       }
   }
 }
