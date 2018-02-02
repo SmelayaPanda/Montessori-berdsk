@@ -1,16 +1,16 @@
 <template>
   <div>
     <!--Loading circular-->
-    <v-container v-if="loading">
+    <v-container v-if="this.isLoading">
       <app-loader></app-loader>
     </v-container>
 
     <!--Meetups-->
     <div class="main_bg">
-      <v-container v-if="!loading">
+      <v-container v-if="!this.isLoading">
         <h1 class="primary--text app_page_title">Новости</h1>
 
-        <v-container v-show="this.$store.getters.isAdmin">
+        <v-container v-show="this.isAdmin">
           <v-btn fab class="primary white--text" to="meetup/new">
             <v-icon>add</v-icon>
           </v-btn>
@@ -108,10 +108,6 @@
       pageCount:
         function () {
           return 1 + this.$store.getters.loadedMeetups.length / 5
-        },
-      loading:
-        function () {
-          return this.$store.getters.loading
         }
     }
   }

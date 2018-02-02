@@ -8,9 +8,6 @@
     <transition name="fade">
       <router-view></router-view>
     </transition>
-
-    <!--Footer-->
-    <!--<v-footer></v-footer>-->
   </v-app>
 </template>
 

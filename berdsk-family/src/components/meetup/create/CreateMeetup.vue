@@ -11,7 +11,7 @@
 
           <!--Title-->
           <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
+            <v-flex xs12 sm10 offset-sm1>
               <v-text-field
                 name="title"
                 label="Заголовок"
@@ -20,12 +20,13 @@
                 required
               >
               </v-text-field>
+              <small>* допустимая длина заголовка 80 символов</small>
             </v-flex>
           </v-layout>
 
           <!--Description-->
           <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
+            <v-flex xs12 sm10 offset-sm1>
               <v-text-field
                 name="description"
                 label="Описание"
@@ -35,13 +36,14 @@
                 multi-line
               >
               </v-text-field>
+              <small>** после создания, описание можно будет редактировать в полноценном текстовом редакторе</small>
             </v-flex>
           </v-layout>
 
 
           <!--Image-->
-          <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
+          <v-layout row class="mt-3">
+            <v-flex xs12 sm10 offset-sm1>
               <v-btn raised class="primary" v-on:click="onPickFile">
                 Изображение
                 <v-icon class="pl-2">image</v-icon>
@@ -60,7 +62,7 @@
           <!--Image preview-->
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-              <img :src="imageUrl" :height="imageHeight">
+              <img :src="imageUrl" :height="this.imageHeight">
             </v-flex>
           </v-layout>
 
@@ -101,21 +103,6 @@
           return this.title !== '' &&
             this.imageUrl !== '' &&
             this.description !== ''
-        },
-      imageHeight:
-        function () {
-          switch (this.$vuetify.breakpoint.name) {
-            case 'xs':
-              return '150px'
-            case 'sm':
-              return '200px'
-            case 'md':
-              return '250px'
-            case 'lg':
-              return '300px'
-            case 'xl':
-              return '400px'
-          }
         }
     },
     methods: {

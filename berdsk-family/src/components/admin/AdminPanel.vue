@@ -18,7 +18,7 @@
         </v-list-tile>
         <!--Logout-->
         <v-list-tile
-          v-if="isAuthenticatedUser"
+          v-if="this.isAuthenticatedUser"
           v-on:click="onLogout"
         >
           <v-list-tile-action>
@@ -64,7 +64,7 @@
         <!--Logout-->
         <v-btn
           flat
-          v-if="isAuthenticatedUser"
+          v-if="this.isAuthenticatedUser"
           v-on:click="onLogout"
         >
           <v-icon left dark>exit_to_app</v-icon>
@@ -75,7 +75,7 @@
 
 
     <!--Admin panel content-->
-    <div v-if="isAdmin">
+    <div v-if="this.isAdmin">
       <v-container class="mt-0">
         <v-layout row wrap>
           <v-flex xs12>
@@ -115,7 +115,7 @@
                 <td>{{ props.item.name }}</td>
 
                 <td class="text-xs-center primary pt-2"
-                    v-if="props.item.email.trim() === 'montessoriberdsk@gmail.com'">
+                    v-if="props.item.email.trim() === this.appMail">
                   Call
                   <v-icon>call</v-icon>
                 </td>
@@ -206,13 +206,6 @@
       }
     },
     computed: {
-      isAuthenticatedUser:
-        function () {
-          return this.$store.getters.user !== null && this.$store.getters.user !== undefined
-        },
-      isAdmin: function () {
-        return this.$store.getters.isAdmin
-      },
       menuItems:
         function () {
           let menuItems = []

@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" persistent max-width="500px" v-show="this.$store.getters.isAdmin">
+  <v-dialog v-model="dialog" persistent max-width="500px" v-show="this.isAdmin">
     <v-btn fab color="secondary" light slot="activator">
       <v-icon>delete</v-icon>
     </v-btn>

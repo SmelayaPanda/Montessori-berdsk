@@ -1,13 +1,13 @@
 <template>
   <div>
     <!--Loading circular-->
-    <v-container v-if="loading">
+    <v-container v-if="this.isLoading">
       <app-loader></app-loader>
     </v-container>
 
     <!--All Services-->
     <div class="main_bg">
-      <v-container v-if="!loading">
+      <v-container v-if="!this.isLoading">
         <h1 class="primary--text app_page_title">
           Услуги
           <span class="secondary--text">.</span>
@@ -15,7 +15,7 @@
         </h1>
 
         <v-container class="all_services">
-          <div class="ml-4 ">
+          <div class="ml-4">
 
             <!--Scedule-->
             <app-schedule></app-schedule>
@@ -140,10 +140,6 @@
       loadServiceSubGroups:
         function () {
           return this.$store.getters.serviceSubGroups
-        },
-      loading:
-        function () {
-          return this.$store.getters.loading
         }
     }
   }

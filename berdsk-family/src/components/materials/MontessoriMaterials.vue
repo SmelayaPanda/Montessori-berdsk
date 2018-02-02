@@ -1,13 +1,13 @@
 <template>
   <div>
     <!--Loading circular-->
-    <v-container v-if="loading">
+    <v-container v-if="this.isLoading">
       <app-loader></app-loader>
     </v-container>
 
     <div class="main_bg">
-      <v-container fluid v-if="!loading">
-        <h1 class="primary--text app_page_title">Материалы</h1>
+      <v-container fluid v-if="!this.isLoading">
+        <h1 class="primary--text materials_title">Материалы</h1>
 
         <v-container v-show="this.$store.getters.isAdmin">
           <v-btn fab class="primary white--text" to="materials/new">
@@ -75,10 +75,6 @@
             return a.order > b.order
           })
           return materials
-        },
-      loading:
-        function () {
-          return this.$store.getters.loading
         }
     }
   }
@@ -131,6 +127,20 @@
     .img_text {
       padding: 35px;
       margin: 5px;
+    }
+  }
+
+  .materials_title {
+    padding-left: 17vw;
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+
+  @media only screen and (max-width: 960px) {
+    .materials_title {
+      padding-left: 0;
+      padding-top: 0;
+      text-align: center;
     }
   }
 </style>
