@@ -1,5 +1,4 @@
 <template>
-  <!--Theme light (dark)-->
   <v-app light>
 
     <!--Navigation drawer-->
@@ -16,7 +15,7 @@
         </v-list-tile>
         <!--Logout-->
         <v-list-tile v-if="this.isAuthenticatedUser"
-                     v-on:click="onLogout"
+                     @click="onLogout"
         >
           <v-list-tile-action>
             <v-icon>exit_to_app</v-icon>
@@ -35,7 +34,7 @@
         </router-link>
       </v-toolbar-title>
       <v-toolbar-side-icon
-        v-on:click="sideNav = !sideNav"
+        @click="sideNav = !sideNav"
         class="hidden-md-and-up"
       ></v-toolbar-side-icon>
       <v-spacer></v-spacer>
@@ -84,7 +83,7 @@
         </v-layout>
       </v-container>
       <sign-up-message-table></sign-up-message-table>
-      <arcive-sign-up-message-table></arcive-sign-up-message-table>
+      <archive-sign-up-message-table></archive-sign-up-message-table>
     </div>
 
 
@@ -124,12 +123,12 @@
 
 <script>
   import SignUpMessageTable from './SignUpMessageTable'
-  import ArciveSignUpMessageTable from './ArciveSignUpMessageTable.vue'
+  import ArchiveSignUpMessageTable from './ArciveSignUpMessageTable.vue'
 
   export default {
     components: {
       SignUpMessageTable,
-      ArciveSignUpMessageTable
+      ArchiveSignUpMessageTable
     },
     data: function () {
       return {
