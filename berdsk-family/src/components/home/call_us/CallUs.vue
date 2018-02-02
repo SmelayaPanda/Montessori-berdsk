@@ -11,10 +11,10 @@
             <v-card-title class="ml-2">
               <span class="headline primary--text">Мы свяжемся с Вами в ближайшее время!</span>
             </v-card-title>
-            <v-card-text>
+            <v-card-text class="pb-0">
               <v-container grid-list-md>
                 <v-layout wrap>
-                  <v-flex xs10>
+                  <v-flex xs6>
                     <v-text-field
                       prepend-icon="people"
                       label="Ваше имя"
@@ -48,6 +48,8 @@
             </v-card-text>
 
             <v-card-actions>
+              <!--Tooltip-->
+              <app-help-tooltip></app-help-tooltip>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" flat @click.native="dialog = false">Закрыть</v-btn>
               <v-btn color="blue darken-1" flat @click="submit" :disabled="!validCheck">Отправить</v-btn>

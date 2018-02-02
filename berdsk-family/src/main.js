@@ -22,6 +22,7 @@ import {mailing} from './mixins/mailing'
 import * as firebase from 'firebase'
 import AlertComp from './components/shared/Alert'
 import Loader from './components/shared/Loader'
+import HelpTooltip from './components/shared/HelpTooltip'
 import {VueEditor} from 'vue2-editor'
 import VueScrollTo from 'vue-scrollto'
 import BootstrapVue from 'bootstrap-vue'
@@ -42,6 +43,7 @@ Vue.filter('long_snippet', LongSnippet)
 Vue.component('masked-input', MaskedInput)
 Vue.component('app-alert', AlertComp)
 Vue.component('app-loader', Loader)
+Vue.component('app-help-tooltip', HelpTooltip)
 Vue.component('vue-html-editor', VueEditor)
 
 const unsync = sync(store, router) // Sync vue-router's current $route as part of vuex store's state.
