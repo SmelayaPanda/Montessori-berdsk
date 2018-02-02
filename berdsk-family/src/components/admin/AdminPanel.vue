@@ -28,7 +28,7 @@
 
 
     <!--Toolbar-->
-    <v-toolbar dark class="light-blue accent-4">
+    <v-toolbar dark class="primary">
       <v-toolbar-title>
         <router-link to="/admin" class="title">
           {{ mainTitle }}
@@ -42,7 +42,7 @@
       <v-toolbar-items class="hidden-sm-and-down">
 
         <!--Go Home-->
-        <v-btn flat @click="goHome">
+        <v-btn flat @click="goHome" class="primary white--text">
           <v-icon left dark>home</v-icon>
           Главная
         </v-btn>
@@ -51,6 +51,7 @@
                v-for="item in menuItems"
                :key="item.title"
                :to="item.link"
+               class="primary white--text"
         >
           <v-icon left>{{ item.icon }}</v-icon>
           {{ item.title }}
@@ -60,6 +61,7 @@
         <v-btn flat
                v-if="this.isAuthenticatedUser"
                @click="onLogout"
+               class="primary white--text"
         >
           <v-icon left dark>exit_to_app</v-icon>
           Выйти
