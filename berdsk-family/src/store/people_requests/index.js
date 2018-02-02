@@ -38,12 +38,11 @@ export default {
             })
       },
     markAsRead:
-      ({commit, getters}, payload) => {
-        let messages = getters.serviceSignUpMessages
+      ({commit}, payload) => {
         firebase.database().ref('signUpMessages').child(payload.id).update({status: payload.status})
           .then(() => {
-            messages[payload.id].status = payload.status
-            commit('updateSignUpMessages', messages)
+            console.log('Marked as read')
+            window.location.reload()
           })
           .catch(error => {
             console.log(error)

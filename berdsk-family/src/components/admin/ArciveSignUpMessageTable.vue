@@ -4,6 +4,8 @@
     <h3 class="secondary--text ml-2 pb-1">Архив</h3>
     <v-layout>
       <v-data-table
+        :rows-per-page-text="'Заявок на странице'"
+        :rows-per-page-items="[5, 10, 20, { text: 'Все', value: -1 }]"
         v-model="selected"
         select-all
         :headers="headers"
@@ -47,7 +49,7 @@
 
             <td>{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.phone }}</td>
-            <td class="text-xs-right">{{ props.item.date }}</td>
+            <td class="text-xs-right">{{ props.item.date | admin_date }}</td>
             <td class="text-xs-right">{{ props.item.message }}</td>
           </tr>
         </template>
