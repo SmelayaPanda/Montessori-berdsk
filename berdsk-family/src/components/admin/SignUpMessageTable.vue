@@ -1,53 +1,60 @@
 <template>
   <!--Message table-->
   <v-container v-model="loadSignUpMessages">
-    <v-layout row wrap>
-      <template>
-        <v-data-table
-          :rows-per-page-items="[10, 20, 50, { text: 'Все', value: -1 }]"
-          :headers="headers"
-          :items="items"
-          class="elevation-1"
-          :pagination.sync="pagination"
-        >
-          <template slot="items" slot-scope="props">
-            <v-tooltip bottom>
-                  <span slot="activator">
-                    {{ props.header.text }}
-                  </span>
-              <span>
-                    {{ props.header.text }}
-                  </span>
-            </v-tooltip>
-          </template>
 
-          <template slot="items" slot-scope="props">
-            <td>{{ props.item.name }}</td>
+    <v-btn class="primary white--text"
+           @click="archiveRequest"
+    >
+      <v-icon left>beenhere</v-icon>
+      Обработано
+    </v-btn>
 
-            <td class="text-xs-center primary pt-2"
-                v-if="props.item.email.trim() === this.appMail">
-              Call
-              <v-icon>call</v-icon>
+    <v-layout>
+      <v-data-table
+        v-model="selected"
+        select-all
+        :headers="headers"
+        :items="items"
+        :pagination.sync="pagination"
+        item-key="name"
+        class="elevation-1"
+      >
+        <template slot="headers" slot-scope="props">
+          <tr>
+            <th>
+              <v-checkbox
+                primary
+                hide-details
+                @click.native="toggleAll"
+                :input-value="props.all"
+                :indeterminate="props.indeterminate"
+              ></v-checkbox>
+            </th>
+            <th v-for="header in props.headers" :key="header.text"
+                :class="['column sortable', pagination.descending ? 'desc' : 'asc', header.value === pagination.sortBy ? 'active' : '']"
+                @click="changeSort(header.value)"
+            >
+              <v-icon>arrow_upward</v-icon>
+              {{ header.text }}
+            </th>
+          </tr>
+        </template>
+        <template slot="items" slot-scope="props">
+          <tr :active="props.selected" @click="props.selected = !props.selected">
+            <td>
+              <v-checkbox
+                primary
+                hide-details
+                :input-value="props.selected"
+              ></v-checkbox>
             </td>
-            <td v-else class="text-xs-right secondary">{{ props.item.email }}</td>
-
-            <td class="text-xs-left">{{ props.item.date | admin_date }}</td>
-            <td class="text-xs-left">{{ props.item.phone }}</td>
-            <td class="text-xs-left">{{ props.item.message }}</td>
-          </template>
-        </v-data-table>
-
-        <small class="mt-2 ml-2">
-          Call
-          <v-icon>call</v-icon>
-          - поступила просьба связаться с человеком по номеру телефона!
-        </small>
-      </template>
-      <template slot="no-data">
-        <v-alert :value="true" color="error" icon="warning">
-          Не удалось загрузить данные :(
-        </v-alert>
-      </template>
+            <td>{{ props.item.name }}</td>
+            <td class="text-xs-right">{{ props.item.phone }}</td>
+            <td class="text-xs-right">{{ props.item.date }}</td>
+            <td class="text-xs-right">{{ props.item.message }}</td>
+          </tr>
+        </template>
+      </v-data-table>
 
     </v-layout>
   </v-container>
@@ -69,17 +76,34 @@
             sortable: true,
             value: 'name'
           },
-          {text: 'Почта', value: 'email'},
           {text: 'Дата', value: 'date'},
           {text: 'Телефон', value: 'phone'},
-          {text: 'Сообщение', value: 'maessage'}
+          {text: 'Сообщение', value: 'message'}
         ],
-        items: []
+        items: [],
+        selected: []
       }
     },
     computed: {
       loadSignUpMessages: function () {
         this.items = this.$store.getters.serviceSignUpMessages
+      }
+    },
+    methods: {
+      toggleAll: function () {
+        if (this.selected.length) this.selected = []
+        else this.selected = this.items.slice()
+      },
+      changeSort: function (column) {
+        if (this.pagination.sortBy === column) {
+          this.pagination.descending = !this.pagination.descending
+        } else {
+          this.pagination.sortBy = column
+          this.pagination.descending = false
+        }
+      },
+      archiveRequest: function () {
+        console.log(this.selected)
       }
     }
   }
