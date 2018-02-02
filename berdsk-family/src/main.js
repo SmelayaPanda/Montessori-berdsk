@@ -58,15 +58,27 @@ Vue.use(Vuetify, {
 
 Vue.config.productionTip = false
 
-var config = {
-  apiKey: 'AIzaSyAcvodoN1hG6n2ms3uztMoG-7gH36jKMgo',
-  authDomain: 'montessori-berdsk.firebaseapp.com',
-  databaseURL: 'https://montessori-berdsk.firebaseio.com',
-  projectId: 'montessori-berdsk',
-  storageBucket: 'montessori-berdsk.appspot.com',
-  messagingSenderId: '690115880407'
+var config
+console.log(process.env)
+if (process.env.NODE_ENV === 'development') {
+  config = {
+    apiKey: 'AIzaSyBVMnzJaWQOgViwK03kzya27sdyZNQ50o0',
+    authDomain: 'montessori-dev.firebaseapp.com',
+    databaseURL: 'https://montessori-dev.firebaseio.com',
+    projectId: 'montessori-dev',
+    storageBucket: 'montessori-dev.appspot.com',
+    messagingSenderId: '547079671351'
+  }
+} else if (process.env.NODE_ENV === 'production') {
+  config = {
+    apiKey: 'AIzaSyAcvodoN1hG6n2ms3uztMoG-7gH36jKMgo',
+    authDomain: 'montessori-berdsk.firebaseapp.com',
+    databaseURL: 'https://montessori-berdsk.firebaseio.com',
+    projectId: 'montessori-berdsk',
+    storageBucket: 'montessori-berdsk.appspot.com',
+    messagingSenderId: '690115880407'
+  }
 }
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
