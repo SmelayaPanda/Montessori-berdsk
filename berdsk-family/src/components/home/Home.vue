@@ -2,7 +2,7 @@
   <div>
     <div class="hidden-sm-and-down">
       <!--Call us Button-->
-      <call-us style="position: absolute"></call-us>
+      <sign-up-request style="position: absolute"></sign-up-request>
       <!--Choice service button-->
       <div class="choose_service_btn" @click="goServices">
         <p class="signup_main_text">Выбрать занятие</p>
@@ -44,7 +44,7 @@
   import AboutUsHome from './about_us/AboutUsHome'
   import AppParallax from './parallax/Parallax'
   import HoveredCards from './cards/HoveredCards'
-  import CallUs from './call_us/CallUs'
+  import SignUpRequest from './signup_request/SignUpRequest'
   import AppFooter from './footer/AppFooter'
   import LiveContacts from './live_contacts/LiveContacts'
   import RotateImage from './rotate_image/RotateImage'
@@ -69,7 +69,7 @@
       AppParallax,
       AppHomeSlideShow,
       HoveredCards,
-      CallUs,
+      SignUpRequest,
       AppFooter,
       LiveContacts,
       RotateImage,

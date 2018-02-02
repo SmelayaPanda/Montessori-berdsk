@@ -9,7 +9,7 @@
     <v-container class="call_us">
       <v-layout>
         <v-flex xs12>
-          <call-us></call-us>
+          <sign-up-request></sign-up-request>
         </v-flex>
       </v-layout>
     </v-container>
@@ -54,14 +54,14 @@
   import MobileCards from './cards/MobileCards'
   import MobileFooter from './footer/MobileFooter'
   import LiveContacts from './live_contacts/LiveContacts'
-  import CallUs from './call_us/CallUs'
+  import SignUpRequest from './signup_request/SignUpRequest'
 
   export default {
     name: 'mobile-home',
     components: {
       MobileCards,
       MobileFooter,
-      CallUs,
+      SignUpRequest,
       LiveContacts
     }
   }
