@@ -53,7 +53,7 @@
       changeReview: function (ord) {
         this.selectedReview = this.reviewText[ord]
         for (let i = 0; i < 3; i++) {
-          this.$refs['rw' + i].style.opacity = 0.5
+          this.$refs['rw' + i].style.opacity = 0.45
           this.$refs['rw' + i].style.transform = 'scale(1)'
         }
         this.$refs['rw' + ord].style.opacity = 1
@@ -75,6 +75,8 @@
 
   .review_container {
     width: 350px;
+    height: 500px;
+    padding-top: 60px;
   }
 
   .review_icon {

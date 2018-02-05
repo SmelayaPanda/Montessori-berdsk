@@ -27,8 +27,7 @@
       <!--Reviews-->
       <app-reviews class="app_reviews"></app-reviews>
       <!--Video-->
-      <embed data="https://www.youtube.com/watch?v=3NGRpzQ9vCE"
-              width="560" height="315"></embed>
+      <montessori-video></montessori-video>
       <!--Contacts-->
       <div class="contacts_title"></div>
       <live-contacts class="contacts_center"></live-contacts>
@@ -54,6 +53,7 @@
   import LiveContacts from './live_contacts/LiveContacts'
   import RotateImage from './rotate_image/RotateImage'
   import AppReviews from './reviews/Reviews'
+  import MontessoriVideo from './video/MontessoriVideo'
   import MobileHome from './MobileHome'
 
   export default {
@@ -81,7 +81,8 @@
       RotateImage,
       AppReviews,
       MobileHome,
-      AboutUsHome
+      AboutUsHome,
+      MontessoriVideo
     },
     methods: {
       callUs: function () {
@@ -218,7 +219,7 @@
     z-index: 21;
     left: -275px;
     margin-left: 50%;
-    margin-top: 15px;
+    margin-top: 35px;
   }
 
   @media only screen and (max-width: 960px) {
