@@ -24,6 +24,11 @@
       <div class="material_title"></div>
       <div class="material_icons"></div>
       <div class="material_bg"></div>
+      <!--Reviews-->
+      <app-reviews class="app_reviews"></app-reviews>
+      <!--Video-->
+      <embed data="https://www.youtube.com/watch?v=3NGRpzQ9vCE"
+              width="560" height="315"></embed>
       <!--Contacts-->
       <div class="contacts_title"></div>
       <live-contacts class="contacts_center"></live-contacts>
@@ -48,6 +53,7 @@
   import AppFooter from './footer/AppFooter'
   import LiveContacts from './live_contacts/LiveContacts'
   import RotateImage from './rotate_image/RotateImage'
+  import AppReviews from './reviews/Reviews'
   import MobileHome from './MobileHome'
 
   export default {
@@ -73,6 +79,7 @@
       AppFooter,
       LiveContacts,
       RotateImage,
+      AppReviews,
       MobileHome,
       AboutUsHome
     },
@@ -259,5 +266,9 @@
     .contacts_bg {
       background: none;
     }
+  }
+
+  .app_reviews {
+    /*position: relative;*/
   }
 </style>
