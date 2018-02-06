@@ -202,7 +202,9 @@
 
   .forward_quotes {
     text-align: right;
-    margin: 0 0 25px 50px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin: 0;
   }
 
   .text_block {
