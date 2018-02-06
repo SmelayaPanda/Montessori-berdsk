@@ -60,7 +60,7 @@
     position: absolute;
     opacity: 0.8;
     transition: all 0.5s;
-    margin-left: 370px;
+    margin-left: 384px;
     margin-top: 300px;
     z-index: 50;
   }
