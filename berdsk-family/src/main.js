@@ -12,7 +12,6 @@ import {sync} from 'vuex-router-sync'
 import DateFilter from './filters/date'
 import AdminDateFilter from './filters/admin_date'
 import Snippet from './filters/snippet'
-import LongSnippet from './filters/long_snippet'
 // mixins
 import {authMixin} from './mixins/autentication'
 import {image} from './mixins/image'
@@ -24,14 +23,8 @@ import AlertComp from './components/shared/Alert'
 import Loader from './components/shared/Loader'
 import HelpTooltip from './components/shared/HelpTooltip'
 import {VueEditor} from 'vue2-editor'
-import VueScrollTo from 'vue-scrollto'
-import BootstrapVue from 'bootstrap-vue'
-import Notifications from 'vue-notification'
 import MaskedInput from 'vue-masked-input'
 
-Vue.use(VueScrollTo)
-Vue.use(Notifications)
-Vue.use(BootstrapVue)
 Vue.mixin(authMixin)
 Vue.mixin(image)
 Vue.mixin(isLoading)
@@ -39,7 +32,6 @@ Vue.mixin(mailing)
 Vue.filter('date', DateFilter)
 Vue.filter('admin_date', AdminDateFilter)
 Vue.filter('snippet', Snippet)
-Vue.filter('long_snippet', LongSnippet)
 Vue.component('masked-input', MaskedInput)
 Vue.component('app-alert', AlertComp)
 Vue.component('app-loader', Loader)

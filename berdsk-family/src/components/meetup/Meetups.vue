@@ -38,7 +38,7 @@
                     <v-flex xs7 sm8 md9 class="ml-3 hidden-sm-and-down">
                       <v-card-title primary-title>
                         <div class="secondary--text">
-                          <h2 class="white--text">{{ meetup.title | snippet }}</h2>
+                          <h2 class="white--text">{{ meetup.title | snippet(80) }}</h2>
                           <p class="mb-1" style="font-size: 10px;">
                             Добавлено {{ meetup.date | date }}
                           </p>
@@ -55,7 +55,7 @@
                     <v-flex xs10 class="ml-3">
                       <v-card-title primary-title>
                         <div class="secondary--text">
-                          <h2 class="white--text">{{ meetup.title | snippet }}</h2>
+                          <h2 class="white--text">{{ meetup.title | snippet(80) }}</h2>
                           <p class="mb-1" style="font-size: 10px;">
                             Добавлено {{ meetup.date | date }}
                           </p>
