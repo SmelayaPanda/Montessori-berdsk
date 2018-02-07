@@ -21,7 +21,7 @@
         <v-flex xs12>
           <div class="secondary about_card_text">
             <p class="white--text text-xs-center">Концепция Детского развивающего центра<br>
-              "Монессори-пространство" :<br>
+              "Монтессори-пространство" :<br>
               "Помоги мне сделать это самому"<br>
               <br>
               <br>
