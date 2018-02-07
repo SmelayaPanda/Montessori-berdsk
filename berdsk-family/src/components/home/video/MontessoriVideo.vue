@@ -60,7 +60,7 @@
     padding: 0;
     display: table;
     margin: 0 auto;
-    z-index: 10;
+    z-index: 55;
   }
 
   .play_video {
@@ -102,7 +102,7 @@
   .corner1, .corner2, .corner3, .corner4 {
     position: absolute;
     transform: scale(0.85);
-    z-index: 50;
+    z-index: 10;
   }
 
   .corner1 {
