@@ -101,7 +101,8 @@
 
   .corner1, .corner2, .corner3, .corner4 {
     position: absolute;
-    transform: scale(0.85)
+    transform: scale(0.85);
+    z-index: 50;
   }
 
   .corner1 {
