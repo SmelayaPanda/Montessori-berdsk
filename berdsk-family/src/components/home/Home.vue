@@ -157,7 +157,7 @@
     height: 127px;
     position: absolute;
     z-index: 21;
-    left: -360px;
+    left: -355px;
     margin-left: 50%;
     margin-top: 15px;
   }
@@ -169,7 +169,7 @@
     height: 376px;
     position: absolute;
     z-index: 21;
-    left: -617px;
+    left: -612px;
     margin-left: 50%;
     margin-top: 104px;
   }
@@ -217,7 +217,7 @@
     height: 168px;
     position: relative;
     z-index: 21;
-    left: -275px;
+    left: -260px;
     margin-left: 50%;
     margin-top: 35px;
   }
