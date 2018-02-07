@@ -1,20 +1,27 @@
 <template>
   <div class="primary video_wrapper">
     <v-parallax src="../../../static/img/home/parallax.png" class="parallax_2"></v-parallax>
+    <img src="@/assets/img/video/video_title.png"
+         height="102" width="531"
+         class="video_title"
+    />
 
     <v-container class="video_container">
       <v-layout>
-        <img src="@/assets/img/video/playVideo.png"
+        <img src="@/assets/img/video/corners1.png" height="107" width="112" class="corner1"/>
+        <img src="@/assets/img/video/corners1.png" height="107" width="112" class="corner2"/>
+        <img src="@/assets/img/video/corners2.png" height="111" width="111" class="corner3"/>
+        <img src="@/assets/img/video/corners2.png" height="111" width="111" class="corner4"/>
+        <img src="@/assets/img/video/play_btn.png"
              height="62" width="62"
              ref="playBtn"
              @click="playVideo"
              class="play_video"
         />
-        <v-flex class="video_box elevation-7">
-          <video
-            ref="video"
-            width="800" height="600"
-            :poster="require('@/assets/img/video/videoposter.jpg')"
+        <v-flex class="video_box">
+          <video ref="video"
+                 width="800" height="600"
+                 :poster="require('@/assets/img/video/videoposter.jpg')"
           >
             <source src="@/assets/img/video/Метод_Монтессори__что_это_такое_.mp4"
                     type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
@@ -49,7 +56,7 @@
 
   .video_container {
     width: 800px;
-    height: 700px;
+    height: 680px;
     padding: 0;
     display: table;
     margin: 0 auto;
@@ -72,19 +79,50 @@
 
   .parallax_2 {
     position: absolute;
-    height: 700px !important;
+    height: 782px !important;
     width: 100vw;
     z-index: 1;
   }
 
   .video_box {
-    margin-top: 40px;
+    margin-top: 20px;
     z-index: 49;
-    background: #eee;
-    border: 8px solid transparent;
-    -moz-border-image: -moz-linear-gradient(left, #faaf94 0%, #bced96 100%);
-    -webkit-border-image: -webkit-linear-gradient(left, #faaf94 0%, #c3eda5 100%);
-    border-image: linear-gradient(to right, #faaf94 0%, #bced96 100%);
-    border-image-slice: 1;
+  }
+
+  .video_title {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    display: block;
+    transform: scale(0.85);
+    z-index: 1000 !important;
+    position: relative;
+  }
+
+  .corner1, .corner2, .corner3, .corner4 {
+    position: absolute;
+    transform: scale(0.85)
+  }
+
+  .corner1 {
+    margin-top: -9px;
+    margin-left: -36px;
+  }
+
+  .corner2 {
+    margin-top: 548px;
+    margin-left: -31px;
+    transform: scale(0.85) rotate(-90deg);
+  }
+
+  .corner3 {
+    margin-top: -14px;
+    margin-left: 719px;
+  }
+
+  .corner4 {
+    margin-top: 541px;
+    margin-left: 721px;
+    transform: scale(0.85) rotate(90deg);
   }
 </style>

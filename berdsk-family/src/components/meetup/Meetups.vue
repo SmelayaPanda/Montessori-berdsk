@@ -91,7 +91,8 @@
     name: 'meetups',
     data: function () {
       return {
-        page: 1
+        page: 1,
+        pageCount: ''
       }
     },
     methods: {
@@ -103,11 +104,8 @@
     computed: {
       pageMeetups:
         function () {
+          this.pageCount = 1 + this.$store.getters.loadedMeetups.length / 5
           return this.$store.getters.loadedMeetups.slice((this.page - 1) * 5, this.page * 5)
-        },
-      pageCount:
-        function () {
-          return 1 + this.$store.getters.loadedMeetups.length / 5
         }
     }
   }
