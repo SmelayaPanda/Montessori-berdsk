@@ -67,7 +67,7 @@
     position: absolute;
     opacity: 0.8;
     transition: all 0.5s;
-    margin-left: 384px;
+    margin-left: 380px;
     margin-top: 300px;
     z-index: 50;
   }
@@ -111,7 +111,7 @@
 
   .corner2 {
     margin-top: 548px;
-    margin-left: -31px;
+    margin-left: -30px;
     transform: scale(0.85) rotate(-90deg);
   }
 

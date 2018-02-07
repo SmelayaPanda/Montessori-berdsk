@@ -121,7 +121,7 @@
     z-index: 1;
   }
 
-  .rw0, rw2 {
+  .rw0, .rw2 {
     opacity: 0.5;
   }
 
