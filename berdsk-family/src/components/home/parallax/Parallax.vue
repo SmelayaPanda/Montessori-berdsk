@@ -65,7 +65,7 @@
           height: 261px;
           width: 362px;
           margin-left: -10px;
-          margin-top: -10px;
+          margin-top: -5px;
           `"
         ></hovered-cards>
         <hovered-cards

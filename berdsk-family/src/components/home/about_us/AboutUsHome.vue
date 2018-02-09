@@ -108,7 +108,7 @@
     z-index: 21;
     left: -585px;
     margin-left: 50%;
-    margin-top: 160px;
+    margin-top: 140px;
   }
 
   .about_icon {
@@ -127,7 +127,7 @@
     width: 1100px;
     position: absolute;
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 10px;
     display: block;
     top: 200px;
     z-index: 50;
