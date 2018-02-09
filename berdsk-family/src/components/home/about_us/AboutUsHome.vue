@@ -82,7 +82,7 @@
     background-size: 100%;
     position: relative;
     width: 1937px;
-    height: 630px;
+    height: 620px;
     z-index: 5;
     opacity: 0.2;
   }
@@ -108,7 +108,7 @@
     z-index: 21;
     left: -585px;
     margin-left: 50%;
-    margin-top: 140px;
+    margin-top: 142px;
   }
 
   .about_icon {
