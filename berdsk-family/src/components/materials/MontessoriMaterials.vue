@@ -37,9 +37,9 @@
                 </div>
                 <div class="img_overlay">
                   <div class="img_text">
-                    <h3 style="text-align: center"> {{ material.title | snippet }} </h3>
+                    <h3 style="text-align: center"> {{ material.title | snippet(80) }} </h3>
                     <hr class="white" style="margin: 10px">
-                    <p style="font-weight: normal"> {{ material.description | long_snippet }} </p>
+                    <p style="font-weight: normal"> {{ material.description | snippet(400) }} </p>
                   </div>
                 </div>
               </v-flex>
