@@ -10,7 +10,7 @@
       <v-container class="meetup_container" v-if="!this.isLoading">
         <v-layout row wrap class="mt-3">
           <v-btn fab flat class="primary" to="/meetups">
-            <v-icon>arrow_back</v-icon>
+            <v-icon style="filter: brightness(0) invert(1)">arrow_back</v-icon>
           </v-btn>
           <v-flex xs12>
             <v-card class="secondary white--text full_card">

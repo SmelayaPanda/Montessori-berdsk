@@ -35,11 +35,11 @@
           :tape-text="'Дети от 6 до 12 лет'"
           :bg-style="`
           background-image: url(../../../../static/img/home/cards/6-12_3part.png);
-          background-size: 65%;
+          background-size: 60%;
           height: 220px;
           width: 384px;
-          margin-left: -14px;
-          margin-top: 5px;
+          margin-left: -1px;
+          margin-top: 15px;
           `"
         ></hovered-cards>
       </div>
@@ -49,11 +49,11 @@
           :tape-text="'Особенные дети'"
           :bg-style="`
           background-image: url(../../../../static/img/home/cards/specialChild3part.png);
-          background-size: 65%;
+          background-size: 54%;
           height: 285px;
           width: 425px;
-          margin-left: -19px;
-          margin-top: -11px;
+          margin-left: 0;
+          margin-top: 3px;
           `"
         ></hovered-cards>
         <hovered-cards

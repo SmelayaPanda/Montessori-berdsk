@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="hidden-sm-and-down">
+  <div ref="homeWrapper">
+    <div class="hidden-sm-and-down" v-on:mousemove="mousePosition">
       <!--Call us Button-->
       <sign-up-request style="position: absolute"></sign-up-request>
       <!--Choice service button-->
@@ -90,6 +90,12 @@
       goServices:
         function () {
           this.$router.push('/services')
+        },
+      mousePosition:
+        function (event) {
+          this.$refs.homeWrapper.style.cursor = event.pageY > 650 && event.pageY < 850
+            ? "url('../../../static/img/home/arrow_cursor.png') 5 5, auto"
+            : 'default'
         }
     },
     computed: {}
@@ -97,6 +103,10 @@
 </script>
 
 <style scoped>
+  * {
+    transition: all 0.5s;
+  }
+
   .montessori_space_main_text {
     background-image: url("../../../static/img/home/main-text.png");
     background-size: 50%;

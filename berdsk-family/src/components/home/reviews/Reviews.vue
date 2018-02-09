@@ -205,6 +205,7 @@
     padding-left: 10px;
     padding-top: 5px;
     margin: 0;
+    margin-right: -40px;
   }
 
   .text_block {
