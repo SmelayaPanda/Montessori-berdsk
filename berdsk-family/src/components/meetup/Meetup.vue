@@ -121,8 +121,9 @@
     }
 
     .meetup_container {
-      width: 90vw;
+      width: 100vw;
       padding: 10px;
+      margin: 0;
     }
 
     .card__text {

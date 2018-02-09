@@ -20,17 +20,21 @@
       <v-layout>
         <v-flex xs12>
           <div class="secondary about_card_text">
-            <p class="white--text text-xs-center">Концепция Детского развивающего центра<br>
+            <p class="white--text text-xs-center" style="margin-bottom: -20px;">
+              Концепция Детского развивающего центра<br>
               "Монессори-пространство" :<br>
               "Помоги мне сделать это самому"<br>
-              <br>
-              <br>
+            </p>
+            <img src="@/assets/img/mobile/FirstIcon.png"
+                 height="117" width="231"
+                 class="firstIcon"/>
+            <p class="white--text text-xs-center" style="margin-top: -20px; margin-bottom: 0;">
               В специально подготовленной<br>
               монтессори среде ребенок становится<br>
               свободным, активным, любознательным,<br>
-              радостным.<br>
+              радостным.
+              </span>
             </p>
-
           </div>
         </v-flex>
       </v-layout>
@@ -41,8 +45,8 @@
     <mobile-cards></mobile-cards>
 
     <!--Contacts-->
-    <h3 class="mt-3 secondary--text text-xs-center">Оставьте свои контакты!</h3>
-    <h4 class="mb-2 primary--text text-xs-center">И мы расскажем все и даже больше...</h4>
+    <h3 class="mt-3 secondary--text text-xs-center">Оставьте свои контакты</h3>
+    <h4 class="mb-2 primary--text text-xs-center">и мы расскажем все и даже больше</h4>
     <live-contacts class="contacts_center"></live-contacts>
     <div class="contacts_bg"></div>
 
@@ -98,5 +102,15 @@
     padding: 10px;
     border-radius: 10px;
     font-size: 12px;
+  }
+
+  .firstIcon {
+    /*position: absolute;*/
+    transform: scale(0.4);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*margin-top: 60px;*/
+    /*margin-left: 40%;*/
   }
 </style>

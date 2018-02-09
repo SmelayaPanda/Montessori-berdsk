@@ -5,7 +5,7 @@
         <v-layout row style="justify-content: space-evenly">
           <v-flex sm3>
             <img class="about_icon"
-                 src="../../../assets/img/about_us_home/icon2.1.png"
+                 src="@/assets/img/about_us_home/icon2.1.png"
                  height="79" width="72"/>
             <div class="white--text" style="margin-top: 10px">
               <h4>Особые дети.<br>
@@ -20,7 +20,7 @@
 
           </v-flex>
           <v-flex sm3>
-            <img class="about_icon" src="../../../assets/img/about_us_home/icon2.2.png" height="71" width="84"/>
+            <img class="about_icon" src="@/assets/img/about_us_home/icon2.2.png" height="71" width="84"/>
             <div class="white--text" style="margin-top: 19px">
               <h4>У нас ребенок САМ<br>
                 считает, развивает<br>
@@ -34,7 +34,7 @@
 
           </v-flex>
           <v-flex sm3>
-            <img class="about_icon" src="../../../assets/img/about_us_home/icon2.3.png" height="80" width="68"/>
+            <img class="about_icon" src="@/assets/img/about_us_home/icon2.3.png" height="80" width="68"/>
             <div class="white--text" style="margin-top: 10px">
               <h4>«Помоги мне<br>
                 это сделать самому»<br>
@@ -47,7 +47,7 @@
             </div>
           </v-flex>
           <v-flex sm3>
-            <img class="about_icon" src="../../../assets/img/about_us_home/icon2.4.png" height="68" width="114"/>
+            <img class="about_icon" src="@/assets/img/about_us_home/icon2.4.png" height="68" width="114"/>
             <div class="white--text" style="margin-top: 22px">
               <h4>Кружок для детей<br>
                 «Конструктор куборо»<br>

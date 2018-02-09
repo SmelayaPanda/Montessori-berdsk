@@ -4,11 +4,13 @@
       <v-flex xs12>
         <v-container>
           <h1 class="primary--text app_page_title">О нас</h1>
-          <div class="about_header">
+          <div class="about_header hidden-sm-and-down">
             <img src="../../../static/img/home/about_us/about_us.png" height="40%" width="40%"/>
           </div>
-          <h2 class="about_sub_header secondary--text">Важность движения</h2>
-          <p class="about_sub_header secondary--text">Один из основных принципов Монтессори</p>
+          <div>
+            <h2 class="about_sub_header secondary--text">Важность движения</h2>
+            <p class="about_sub_header secondary--text">Один из основных принципов Монтессори</p>
+          </div>
 
           <v-flex xs12 sm10 offset-sm1>
 
@@ -88,7 +90,15 @@
 
   .about_sub_header {
     display: flex;
+    align-content: center;
     justify-content: center;
   }
 
+  @media only screen and (max-width: 960px) {
+    .about_card {
+      font-size: 13px;
+      border-radius: 30px;
+      padding: 5px 5px 5px;
+    }
+  }
 </style>

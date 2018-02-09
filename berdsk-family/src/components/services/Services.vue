@@ -7,7 +7,7 @@
 
     <!--All Services-->
     <div class="main_bg">
-      <v-container v-if="!this.isLoading">
+      <v-container v-if="!this.isLoading" class="mobile_container">
         <h1 class="primary--text app_page_title">
           Услуги
           <span class="secondary--text">.</span>
@@ -193,6 +193,10 @@
   @media only screen and (max-width: 960px) {
     .main_title {
       margin-left: 38%;
+    }
+
+    .mobile_container {
+      padding: 20px 0 0;
     }
   }
 
