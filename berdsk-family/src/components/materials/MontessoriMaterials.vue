@@ -9,7 +9,7 @@
       <v-container fluid v-if="!this.isLoading">
         <h1 class="primary--text materials_title">Материалы</h1>
 
-        <v-container v-show="this.$store.getters.isAdmin">
+        <v-container v-if="this.$store.getters.isAdmin">
           <v-btn fab class="primary white--text" to="materials/new">
             <v-icon>add</v-icon>
           </v-btn>

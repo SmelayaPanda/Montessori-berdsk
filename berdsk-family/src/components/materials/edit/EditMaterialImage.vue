@@ -1,7 +1,7 @@
 <template>
   <!--Edit Image-->
   <v-dialog width="1000px" persistent v-model="editDialog"
-            v-show="this.$store.getters.isAdmin"
+            v-if="this.$store.getters.isAdmin"
             style="position: absolute; z-index: 51; margin-top: 140px"
   >
     <v-btn fab accent slot="activator" class="primary">
