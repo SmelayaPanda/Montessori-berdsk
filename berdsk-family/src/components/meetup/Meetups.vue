@@ -10,7 +10,7 @@
       <v-container v-if="!this.isLoading">
         <h1 class="primary--text app_page_title">Новости</h1>
 
-        <v-container v-show="this.isAdmin">
+        <v-container v-if="this.isAdmin">
           <v-btn fab class="primary white--text" to="meetup/new">
             <v-icon>add</v-icon>
           </v-btn>

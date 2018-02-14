@@ -1,6 +1,6 @@
 <template>
   <v-container class="mt-5"
-               v-show="this.isAdmin">
+               v-if="this.isAdmin">
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
         <h2 class="secondary--text">Добавить новый материал</h2>

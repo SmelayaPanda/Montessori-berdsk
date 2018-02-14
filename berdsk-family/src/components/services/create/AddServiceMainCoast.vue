@@ -1,5 +1,5 @@
 <template>
-  <v-layout row justify-center v-show="this.isAdmin">
+  <v-layout row justify-center v-if="this.isAdmin">
     <v-dialog v-model="dialog" persistent max-width="700px">
       <v-btn fab color="primary" dark slot="activator">
         <v-icon>add</v-icon>
