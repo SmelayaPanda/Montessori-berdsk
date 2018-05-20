@@ -99,7 +99,6 @@
         </div>
       </v-flex>
     </v-layout>
-
     <div class="footer_line">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -114,12 +113,9 @@
               d="M1122.500,1.500 L1122.500,0.500 L1918.500,0.500 L1918.500,1.500 L1122.500,1.500 ZM0.500,0.500 L796.500,0.500 L796.500,1.500 L0.500,1.500 L0.500,0.500 Z"></path>
       </svg>
     </div>
-
-    <div class="panda_oliviacolin">
-      <p class="panda">panda</p>
-      <p class="and_logo">&</p>
-      <p class="oliviacolin">oliviacolin</p>
-    </div>
+    <img onclick="window.open('https://rehigh.pro/', '_blank')"
+         id="rehigh_logo" src="@/assets/img/logo/reHIGH_string_pink.purple.svg" alt="re:HIGH Studio">
+    <p id="created_by">created by</p>
   </div>
 </template>
 
@@ -221,27 +217,21 @@
     opacity: 1;
   }
 
-  /* Logo Panda + OliviaColin */
-
-  .panda_oliviacolin {
+  #rehigh_logo {
+    height: 20px;
     position: absolute;
-    top: 145px;
-    line-height: 0;
-    font-size: 10px;
-    opacity: 0.65;
+    top: 140px;
   }
 
-  .panda {
-    margin-left: 8px;
-    margin-bottom: 10px;
+  #rehigh_logo:hover {
+    cursor: pointer;
   }
 
-  .and_logo {
-    margin-left: 22px;
-    margin-bottom: 10px;
-  }
-
-  .oliviacolin {
+  #created_by {
+    position: absolute;
+    top: 164px;
+    font-size: 12px;
+    font-weight: normal;
   }
 
   .tel_icon {

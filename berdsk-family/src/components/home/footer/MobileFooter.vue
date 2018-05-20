@@ -56,8 +56,12 @@
               />
             </router-link>
           </v-flex>
-
         </v-layout>
+
+        <div id="rehigh_logo_wrap" onclick="window.open('https://rehigh.pro/', '_blank')">
+          <img id="rehigh_logo" src="@/assets/img/logo/reHIGH_string_pink.purple.svg" alt="re:HIGH Studio">
+          <p id="created_by">created by</p>
+        </div>
       </v-container>
     </v-layout>
   </div>
@@ -86,7 +90,7 @@
 
   .footer_wrapper {
     padding-top: 20px;
-    height: 200px;
+    height: 260px;
     color: white !important;
   }
 
@@ -99,5 +103,28 @@
   .application a:hover {
     color: white !important;
     text-decoration: underline;
+  }
+
+  #rehigh_logo_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #rehigh_logo_wrap:hover,
+  #rehigh_logo_wrap:active {
+    cursor: pointer;
+  }
+
+  #rehigh_logo {
+    height: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  #created_by {
+    position: absolute;
+    margin-top: 30px;
+    font-weight: normal;
+    font-size: 12px;
   }
 </style>
