@@ -15,8 +15,8 @@
     name: 'double-gis-map',
     data: function () {
       return {
-        y: 83.060181,
-        x: 54.749928
+        y: 83.066367,
+        x: 54.749848
       }
     },
     components: {
